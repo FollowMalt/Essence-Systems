@@ -1,13 +1,13 @@
 /* ==========================================================
    ESSENCE SYSTEMS
-   Package 1
+   Website V3
    Main JavaScript
    ========================================================== */
 
 "use strict";
 
 /* ==========================================================
-   Fade In Animation
+   Page Loaded
    ========================================================== */
 
 window.addEventListener("load", () => {
@@ -16,83 +16,82 @@ window.addEventListener("load", () => {
 
 });
 
-
 /* ==========================================================
    Scroll Reveal
    ========================================================== */
 
-const revealItems = document.querySelectorAll(".fade-up");
+const fadeElements = document.querySelectorAll(".fade-up");
 
-const observer = new IntersectionObserver((entries) => {
+if (fadeElements.length > 0) {
 
-    entries.forEach(entry => {
+    const observer = new IntersectionObserver((entries) => {
 
-        if (entry.isIntersecting) {
+        entries.forEach(entry => {
 
-            entry.target.classList.add("visible");
+            if (entry.isIntersecting) {
 
-        }
+                entry.target.classList.add("visible");
+
+            }
+
+        });
+
+    }, {
+
+        threshold: 0.15
 
     });
 
-}, {
+    fadeElements.forEach(element => observer.observe(element));
 
-    threshold: 0.15
-
-});
-
-revealItems.forEach(item => {
-
-    observer.observe(item);
-
-});
-
+}
 
 /* ==========================================================
-   Smooth Button Press
+   Button Animation
    ========================================================== */
 
-const buttons = document.querySelectorAll(".explore-button");
+const buttons = document.querySelectorAll(".button, .explore-button");
 
 buttons.forEach(button => {
 
     button.addEventListener("mousedown", () => {
 
-        button.style.transform = "scale(.96)";
+        button.style.transform = "scale(.97)";
 
     });
 
-    button.addEventListener("mouseup", () => {
+    const resetButton = () => {
 
         button.style.transform = "";
 
-    });
+    };
 
-    button.addEventListener("mouseleave", () => {
+    button.addEventListener("mouseup", resetButton);
 
-        button.style.transform = "";
-
-    });
+    button.addEventListener("mouseleave", resetButton);
 
 });
 
-
 /* ==========================================================
-   Gentle Mouse Parallax
+   Hero Parallax
    ========================================================== */
 
 const hero = document.querySelector(".hero-content");
 
-document.addEventListener("mousemove", (event) => {
+if (hero) {
 
-    const x = (event.clientX / window.innerWidth - 0.5) * 10;
+    document.addEventListener("mousemove", (event) => {
 
-    const y = (event.clientY / window.innerHeight - 0.5) * 10;
+        const x = (event.clientX / window.innerWidth - 0.5) * 8;
 
-    hero.style.transform = `translate(${x}px, ${y}px)`;
+        const y = (event.clientY / window.innerHeight - 0.5) * 8;
 
-});
+        hero.style.transform =
+            `translate(${x}px, ${y}px)`;
 
+    });
+
+}
 
 /* ==========================================================
    Keyboard Accessibility
@@ -100,32 +99,49 @@ document.addEventListener("mousemove", (event) => {
 
 document.addEventListener("keydown", (event) => {
 
-    if (event.key === "Enter") {
+    if (event.key !== "Enter") return;
 
-        const focused = document.activeElement;
+    const focused = document.activeElement;
 
-        if (focused.classList.contains("explore-button")) {
+    if (
 
-            focused.click();
+        focused &&
+        (
+            focused.classList.contains("button") ||
+            focused.classList.contains("explore-button")
+        )
 
-        }
+    ) {
+
+        focused.click();
 
     }
 
 });
 
+/* ==========================================================
+   Future Expansion
+   ========================================================== */
+
+// Seasonal themes
+// Dynamic backgrounds
+// Scroll timelines
+// Product showcases
+// Interactive demos
+// Download animations
 
 /* ==========================================================
    Console Greeting
    ========================================================== */
 
-console.log(
+console.log(`
 
-`🌲
-ESSENCE SYSTEMS
+🌲 ESSENCE SYSTEMS
 
 Thoughtfully crafted technology.
 
-Thank you for visiting.
-`
-);
+Website Version 3
+
+Allura is coming.
+
+`);
