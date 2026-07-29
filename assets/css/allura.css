@@ -1,0 +1,808 @@
+/* ==========================================================
+   ALLURA
+   Product Theme
+   Version 1.0
+   ========================================================== */
+
+
+/* ==========================================================
+   ALLURA VARIABLES
+   ========================================================== */
+
+:root{
+
+    --allura-purple:#B795FF;
+
+    --allura-purple-light:#E8DDFF;
+
+    --allura-teal:#7EE7E7;
+
+    --allura-teal-light:#BDF7F5;
+
+    --allura-white:#FBFAFF;
+
+    --allura-border:
+        rgba(183,149,255,.18);
+
+    --allura-border-hover:
+        rgba(126,231,231,.45);
+
+    --allura-glass:
+        rgba(190,170,255,.05);
+
+    --allura-shadow:
+
+        0 20px 60px
+        rgba(104,78,180,.18);
+
+}
+
+
+/* ==========================================================
+   BODY
+   ========================================================== */
+
+body{
+
+    background:#08110D;
+
+}
+
+
+/* ==========================================================
+   BACKGROUND
+   ========================================================== */
+
+.background{
+
+    background:
+
+    radial-gradient(
+
+        circle at top,
+
+        rgba(183,149,255,.22),
+
+        transparent 45%
+
+    ),
+
+    radial-gradient(
+
+        circle at right,
+
+        rgba(126,231,231,.14),
+
+        transparent 40%
+
+    ),
+
+    radial-gradient(
+
+        circle at bottom left,
+
+        rgba(255,255,255,.03),
+
+        transparent 35%
+
+    ),
+
+    linear-gradient(
+
+        180deg,
+
+        #07110D,
+
+        #0D1715,
+
+        #14211D
+
+    );
+
+}
+
+
+/* ==========================================================
+   AMBIENT GRADIENT
+   ========================================================== */
+
+.gradient{
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        rgba(183,149,255,.08),
+
+        transparent 72%
+
+    );
+
+}
+
+
+/* ==========================================================
+   PARTICLES
+   ========================================================== */
+
+.particles span{
+
+    background:
+
+        rgba(183,149,255,.18);
+
+    box-shadow:
+
+        0 0 14px
+
+        rgba(126,231,231,.25);
+
+}
+
+
+/* ==========================================================
+   NAVIGATION
+   ========================================================== */
+
+.top-nav{
+
+    background:
+
+        rgba(10,15,15,.42);
+
+    border-bottom:
+
+        1px solid
+
+        rgba(183,149,255,.08);
+
+}
+
+
+.home-link{
+
+    color:var(--allura-white);
+
+    transition:.35s;
+
+}
+
+
+.home-link:hover{
+
+    color:var(--allura-purple);
+
+}
+
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+.hero{
+
+    position:relative;
+
+}
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* Purple Aurora */
+
+.hero-content::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+
+    height:650px;
+
+    left:50%;
+
+    top:48%;
+
+    transform:
+
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        rgba(183,149,255,.16),
+
+        transparent 70%
+
+    );
+
+    filter:blur(90px);
+
+    z-index:-2;
+
+}
+
+
+/* Teal Glow */
+
+.hero-content::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    left:60%;
+
+    top:25%;
+
+    transform:
+
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        rgba(126,231,231,.10),
+
+        transparent 70%
+
+    );
+
+    filter:blur(70px);
+
+    z-index:-3;
+
+}
+
+
+/* ==========================================================
+   HERO TEXT
+   ========================================================== */
+
+.eyebrow{
+
+    color:
+
+        var(--allura-purple-light);
+
+}
+
+
+.hero h1{
+
+    color:
+
+        var(--allura-white);
+
+    text-shadow:
+
+        0 0 25px
+
+        rgba(183,149,255,.16);
+
+}
+
+
+.description{
+
+    color:
+
+        rgba(255,255,255,.82);
+
+}
+
+
+/* ==========================================================
+   DIVIDER
+   ========================================================== */
+
+.divider{
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        var(--allura-purple),
+
+        var(--allura-teal),
+
+        transparent
+
+    );
+
+}
+
+
+/* ==========================================================
+   LINKS
+   ========================================================== */
+
+a{
+
+    transition:.3s;
+
+}
+
+
+a:hover{
+
+    color:
+
+        var(--allura-purple-light);
+
+}
+
+
+/* ==========================================================
+   SECTION TITLES
+   ========================================================== */
+
+.section-title{
+
+    color:
+
+        var(--allura-white);
+
+}
+
+
+.section-description{
+
+    color:
+
+        rgba(255,255,255,.78);
+
+}
+
+/* ==========================================================
+   BUTTONS
+   ========================================================== */
+
+.button,
+.explore-button{
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(183,149,255,.10),
+            rgba(126,231,231,.06)
+        );
+
+    border:1px solid var(--allura-border);
+
+    color:var(--allura-white);
+
+    box-shadow:var(--allura-shadow);
+
+}
+
+.button:hover,
+.explore-button:hover{
+
+    transform:translateY(-6px);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(183,149,255,.18),
+            rgba(126,231,231,.12)
+        );
+
+    border-color:var(--allura-border-hover);
+
+    box-shadow:
+
+        0 18px 45px
+        rgba(126,231,231,.18);
+
+}
+
+.button:hover .arrow,
+.explore-button:hover .arrow{
+
+    transform:translateX(8px);
+
+}
+
+
+/* ==========================================================
+   PREMIUM CARDS
+   ========================================================== */
+
+.card,
+.content-card,
+.explore-card{
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.055),
+
+            rgba(183,149,255,.045)
+
+        );
+
+    border-color:
+
+        var(--allura-border);
+
+    box-shadow:
+
+        0 15px 40px
+
+        rgba(80,50,120,.16);
+
+}
+
+
+.card::before,
+.content-card::before,
+.explore-card::before{
+
+    background:
+
+        radial-gradient(
+
+            circle at top,
+
+            rgba(183,149,255,.18),
+
+            transparent 72%
+
+        );
+
+}
+
+
+.card:hover,
+.content-card:hover,
+.explore-card:hover{
+
+    border-color:
+
+        var(--allura-border-hover);
+
+    transform:
+
+        translateY(-10px);
+
+    box-shadow:
+
+        0 25px 60px
+
+        rgba(126,231,231,.14);
+
+}
+
+
+.card h2,
+.content-card h2,
+.explore-card h2{
+
+    color:
+
+        var(--allura-white);
+
+}
+
+
+.card p,
+.content-card p,
+.explore-card p{
+
+    color:
+
+        rgba(255,255,255,.78);
+
+}
+
+
+.card span,
+.content-card span,
+.explore-card span{
+
+    color:
+
+        var(--allura-teal);
+
+}
+
+
+/* ==========================================================
+   GLASS
+   ========================================================== */
+
+.glass{
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.05),
+
+            rgba(183,149,255,.05)
+
+        );
+
+    border-color:
+
+        var(--allura-border);
+
+}
+
+
+/* ==========================================================
+   IMAGE FRAMES
+   ========================================================== */
+
+.image-frame{
+
+    border-color:
+
+        rgba(183,149,255,.18);
+
+}
+
+
+.image-frame:hover{
+
+    box-shadow:
+
+        0 0 45px
+
+        rgba(126,231,231,.14);
+
+}
+
+
+/* ==========================================================
+   ACCENT TEXT
+   ========================================================== */
+
+.accent{
+
+    color:
+
+        var(--allura-purple-light);
+
+}
+
+
+.text-muted{
+
+    color:
+
+        rgba(255,255,255,.70);
+
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+footer{
+
+    border-top:
+
+        1px solid
+
+        rgba(183,149,255,.10);
+
+}
+
+
+footer p{
+
+    color:
+
+        rgba(255,255,255,.55);
+
+}
+
+
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+::-webkit-scrollbar-track{
+
+    background:
+
+        #0D1615;
+
+}
+
+
+::-webkit-scrollbar-thumb{
+
+    background:
+
+        rgba(183,149,255,.30);
+
+}
+
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:
+
+        var(--allura-purple);
+
+}
+
+
+/* ==========================================================
+   TEXT SELECTION
+   ========================================================== */
+
+::selection{
+
+    background:
+
+        rgba(183,149,255,.30);
+
+    color:white;
+
+}
+
+
+/* ==========================================================
+   FADE ANIMATIONS
+   ========================================================== */
+
+.fade-up{
+
+    transition:
+
+        opacity .9s ease,
+
+        transform .9s ease;
+
+}
+
+
+.fade-up.visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/* ==========================================================
+   HOVER LIFT
+   ========================================================== */
+
+.hover-lift:hover{
+
+    transform:
+
+        translateY(-10px);
+
+}
+
+
+/* ==========================================================
+   FLOATING GLOW
+   ========================================================== */
+
+.card::after,
+.content-card::after,
+.explore-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-30%;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(126,231,231,.04),
+
+            transparent 70%
+
+        );
+
+    opacity:0;
+
+    transition:.5s;
+
+    pointer-events:none;
+
+}
+
+
+.card:hover::after,
+.content-card:hover::after,
+.explore-card:hover::after{
+
+    opacity:1;
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media(max-width:900px){
+
+    .hero-content::before{
+
+        width:500px;
+        height:500px;
+
+    }
+
+    .hero-content::after{
+
+        width:300px;
+        height:300px;
+
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .button,
+    .explore-button{
+
+        width:100%;
+
+    }
+
+    .hero h1{
+
+        text-shadow:
+
+            0 0 18px
+
+            rgba(183,149,255,.18);
+
+    }
+
+}
