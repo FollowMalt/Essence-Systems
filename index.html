@@ -2,7 +2,7 @@
 layout: default
 title: Technology that belongs with people
 body_class: home
-styles: [/assets/css/astra-ui.css]
+styles: [/assets/css/astra-ui.css, /assets/css/tour.css]
 ---
 <section class="hero" data-parallax>
   <div class="hero-scene" aria-hidden="true">
@@ -24,6 +24,18 @@ styles: [/assets/css/astra-ui.css]
     </div>
   </div>
   <span class="scroll-cue" aria-hidden="true"></span>
+</section>
+
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track">
+  {% for i in (1..2) %}<span>Old-world craft</span><b>✦</b><span>New-world technology</span><b>✦</b><span>Miami nights</span><b>✦</b><span>Built to last</span><b>✦</b><span>Private by design</span><b>✦</b><span>Everything in between</span><b>✦</b>{% endfor %}
+</div></div>
+
+<section class="statement">
+  <div class="container">
+    <p class="eyebrow reveal">What Essence is</p>
+    <p data-words>Technology doesn't have to be one thing or another. It can be *everything* *in* *between,* and then some. We build software with presence: made to be felt, not just used.</p>
+  </div>
 </section>
 
 <section class="section section--light" id="philosophy">
@@ -48,42 +60,49 @@ styles: [/assets/css/astra-ui.css]
 </section>
 
 <div id="products">
-  <section class="showcase showcase--astra">
-    <div class="container showcase-grid">
-      <div class="showcase-copy">
-        <p class="eyebrow reveal">Music · Beta for Windows</p>
-        <h2 class="reveal">Astra</h2>
-        <p class="showcase-tagline reveal">Your music. Your library. Every device.</p>
-        <p class="lede reveal">A music player and library manager that turns the songs you own into a streaming-style experience on your computer, your phone and your Walkman or iPod. No account, no ads, no monthly fee.</p>
-        <div class="actions reveal">
-          <a class="btn" href="{{ '/projects/astra/' | relative_url }}">Explore Astra <span class="arrow">→</span></a>
-        </div>
-      </div>
-      <div class="showcase-media" data-grow>
-        {% include screen.html device="desktop" label="Astra on desktop" ui="albums" %}
-        {% include screen.html device="phone" label="Astra on your phone" ui="phone" %}
-      </div>
-    </div>
-  </section>
-
-  <section class="showcase showcase--allura showcase--reverse">
-    <div class="container showcase-grid">
-      <div class="showcase-copy">
-        <p class="eyebrow reveal">Assistant · In development</p>
-        <h2 class="reveal">Allura</h2>
-        <p class="showcase-tagline reveal">A private AI assistant that lives on your own computer.</p>
-        <p class="lede reveal">Allura runs locally, even on older and low-end PCs, so your conversations stay on your machine. Giving older computers a useful new job is part of the point.</p>
-        <div class="actions reveal">
-          <a class="btn" href="{{ '/projects/allura.html' | relative_url }}">Meet Allura <span class="arrow">→</span></a>
-        </div>
-      </div>
-      <div class="showcase-media" data-grow>
-        {% include screen.html device="desktop" label="Allura on desktop" %}
-        {% include screen.html device="phone" label="Allura mobile" %}
-      </div>
-    </div>
-  </section>
+{% include tour.html tour=site.data.tours.home %}
 </div>
+
+<section class="section bento-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">The details</p>
+      <h2 class="title reveal">Made to <em class="accent">stand out.</em></h2>
+    </div>
+    <div class="bento">
+      <a class="tile tile--w4 tile--h2 tile--astra reveal" href="{{ '/projects/astra/' | relative_url }}" style="--tile-bg:#0b0a1f; --tile-glow:rgba(155,92,255,.6); --tile-art: radial-gradient(60% 70% at 80% 20%, rgba(155,92,255,.55), transparent 70%), radial-gradient(40% 50% at 20% 90%, rgba(255,111,174,.35), transparent 70%)">
+        {% include screen.html device="phone" ui="phone" class="tile-phone" %}
+        <span class="tag" style="--tag:#cdb6ff">Astra</span>
+        <h3>Your own streaming app, for music you actually own.</h3>
+        <p>Library, player, phone app and Walkman manager in one. Explore Astra →</p>
+      </a>
+      <div class="tile tile--w2 reveal" style="--tile-bg:#1a0b17; --tile-accent:#FF6FAE; --tile-glow:rgba(255,111,174,.5); --tile-art: radial-gradient(80% 80% at 100% 0%, rgba(255,111,174,.35), transparent 70%)">
+        <div class="big-num">0</div><p>accounts, ads or monthly fees in Astra.</p>
+      </div>
+      <div class="tile tile--w2 reveal" style="--tile-bg:#061a1a; --tile-accent:#48D7D0; --tile-glow:rgba(72,215,208,.5); --tile-art: radial-gradient(80% 80% at 0% 0%, rgba(72,215,208,.35), transparent 70%)">
+        <div class="big-num">6</div><p>audio formats: MP3, AAC, FLAC, WAV, OGG and WMA.</p>
+      </div>
+      <a class="tile tile--w3 reveal" href="{{ '/projects/allura.html' | relative_url }}" style="--tile-bg:#F4EEFF; --tile-glow:rgba(141,107,255,.5); --tile-art: radial-gradient(60% 80% at 90% 10%, #d9c8ff, transparent 70%), radial-gradient(50% 60% at 10% 100%, #c9f1ee, transparent 70%); color:#2B2440">
+        <span class="tag" style="--tag:#7A62C9">Allura</span>
+        <h3>An AI that runs on the PC you already have.</h3>
+        <p style="color:rgba(43,36,64,.75)">Older and low-end machines included. Your conversations stay on it. Meet Allura →</p>
+      </a>
+      <div class="tile tile--w3 reveal" style="--tile-bg:#10241A; --tile-glow:rgba(224,193,139,.5); --tile-art: radial-gradient(70% 90% at 100% 100%, rgba(224,193,139,.3), transparent 70%)">
+        <span class="tag" style="--tag:#E0C18B">Our mission</span>
+        <h3>Keeping good computers out of landfills.</h3>
+        <p>Giving older hardware a useful new job is part of why Allura exists.</p>
+      </div>
+      <div class="tile tile--w2 reveal" style="--tile-bg:#1b0f2e; --tile-accent:#c9b3ff; --tile-art: radial-gradient(80% 80% at 50% 120%, rgba(141,107,255,.45), transparent 70%)">
+        <div class="big-num" style="font-size:clamp(48px,5.4vw,78px)">EN ⇄ ES</div><p>Allura translates English and Spanish offline.</p>
+      </div>
+      <div class="tile tile--w4 reveal" style="--tile-bg:#160814; --tile-glow:rgba(255,111,174,.5); --tile-art: linear-gradient(180deg, transparent 40%, rgba(255,111,174,.25)), radial-gradient(40% 60% at 85% 50%, rgba(255,160,120,.35), transparent 70%)">
+        <span class="tag" style="--tag:#FF6FAE">Walkman &amp; iPod</span>
+        <h3>The music player in your drawer still has a job.</h3>
+        <p>Astra syncs playlists to Sony Walkmans and iPod shuffles the moment you plug them in.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section section--forest">
   <div class="container">

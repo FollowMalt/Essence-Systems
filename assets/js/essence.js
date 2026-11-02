@@ -110,3 +110,66 @@ if (astraUIs.length && "ResizeObserver" in window) {
   });
   astraUIs.forEach((el) => ro.observe(el));
 }
+
+/* Tours: pinned scroll sequences (see _includes/tour.html) */
+document.querySelectorAll("[data-tour]").forEach((tour) => {
+  if (reduceMotion) return;
+  const lines = [...tour.querySelectorAll(".tour-line")];
+  const screens = [...tour.querySelectorAll(".tour-screen")];
+  const bgs = [...tour.querySelectorAll(".tour-bg")];
+  const bars = [...tour.querySelectorAll(".tour-progress i")];
+  const callouts = [...tour.querySelectorAll(".callout")];
+  const n = screens.length;
+  let current = -2, ticking = false;
+  const clamp = (v) => Math.min(Math.max(v, 0), 1);
+  const show = (i) => {
+    if (i === current) return;
+    current = i;
+    const scr = Math.max(i, 0);                  // during the intro the first screen is already showing
+    [screens, bgs].forEach((set) => set.forEach((el, k) => el.classList.toggle("is-active", k === scr)));
+    lines.forEach((el, k) => el.classList.toggle("is-active", k === i));
+    bars.forEach((b, k) => { b.classList.toggle("is-active", k === i); b.classList.toggle("is-done", k < i); });
+    callouts.forEach((c) => c.classList.toggle("is-active", Number(c.dataset.step) === i));
+  };
+  if (bgs[0]) bgs[0].classList.add("is-active");
+  const update = () => {
+    ticking = false;
+    const r = tour.getBoundingClientRect();
+    const total = r.height - window.innerHeight;
+    const p = clamp(-r.top / total);
+    const introEnd = 0.6 / (n + 0.6);             // first ~60vh: the device rises
+    const outroStart = 1 - 0.35 / (n + 0.6);      // last stretch: it lets go
+    const intro = clamp(p / introEnd);
+    const outro = clamp((p - outroStart) / (1 - outroStart));
+    tour.style.setProperty("--intro", intro.toFixed(3));
+    tour.style.setProperty("--outro", outro.toFixed(3));
+    tour.style.setProperty("--tp", p.toFixed(3));
+    if (intro < 0.85) { show(-1); return; }
+    const mid = clamp((p - introEnd) / (outroStart - introEnd));
+    show(Math.min(n - 1, Math.floor(mid * n)));
+  };
+  update();
+  window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  window.addEventListener("resize", update);
+});
+
+/* Statements that light up word by word as you scroll */
+document.querySelectorAll("[data-words]").forEach((el) => {
+  const html = el.innerHTML.trim().split(/\s+/).map((w) => {
+    const hl = w.startsWith("*") && w.endsWith("*");
+    return `<span class="w${hl ? " hl" : ""}">${hl ? w.slice(1, -1) : w}</span>`;
+  }).join(" ");
+  el.innerHTML = html;
+  const words = [...el.querySelectorAll(".w")];
+  if (reduceMotion) { words.forEach((w) => w.classList.add("on")); return; }
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const r = el.getBoundingClientRect(), vh = window.innerHeight;
+    const p = Math.min(Math.max((vh * 0.85 - r.top) / (r.height + vh * 0.35), 0), 1);
+    const lit = Math.round(p * words.length);
+    words.forEach((w, i) => w.classList.toggle("on", i < lit));
+  };
+  update();
+  window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+});

@@ -3,21 +3,10 @@ layout: default
 title: Astra
 description: Astra is a music player and library manager for Windows that turns the songs you own into a streaming-style experience, on your computer, your phone and your Walkman or iPod.
 body_class: product-astra
-styles: [/assets/css/astra-ui.css, /assets/css/astra.css]
+styles: [/assets/css/astra-ui.css, /assets/css/tour.css, /assets/css/astra.css]
 ---
 <!-- The app screens are an HTML rebuild (_includes/astra-ui.html) with made-up music. Swap ui="..." for src="..." to use a real screenshot. -->
-<section class="astra-hero" data-parallax>
-  <div class="pond" aria-hidden="true"><i></i><i></i><i></i></div>
-  <div class="container astra-hero-inner">
-    <p class="eyebrow reveal">Essence · Astra · Beta for Windows</p>
-    <h1 class="display reveal">Astra</h1>
-    <p class="astra-tagline reveal">Your music. Your library. Every device.</p>
-    <p class="lede reveal">A music player and library manager that turns the songs you own into a streaming-style experience. No account, no ads, no monthly fee.</p>
-    <div class="astra-hero-screen reveal" data-grow>
-      {% include screen.html device="desktop" label="Astra main interface" ui="home" %}
-    </div>
-  </div>
-</section>
+{% include tour.html tour=site.data.tours.astra %}
 
 <section class="section">
   <div class="container section-head center">
@@ -27,47 +16,6 @@ styles: [/assets/css/astra-ui.css, /assets/css/astra.css]
   </div>
 </section>
 
-<section class="story astra-story" data-story>
-  <div class="container story-grid">
-    <div class="story-steps">
-      <div class="story-step">
-        <p class="eyebrow">01 · One master library</p>
-        <h3>Everything in one clean place.</h3>
-        <p>Import files, folders or CDs (MP3, M4A/AAC, FLAC, WAV, OGG, WMA). Astra keeps the best-quality copy, skips duplicates and reads tags and covers. Your original files are never changed.</p>
-      </div>
-      <div class="story-step">
-        <p class="eyebrow">02 · Smart Library</p>
-        <h3>Tidies up, with your say.</h3>
-        <p>Finds missing info, wrong albums, duplicates and missing covers, and matches songs to their official albums. Every fix shows its evidence first, and every change can be undone.</p>
-      </div>
-      <div class="story-step">
-        <p class="eyebrow">03 · The player</p>
-        <h3>A player worth listening in.</h3>
-        <p>Shuffle, queue and Play Next, crossfade from 3 to 12 seconds, volume leveling, autoplay with similar songs, a sleep timer and timed lyrics that scroll with the song. Now Playing glows in the song's own colors.</p>
-      </div>
-      <div class="story-step">
-        <p class="eyebrow">04 · On your phone</p>
-        <h3>Your whole library, anywhere.</h3>
-        <p>A phone app you add to your Home Screen streams straight from your computer over your own private network, with lock-screen controls. Use it as a remote, or let several phones play different music at once.</p>
-      </div>
-      <div class="story-step">
-        <p class="eyebrow">05 · Walkman &amp; iPod</p>
-        <h3>Plug in. It syncs.</h3>
-        <p>Recognizes Sony Walkmans (including Japanese models) and iPod shuffles, syncs your playlists, converts formats the player can't play, and only ever removes files Astra put there.</p>
-      </div>
-    </div>
-    <div class="story-visual">
-      <div class="story-stage">
-        <div class="story-progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="story-frame">{% include screen.html device="desktop" label="Library: songs, albums and artists" ui="albums" %}</div>
-        <div class="story-frame">{% include screen.html device="desktop" label="Smart Library fixes" ui="smart" %}</div>
-        <div class="story-frame">{% include screen.html device="desktop" label="Now Playing" ui="nowplaying" %}</div>
-        <div class="story-frame story-frame--phone">{% include screen.html device="phone" label="Astra on your phone" ui="phone" %}</div>
-        <div class="story-frame">{% include screen.html device="desktop" label="Walkman and iPod sync" ui="devices" %}</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="section astra-features">
   <div class="container">
