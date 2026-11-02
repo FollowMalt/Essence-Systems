@@ -1,0 +1,23 @@
+/* ASTRA — atmospheric, organic, glass over water */
+.product-astra { --accent: var(--turquoise); --bg: #061512; background: var(--bg); }
+.astra-hero { position: relative; overflow: hidden; padding: 150px 0 100px; text-align: center;
+  background: radial-gradient(60% 50% at 20% 20%, rgba(72, 215, 208, .18), transparent 70%),
+              radial-gradient(50% 40% at 85% 30%, rgba(77, 159, 255, .14), transparent 70%),
+              radial-gradient(90% 60% at 50% 100%, #0d3a33, transparent 70%), #061512; }
+.astra-hero-inner { position: relative; z-index: 1; }
+.astra-hero .lede { margin: 0 auto 3em; }
+.astra-hero .display { background: linear-gradient(180deg, #fff, #9fe9e4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.astra-hero-screen { max-width: 1000px; margin: auto; transform: perspective(1400px) rotateX(calc((1 - var(--p, 1)) * 18deg)) scale(calc(.92 + var(--p, 1) * .08)); }
+.pond { position: absolute; inset: 0; pointer-events: none; }
+.pond i { position: absolute; left: 50%; top: 62%; width: 40vmax; aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(72, 215, 208, .25); translate: -50% -50%; animation: ripple 9s var(--ease) infinite; opacity: 0; }
+.pond i:nth-child(2) { animation-delay: 3s; }
+.pond i:nth-child(3) { animation-delay: 6s; }
+@keyframes ripple { 0% { scale: .2; opacity: 0; } 20% { opacity: .8; } 100% { scale: 1.6; opacity: 0; } }
+.product-astra .screen-placeholder { --ph: linear-gradient(160deg, rgba(72, 215, 208, .25), rgba(13, 58, 51, .9) 50%, #061512); }
+.product-astra .device--desktop .device-screen { backdrop-filter: blur(10px); box-shadow: 0 50px 140px -30px rgba(72, 215, 208, .35), 0 0 0 1px rgba(255, 255, 255, .06) inset; }
+.astra-story { background: linear-gradient(180deg, #061512, #0a2621 50%, #061512); }
+.gallery-row { display: flex; gap: clamp(16px, 3vw, 40px); justify-content: center; flex-wrap: wrap; }
+.gallery-row .device--phone { width: min(260px, 80vw); }
+.gallery-row .device--phone:nth-child(2) { translate: 0 40px; }
+@media (max-width: 860px) { .gallery-row .device--phone:nth-child(2) { translate: none; } }
+.product-astra .closing { background: radial-gradient(70% 90% at 50% 100%, rgba(72, 215, 208, .22), transparent 60%), #061512; }

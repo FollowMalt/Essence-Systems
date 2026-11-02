@@ -1,0 +1,81 @@
+---
+layout: default
+title: Astra
+description: Astra is a music application from Essence with a calm glass interface for your library and devices.
+body_class: product-astra
+styles: [/assets/css/astra.css]
+---
+<!-- Screenshots: put files in assets/img/astra/ and set src="/assets/img/astra/<file>" on each include below. -->
+<section class="astra-hero" data-parallax>
+  <div class="pond" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="container astra-hero-inner">
+    <p class="eyebrow reveal">Essence · Astra</p>
+    <h1 class="display reveal">Astra</h1>
+    <p class="lede reveal">Your music, held in something calm. A library and listening app with translucent glass, natural light and room to breathe.</p>
+    <div class="astra-hero-screen reveal" data-grow>
+      {% include screen.html device="desktop" label="Astra main interface" %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container section-head center">
+    <p class="eyebrow reveal">What Astra is</p>
+    <h2 class="title reveal">A music app that feels like a quiet place.</h2>
+    <p class="lede reveal">Astra brings your music library together and lets you manage the devices you listen on, inside an interface inspired by koi ponds, plants and water.</p>
+  </div>
+</section>
+
+<section class="story astra-story" data-story>
+  <div class="container story-grid">
+    <div class="story-steps">
+      <div class="story-step">
+        <p class="eyebrow">01 · Library</p>
+        <h3>Your whole library, arranged.</h3>
+        <p>Browse and manage your music collection in one place, with glass panels that keep the focus on what you're listening to.</p>
+      </div>
+      <div class="story-step">
+        <p class="eyebrow">02 · Devices</p>
+        <h3>Every device, in one view.</h3>
+        <p>See and manage the devices connected to Astra without leaving the app.</p>
+      </div>
+      <div class="story-step">
+        <p class="eyebrow">03 · Interface</p>
+        <h3>Designed to be calm.</h3>
+        <p>Translucent glass, natural environments and soft reflections. Astra is meant to be somewhere you enjoy spending time.</p>
+      </div>
+    </div>
+    <div class="story-visual">
+      <div class="story-stage">
+        <div class="story-progress" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="story-frame">{% include screen.html device="desktop" label="Music library" %}</div>
+        <div class="story-frame">{% include screen.html device="desktop" label="Device management" %}</div>
+        <div class="story-frame">{% include screen.html device="desktop" label="Full interface" %}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section astra-gallery">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">On every screen</p>
+      <h2 class="title reveal">Desktop and phone.</h2>
+    </div>
+    <div class="gallery-row">
+      {% include screen.html device="phone" label="Now playing" class="reveal" %}
+      {% include screen.html device="phone" label="Library" class="reveal" %}
+      {% include screen.html device="phone" label="Devices" class="reveal" %}
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="container">
+    <p class="eyebrow reveal">Astra is in active development</p>
+    <h2 class="reveal">Follow along as it grows.</h2>
+    <div class="actions reveal">
+      <a class="btn" href="{{ '/updates.html' | relative_url }}">Development updates <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>

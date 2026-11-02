@@ -1,0 +1,11 @@
+# Top navigation. Add a line here to add a page to the menu.
+- title: Astra
+  url: /projects/astra/
+- title: Allura
+  url: /projects/allura.html
+- title: Updates
+  url: /updates.html
+- title: About
+  url: /about.html
+- title: Contact
+  url: /contact.html

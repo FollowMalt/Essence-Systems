@@ -1,0 +1,6 @@
+<figure class="device device--{{ include.device | default: 'desktop' }} {{ include.class }}">
+  <div class="device-screen">
+    {% if include.src %}<img src="{{ include.src | relative_url }}" alt="{{ include.label }}" loading="lazy">
+    {% else %}<div class="screen-placeholder"><span>{{ include.label }}</span><small>Screenshot coming soon</small></div>{% endif %}
+  </div>
+</figure>

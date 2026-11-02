@@ -1,0 +1,14 @@
+<header class="site-nav" data-nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="{{ '/' | relative_url }}" aria-label="Essence home">{% include logo.html %}</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" data-nav-toggle>
+      <span class="sr-only">Menu</span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <nav id="nav-links" class="nav-links" aria-label="Main">
+      {% for item in site.data.navigation %}
+      {% assign active = false %}{% if page.url == item.url %}{% assign active = true %}{% endif %}
+      <a href="{{ item.url | relative_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>

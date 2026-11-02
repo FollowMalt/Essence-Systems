@@ -1,0 +1,10 @@
+# Labels and colors used for update tags. Add a project here once, then use its key in updates.
+essence:
+  name: Essence
+  color: "#C8A26A"
+astra:
+  name: Astra
+  color: "#48D7D0"
+allura:
+  name: Allura
+  color: "#8D6BFF"

@@ -1,354 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- ==========================================
-         Essence Systems
-         Package 1 - Landing Page
-         ========================================== -->
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Essence | Thoughtfully Crafted Technology</title>
-
-    <meta name="description"
-        content="Essence creates thoughtful technology designed to last longer, respect people, and connect devices in meaningful ways.">
-
-    <meta name="author" content="Essence Systems">
-
-    <!-- Google Fonts -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap"
-        rel="stylesheet">
-
-    <!-- CSS -->
-
-    <link rel="stylesheet" href="assets/css/style.css">
-
-</head>
-
-<body>
-
-    <!-- ==========================================
-         Animated Background
-         ========================================== -->
-
-    <div class="background"></div>
-
-    <div class="noise"></div>
-
-    <div class="gradient"></div>
-
-    <!-- Floating Particles -->
-
-    <div class="particles">
-
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-
+---
+layout: default
+title: Technology that belongs with people
+body_class: home
+---
+<section class="hero" data-parallax>
+  <div class="hero-scene" aria-hidden="true">
+    <div class="arch">
+      <div class="sun"></div>
+      <div class="water"></div>
+      {% include palm.svg class="palm--l" %}
+      {% include palm.svg class="palm--r" %}
     </div>
+    <div class="hero-veil"></div>
+  </div>
+  <div class="hero-content">
+    <p class="eyebrow">Essence Systems</p>
+    <h1>Technology that <em>belongs</em> with people.</h1>
+    <p class="lede">Calm, lasting software designed with the care of something made by hand.</p>
+    <div class="actions">
+      <a class="btn" href="#products">Discover our products <span class="arrow">→</span></a>
+      <a class="btn btn--ghost" href="{{ '/about.html' | relative_url }}">Our philosophy</a>
+    </div>
+  </div>
+  <span class="scroll-cue" aria-hidden="true"></span>
+</section>
 
-    <!-- ==========================================
-         Hero
-         ========================================== -->
+<section class="section section--light" id="philosophy">
+  <div class="container">
+    <p class="eyebrow reveal">The Essence philosophy</p>
+    <p class="manifesto reveal">Good technology should feel <em class="accent">considered</em>, last for years, and quietly make room for the people using it.</p>
+    <div class="principles">
+      <div class="principle reveal">
+        <h3>Personal</h3>
+        <p>Technology should adapt to people, not force people to adapt to technology.</p>
+      </div>
+      <div class="principle reveal">
+        <h3>Private</h3>
+        <p>Your information belongs to you. Privacy is part of good design, not an extra feature.</p>
+      </div>
+      <div class="principle reveal">
+        <h3>Built to last</h3>
+        <p>Great software shouldn't become obsolete simply because hardware gets older.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <main>
-
-        <section class="hero">
-
-            <div class="hero-content">
-
-                <p class="eyebrow">
-                    ESSENCE SYSTEMS
-                </p>
-
-                <h1>
-                    ESSENCE
-                </h1>
-
-                <h2>
-
-                    Thoughtfully crafted technology.
-
-                    <br>
-
-                    Designed to last.
-
-                    <br>
-
-                    Built around people.
-
-                </h2>
-
-                <p class="description">
-
-                    Technology should last longer.
-
-                    <br>
-
-                    Technology should respect people.
-
-                    <br>
-
-                    Technology should connect.
-
-                </p>
-
-                <a href="explore.html" class="explore-button">
-
-                    <span>Explore</span>
-
-                    <span class="arrow">
-
-                        →
-
-                    </span>
-
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-        <!-- ==========================================
-         Why Essence
-         ========================================== -->
-
-    <section class="section fade-up">
-
-        <div class="section-small">
-
-            <h2 class="section-title">
-
-                Built with purpose.
-
-            </h2>
-
-            <p class="section-description">
-
-                We believe technology should feel thoughtful, last longer,
-                and respect the people who use it every day.
-
-            </p>
-
+<div id="products">
+  <section class="showcase showcase--astra">
+    <div class="container showcase-grid">
+      <div class="showcase-copy">
+        <p class="eyebrow reveal">Product · In development</p>
+        <h2 class="reveal">Astra</h2>
+        <p class="lede reveal">A music application with a calm, glass interface for managing your library and the devices you listen on.</p>
+        <div class="actions reveal">
+          <a class="btn" href="{{ '/projects/astra/' | relative_url }}">Explore Astra <span class="arrow">→</span></a>
         </div>
+      </div>
+      <div class="showcase-media" data-grow>
+        {% include screen.html device="desktop" label="Astra on desktop" %}
+        {% include screen.html device="phone" label="Astra mobile" %}
+      </div>
+    </div>
+  </section>
 
-        <div class="card-grid">
-
-            <div class="card">
-
-                <h2>Personal</h2>
-
-                <p>
-
-                    Technology should adapt to people,
-                    not force people to adapt to technology.
-
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h2>Private</h2>
-
-                <p>
-
-                    Your information belongs to you.
-                    Privacy isn't an extra feature—
-                    it is part of good design.
-
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h2>Built to Last</h2>
-
-                <p>
-
-                    Great software shouldn't become obsolete
-                    simply because hardware gets older.
-
-                </p>
-
-            </div>
-
+  <section class="showcase showcase--allura showcase--reverse">
+    <div class="container showcase-grid">
+      <div class="showcase-copy">
+        <p class="eyebrow reveal">Product · In development</p>
+        <h2 class="reveal">Allura</h2>
+        <p class="lede reveal">A personal assistant designed to feel less like software and more like someone who understands how you work.</p>
+        <div class="actions reveal">
+          <a class="btn" href="{{ '/projects/allura.html' | relative_url }}">Meet Allura <span class="arrow">→</span></a>
         </div>
-
-    </section>
-
-    <!-- ==========================================
-         Featured Product
-         ========================================== -->
-
-    <section class="section fade-up">
-
-        <div class="content-card text-center">
-
-            <p class="eyebrow">
-
-                FEATURED PRODUCT
-
-            </p>
-
-            <h2>
-
-                ALLURA
-
-            </h2>
-
-            <p class="description">
-
-                A personal assistant designed to feel
-                less like software and more like someone
-                who understands how you work.
-
-            </p>
-
-            <a href="projects/allura.html" class="button">
-
-                Learn More
-
-                <span class="arrow">
-
-                    →
-
-                </span>
-
-            </a>
-
-        </div>
-
-    </section>
-
-    <!-- ==========================================
-         Explore
-         ========================================== -->
-
-    <section class="section fade-up">
-
-        <div class="section-small">
-
-            <h2 class="section-title">
-
-                Explore Essence
-
-            </h2>
-
-            <p class="section-description">
-
-                Learn about our mission, products,
-                and where we're headed next.
-
-            </p>
-
-        </div>
-
-        <div class="card-grid">
-
-            <a href="about.html" class="explore-card">
-
-                <h2>About</h2>
-
-                <p>
-
-                    Learn what drives Essence
-                    and the philosophy behind everything we build.
-
-                </p>
-
-                <span>
-
-                    Learn More →
-
-                </span>
-
-            </a>
-
-            <a href="updates.html" class="explore-card">
-
-                <h2>Updates</h2>
-
-                <p>
-
-                    Follow the development of our software,
-                    future releases, and company news.
-
-                </p>
-
-                <span>
-
-                    View Updates →
-
-                </span>
-
-            </a>
-
-            <a href="contact.html" class="explore-card">
-
-                <h2>Contact</h2>
-
-                <p>
-
-                    Have a question,
-                    an idea,
-                    or want to connect?
-
-                </p>
-
-                <span>
-
-                    Get in Touch →
-
-                </span>
-
-            </a>
-
-        </div>
-
-    </section>
-
-    <!-- ==========================================
-         Footer
-         ========================================== -->
-
-    <footer>
-
-        <p>
-
-            © 2026 Essence Systems
-
-        </p>
-
-        <p>
-
-            Thoughtfully Crafted Technology
-
-        </p>
-
-    </footer>
-
-    <!-- ==========================================
-         JavaScript
-         ========================================== -->
-
-    <script src="assets/js/script.js"></script>
-
-</body>
-
-</html>
+      </div>
+      <div class="showcase-media" data-grow>
+        {% include screen.html device="desktop" label="Allura on desktop" %}
+        {% include screen.html device="phone" label="Allura mobile" %}
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="section section--forest">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">Development</p>
+      <h2 class="title reveal">Building in the open.</h2>
+    </div>
+    <div class="updates-list updates-list--row">
+      {% assign recent = site.updates | sort: "date" | reverse %}
+      {% for u in recent limit: 3 %}{% include update-card.html update=u %}{% endfor %}
+    </div>
+    <p class="reveal" style="margin-top:32px"><a class="btn btn--ghost" href="{{ '/updates.html' | relative_url }}">All updates <span class="arrow">→</span></a></p>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="container">
+    <p class="eyebrow reveal">Essence</p>
+    <h2 class="reveal">Made to be lived with, not just used.</h2>
+    <div class="actions reveal">
+      <a class="btn" href="{{ '/projects/astra/' | relative_url }}">Astra <span class="arrow">→</span></a>
+      <a class="btn btn--ghost" href="{{ '/projects/allura.html' | relative_url }}">Allura <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
