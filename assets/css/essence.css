@@ -327,3 +327,25 @@ em.accent { font-style: italic; color: var(--gold-lit); }
   .reveal { opacity: 1; transform: none; }
   .hero-content, .arch, .sun, .showcase-media { transform: none !important; opacity: 1 !important; }
 }
+
+/* ---------- Product content helpers ---------- */
+.showcase-tagline, .astra-tagline, .allura-tagline { font: italic 400 clamp(22px, 2.6vw, 30px)/1.3 var(--font-display); margin-bottom: .8em; }
+.showcase--astra .showcase-tagline, .astra-tagline { color: #9fe9e4; }
+.showcase--allura .showcase-tagline, .allura-tagline { color: #7A62C9; }
+.subtitle { font-size: clamp(24px, 2.6vw, 32px); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); }
+@media (max-width: 760px) { .two-col { grid-template-columns: 1fr; } }
+.plain-list { margin: 0; padding: 0; list-style: none; }
+.plain-list li { padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--text-muted); }
+.checklist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px 40px; }
+.checklist li { position: relative; padding: 18px 0 18px 34px; border-top: 1px solid var(--line); color: var(--text-muted); }
+.checklist li::before { content: ""; position: absolute; left: 4px; top: 25px; width: 12px; height: 7px; border-left: 2px solid var(--accent, var(--gold)); border-bottom: 2px solid var(--accent, var(--gold)); rotate: -45deg; }
+.checklist strong { color: inherit; filter: brightness(.6); display: block; font-weight: 600; }
+.section--light .checklist strong { color: #1A2A21; filter: none; }
+.roadmap { list-style: none; margin: 0; padding: 0; counter-reset: r; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.roadmap li { counter-increment: r; padding: 26px 26px 26px 70px; position: relative; border-radius: var(--radius); background: var(--glass); border: 1px solid var(--glass-line); }
+.roadmap li::before { content: counter(r, decimal-leading-zero); position: absolute; left: 24px; top: 24px; font: italic 400 20px/1 var(--font-display); color: var(--accent, var(--gold-lit)); }
+.roadmap strong { display: block; font: 500 20px/1.3 var(--font-display); margin-bottom: 6px; }
+.roadmap span { color: var(--text-muted); font-size: 15px; }
+.story-frame--phone .device--phone { margin: auto; width: min(280px, 60%); }
+.story-frame .device--desktop { width: 100%; }

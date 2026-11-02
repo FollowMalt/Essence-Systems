@@ -21,3 +21,6 @@
 .gallery-row .device--phone:nth-child(2) { translate: 0 40px; }
 @media (max-width: 860px) { .gallery-row .device--phone:nth-child(2) { translate: none; } }
 .product-astra .closing { background: radial-gradient(70% 90% at 50% 100%, rgba(72, 215, 208, .22), transparent 60%), #061512; }
+.astra-tagline { margin-bottom: .6em; }
+.astra-privacy { --accent: #1f9e98; }
+.astra-features .glass-card { backdrop-filter: blur(14px); background: linear-gradient(160deg, rgba(72, 215, 208, .08), rgba(255, 255, 255, .02)); }

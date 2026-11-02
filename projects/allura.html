@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Allura
-description: Meet Allura, a personal assistant from Essence designed to feel thoughtful, private and genuinely helpful.
+description: Allura is a private AI assistant from Essence Systems that runs locally on the computer you already own, including older and low-end PCs.
 body_class: product-allura
 styles: [/assets/css/allura.css]
 ---
@@ -10,65 +10,102 @@ styles: [/assets/css/allura.css]
   <div class="flow" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="container allura-hero-inner">
     <div>
-      <p class="eyebrow reveal">Essence · Allura</p>
+      <p class="eyebrow reveal">Essence · Allura · In development</p>
       <h1 class="display reveal">Allura</h1>
-      <p class="lede reveal">Intelligence that feels personal. Allura helps you think, create, organize and explore ideas naturally, and feels less like software than a companion.</p>
-      <div class="actions reveal"><a class="btn" href="#meet">See Allura <span class="arrow">→</span></a></div>
+      <p class="allura-tagline reveal">A private AI assistant that lives on your own computer.</p>
+      <p class="lede reveal">Allura runs locally, on hardware you already own, including older and low-end PCs. Your conversations stay on your machine instead of being sent to someone else's servers.</p>
+      <div class="actions reveal"><a class="btn" href="#how">How she works <span class="arrow">→</span></a></div>
     </div>
     <div class="allura-hero-media reveal">
-      {% include screen.html device="phone" label="Allura" %}
+      {% include screen.html device="desktop" label="Allura desktop app" %}
     </div>
   </div>
 </section>
 
-<section class="story allura-story" data-story id="meet">
+<section class="section allura-why">
+  <div class="container section-head center">
+    <p class="eyebrow reveal">Why we're building her</p>
+    <h2 class="title reveal">A good assistant should work on the computer you already have.</h2>
+    <p class="lede reveal">Most AI assistants need powerful new hardware or a constant connection to the cloud. Giving older machines a useful new job keeps them out of landfills, which makes Allura part of an e-waste mission as well as a privacy one.</p>
+  </div>
+</section>
+
+<section class="story allura-story" data-story id="how">
   <div class="container story-grid">
     <div class="story-steps">
       <div class="story-step">
-        <p class="eyebrow">Conversations</p>
-        <h3>Calm, clear conversation.</h3>
-        <p>Natural conversations designed to feel calm, clear and genuinely enjoyable.</p>
+        <p class="eyebrow">ACE · her brain</p>
+        <h3>The Allura Cognitive Engine.</h3>
+        <p>ACE figures out what you're asking, gathers the right information, and decides how to answer.</p>
       </div>
       <div class="story-step">
-        <p class="eyebrow">Memory</p>
-        <h3>Remembers what matters.</h3>
-        <p>Designed to remember the important things, so conversations feel continuous instead of starting over every time.</p>
+        <p class="eyebrow">Local models · her voice</p>
+        <h3>Small models, running on your PC.</h3>
+        <p>Small local language models such as SmolLM2 turn ACE's work into natural conversation. You choose which model she speaks with.</p>
       </div>
       <div class="story-step">
-        <p class="eyebrow">Research</p>
-        <h3>Thoughtful research.</h3>
-        <p>Built to gather information, organize ideas and help with deeper understanding.</p>
+        <p class="eyebrow">The desktop app</p>
+        <h3>Designed, not just built.</h3>
+        <p>A custom experience with a dark violet look, a frameless window, and a sidebar that grows as you use it.</p>
       </div>
       <div class="story-step">
-        <p class="eyebrow">Privacy</p>
-        <h3>Private by design.</h3>
-        <p>Built with local intelligence in mind, so many experiences can stay available without relying entirely on the cloud.</p>
+        <p class="eyebrow">Allura Link</p>
+        <h3>Your Allura, from your phone.</h3>
+        <p>Reach your own Allura from your phone through a web app, while everything still runs on your PC.</p>
       </div>
     </div>
     <div class="story-visual">
       <div class="story-stage">
         <div class="story-progress" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-        <div class="story-frame">{% include screen.html device="desktop" label="Conversation" %}</div>
-        <div class="story-frame">{% include screen.html device="desktop" label="Memory" %}</div>
-        <div class="story-frame">{% include screen.html device="desktop" label="Research" %}</div>
-        <div class="story-frame">{% include screen.html device="desktop" label="Settings and privacy" %}</div>
+        <div class="story-frame">{% include screen.html device="desktop" label="A conversation with Allura" %}</div>
+        <div class="story-frame">{% include screen.html device="desktop" label="Choosing her model" %}</div>
+        <div class="story-frame">{% include screen.html device="desktop" label="The desktop app" %}</div>
+        <div class="story-frame story-frame--phone">{% include screen.html device="phone" label="Allura Link" %}</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section allura-quote">
-  <div class="container section-head center">
-    <p class="eyebrow reveal">Our philosophy</p>
-    <h2 class="title reveal">Technology should feel human.</h2>
-    <p class="lede reveal">Great software shouldn't compete for your attention. It should quietly support your work, respect your privacy, and become a natural extension of how you think.</p>
+<section class="section allura-today">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">What she can do today</p>
+      <h2 class="title reveal">Useful now, and honest about it.</h2>
+    </div>
+    <div class="cards">
+      <div class="glass-card reveal"><h3>Research with sources</h3><p>Answers questions using free, open sources, with clickable links so you can see where each answer came from.</p></div>
+      <div class="glass-card reveal"><h3>Everyday tools</h3><p>Weather, time and math, right in the conversation.</p></div>
+      <div class="glass-card reveal"><h3>Places nearby</h3><p>Finds places near you, including menus and reviews.</p></div>
+      <div class="glass-card reveal"><h3>English and Spanish</h3><p>Translates offline, and replies in the language you write in.</p></div>
+      <div class="glass-card reveal"><h3>More than one person</h3><p>Separate accounts keep each person's memory and chats private.</p></div>
+      <div class="glass-card reveal"><h3>Looks the way you like</h3><p>Several themes and small animations throughout the app.</p></div>
+      <div class="glass-card reveal"><h3>Talks honestly</h3><p>Safety comes first. She answers yes-or-no questions directly and is built to be truthful rather than just agree with you.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section allura-next">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">What we're working on</p>
+      <h2 class="title reveal">Where she's headed.</h2>
+      <p class="lede reveal">Plans, not promises. They'll land as they're ready.</p>
+    </div>
+    <ol class="roadmap">
+      <li class="reveal"><strong>Stronger research</strong><span>Clearer, more accurate answers on follow-up and deeper questions.</span></li>
+      <li class="reveal"><strong>An honesty upgrade</strong><span>Pushing back with evidence instead of mirroring you, and staying balanced on hard topics.</span></li>
+      <li class="reveal"><strong>Visual intelligence</strong><span>Understanding photos, like recognizing a building or where a picture was taken.</span></li>
+      <li class="reveal"><strong>Pop-up windows</strong><span>Code and small diagrams right in the chat.</span></li>
+      <li class="reveal"><strong>Getting things done</strong><span>Restaurant reservations and food ordering, first with your help, then on her own.</span></li>
+      <li class="reveal"><strong>Version 0.3</strong><span>An early alpha anyone can install on their own PC, with a built-in updater.</span></li>
+    </ol>
   </div>
 </section>
 
 <section class="closing">
   <div class="container">
-    <p class="eyebrow reveal">Allura is in development</p>
-    <h2 class="reveal">Follow her progress.</h2>
+    <p class="eyebrow reveal">Allura is in active development</p>
+    <h2 class="reveal">Follow along as she grows.</h2>
     <div class="actions reveal"><a class="btn" href="{{ '/updates.html' | relative_url }}">Development updates <span class="arrow">→</span></a></div>
   </div>
 </section>

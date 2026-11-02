@@ -31,3 +31,9 @@
 .product-allura .closing { background: radial-gradient(70% 90% at 50% 100%, rgba(141, 107, 255, .2), transparent 60%), radial-gradient(40% 60% at 70% 100%, rgba(72, 215, 208, .18), transparent 70%), var(--bg); }
 .product-allura .site-footer { background: var(--bg); }
 .product-allura .site-footer nav a:hover { color: var(--lavender); }
+.allura-hero-inner { grid-template-columns: 1fr 1.1fr; }
+.allura-why { background: #fff; }
+.allura-today .glass-card, .allura-next .roadmap li { background: rgba(255, 255, 255, .7); backdrop-filter: blur(12px); }
+.allura-next { background: linear-gradient(180deg, var(--bg), #EFF9F8); }
+.product-allura .roadmap li::before { color: #7A62C9; }
+.allura-hero-media .device--desktop { width: 100%; }

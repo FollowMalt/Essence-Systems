@@ -1,6 +1,6 @@
 ---
-title: Astra joins the website
+title: Astra gets its own page
 project: astra
 date: 2026-11-02
 ---
-Astra, the music application in active development, now has its own page. Screenshots from the app will be added as they are finalized.
+Astra, our music player and library manager for Windows, is in beta and used every day. Its new page covers the library, Smart Library, the phone app and Walkman and iPod sync.

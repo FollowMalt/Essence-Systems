@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Astra
-description: Astra is a music application from Essence with a calm glass interface for your library and devices.
+description: Astra is a music player and library manager for Windows that turns the songs you own into a streaming-style experience, on your computer, your phone and your Walkman or iPod.
 body_class: product-astra
 styles: [/assets/css/astra.css]
 ---
@@ -9,9 +9,10 @@ styles: [/assets/css/astra.css]
 <section class="astra-hero" data-parallax>
   <div class="pond" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="container astra-hero-inner">
-    <p class="eyebrow reveal">Essence · Astra</p>
+    <p class="eyebrow reveal">Essence · Astra · Beta for Windows</p>
     <h1 class="display reveal">Astra</h1>
-    <p class="lede reveal">Your music, held in something calm. A library and listening app with translucent glass, natural light and room to breathe.</p>
+    <p class="astra-tagline reveal">Your music. Your library. Every device.</p>
+    <p class="lede reveal">A music player and library manager that turns the songs you own into a streaming-style experience. No account, no ads, no monthly fee.</p>
     <div class="astra-hero-screen reveal" data-grow>
       {% include screen.html device="desktop" label="Astra main interface" %}
     </div>
@@ -20,9 +21,9 @@ styles: [/assets/css/astra.css]
 
 <section class="section">
   <div class="container section-head center">
-    <p class="eyebrow reveal">What Astra is</p>
-    <h2 class="title reveal">A music app that feels like a quiet place.</h2>
-    <p class="lede reveal">Astra brings your music library together and lets you manage the devices you listen on, inside an interface inspired by koi ponds, plants and water.</p>
+    <p class="eyebrow reveal">For music you actually own</p>
+    <h2 class="title reveal">Your own streaming app, iTunes and Walkman manager in one.</h2>
+    <p class="lede reveal">Astra brings back owning your music without giving up what makes streaming apps great. Import your MP3s, FLACs and CDs into one clean library; Astra fixes messy tags, finds album covers and lines your songs up with their official albums. Then play them on your computer, stream them to your phone, and keep your Walkman or iPod synced on its own.</p>
   </div>
 </section>
 
@@ -30,50 +31,101 @@ styles: [/assets/css/astra.css]
   <div class="container story-grid">
     <div class="story-steps">
       <div class="story-step">
-        <p class="eyebrow">01 · Library</p>
-        <h3>Your whole library, arranged.</h3>
-        <p>Browse and manage your music collection in one place, with glass panels that keep the focus on what you're listening to.</p>
+        <p class="eyebrow">01 · One master library</p>
+        <h3>Everything in one clean place.</h3>
+        <p>Import files, folders or CDs (MP3, M4A/AAC, FLAC, WAV, OGG, WMA). Astra keeps the best-quality copy, skips duplicates and reads tags and covers. Your original files are never changed.</p>
       </div>
       <div class="story-step">
-        <p class="eyebrow">02 · Devices</p>
-        <h3>Every device, in one view.</h3>
-        <p>See and manage the devices connected to Astra without leaving the app.</p>
+        <p class="eyebrow">02 · Smart Library</p>
+        <h3>Tidies up, with your say.</h3>
+        <p>Finds missing info, wrong albums, duplicates and missing covers, and matches songs to their official albums. Every fix shows its evidence first, and every change can be undone.</p>
       </div>
       <div class="story-step">
-        <p class="eyebrow">03 · Interface</p>
-        <h3>Designed to be calm.</h3>
-        <p>Translucent glass, natural environments and soft reflections. Astra is meant to be somewhere you enjoy spending time.</p>
+        <p class="eyebrow">03 · The player</p>
+        <h3>A player worth listening in.</h3>
+        <p>Shuffle, queue and Play Next, crossfade from 3 to 12 seconds, volume leveling, autoplay with similar songs, a sleep timer and timed lyrics that scroll with the song. Now Playing glows in the song's own colors.</p>
+      </div>
+      <div class="story-step">
+        <p class="eyebrow">04 · On your phone</p>
+        <h3>Your whole library, anywhere.</h3>
+        <p>A phone app you add to your Home Screen streams straight from your computer over your own private network, with lock-screen controls. Use it as a remote, or let several phones play different music at once.</p>
+      </div>
+      <div class="story-step">
+        <p class="eyebrow">05 · Walkman &amp; iPod</p>
+        <h3>Plug in. It syncs.</h3>
+        <p>Recognizes Sony Walkmans (including Japanese models) and iPod shuffles, syncs your playlists, converts formats the player can't play, and only ever removes files Astra put there.</p>
       </div>
     </div>
     <div class="story-visual">
       <div class="story-stage">
-        <div class="story-progress" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="story-frame">{% include screen.html device="desktop" label="Music library" %}</div>
-        <div class="story-frame">{% include screen.html device="desktop" label="Device management" %}</div>
-        <div class="story-frame">{% include screen.html device="desktop" label="Full interface" %}</div>
+        <div class="story-progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="story-frame">{% include screen.html device="desktop" label="Library: songs, albums and artists" %}</div>
+        <div class="story-frame">{% include screen.html device="desktop" label="Smart Library fixes" %}</div>
+        <div class="story-frame">{% include screen.html device="desktop" label="Now Playing" %}</div>
+        <div class="story-frame story-frame--phone">{% include screen.html device="phone" label="Astra on your phone" %}</div>
+        <div class="story-frame">{% include screen.html device="desktop" label="Walkman and iPod sync" %}</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section astra-gallery">
+<section class="section astra-features">
   <div class="container">
     <div class="section-head">
-      <p class="eyebrow reveal">On every screen</p>
-      <h2 class="title reveal">Desktop and phone.</h2>
+      <p class="eyebrow reveal">And there's more</p>
+      <h2 class="title reveal">Everything a streaming app does, for your own collection.</h2>
     </div>
-    <div class="gallery-row">
-      {% include screen.html device="phone" label="Now playing" class="reveal" %}
-      {% include screen.html device="phone" label="Library" class="reveal" %}
-      {% include screen.html device="phone" label="Devices" class="reveal" %}
+    <div class="cards">
+      <div class="glass-card reveal"><h3>Playlists that make themselves</h3><p>Make and reorder your own, or let Astra Playlists build top songs, recently added, rediscover and artist mixes.</p></div>
+      <div class="glass-card reveal"><h3>Bring your playlists</h3><p>Import from Spotify and Apple Music. Songs you don't have yet drop in automatically once you add them.</p></div>
+      <div class="glass-card reveal"><h3>Astra Rewind</h3><p>Your month or year in music, built from what you actually played.</p></div>
+      <div class="glass-card reveal"><h3>Rip your CDs</h3><p>Rip to MP3 or FLAC with the album looked up for you.</p></div>
+      <div class="glass-card reveal"><h3>Made to feel yours</h3><p>Light and dark themes with five color styles, and artist pages with photos.</p></div>
+      <div class="glass-card reveal"><h3>Always ready</h3><p>Runs quietly in the tray and can start with Windows, so the phone app and syncing are always there.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light astra-privacy">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">Your music stays yours</p>
+      <h2 class="title reveal">Nothing is uploaded anywhere.</h2>
+    </div>
+    <ul class="checklist">
+      <li class="reveal"><strong>No account, no subscription, no ads.</strong> Astra runs on your computer.</li>
+      <li class="reveal"><strong>Your files are never changed.</strong> Fixes, lyrics, covers and play history live in Astra's own folder.</li>
+      <li class="reveal"><strong>Only your devices can connect.</strong> The phone app answers only devices on your private network, and needs an access code.</li>
+      <li class="reveal"><strong>Lookups are small and optional.</strong> Album info, artist photos and lyrics are found by artist and song name only. What you listen to never leaves the computer.</li>
+      <li class="reveal"><strong>Astra never downloads music.</strong> It works with music you already own.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-col">
+    <div class="reveal">
+      <p class="eyebrow">What you need</p>
+      <h3 class="subtitle">A Windows 10 or 11 PC.</h3>
+      <p class="muted">Optional: ffmpeg for converting, leveling and CD rips; Tailscale on your computer and phone for the phone app; a CD/DVD drive for ripping.</p>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Coming next</p>
+      <ul class="plain-list">
+        <li>Profiles, so everyone at home gets their own playlists and Rewind</li>
+        <li>Save songs to your phone for offline listening</li>
+        <li>An installer with automatic updates</li>
+        <li>iPod syncing for more models</li>
+        <li>A native iPhone app</li>
+      </ul>
     </div>
   </div>
 </section>
 
 <section class="closing">
   <div class="container">
-    <p class="eyebrow reveal">Astra is in active development</p>
-    <h2 class="reveal">Follow along as it grows.</h2>
+    <p class="eyebrow reveal">Astra is in beta, used every day and still growing</p>
+    <h2 class="reveal">The music app for people who own their music.</h2>
     <div class="actions reveal">
       <a class="btn" href="{{ '/updates.html' | relative_url }}">Development updates <span class="arrow">→</span></a>
     </div>
