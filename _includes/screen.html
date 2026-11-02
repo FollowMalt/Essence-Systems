@@ -1,6 +1,13 @@
+{%- comment -%}
+  Device frame. Use one of:
+    src="/assets/img/astra/library.png"   a real screenshot
+    ui="albums"                           the HTML rebuild of Astra (home, albums, nowplaying, smart, devices, phone)
+  With neither, a labelled placeholder is shown.
+{%- endcomment -%}
 <figure class="device device--{{ include.device | default: 'desktop' }} {{ include.class }}">
   <div class="device-screen">
     {% if include.src %}<img src="{{ include.src | relative_url }}" alt="{{ include.label }}" loading="lazy">
+    {% elsif include.ui %}{% include astra-ui.html view=include.ui %}<span class="sr-only">{{ include.label }}</span>
     {% else %}<div class="screen-placeholder"><span>{{ include.label }}</span><small>Screenshot coming soon</small></div>{% endif %}
   </div>
 </figure>

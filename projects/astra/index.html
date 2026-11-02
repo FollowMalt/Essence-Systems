@@ -3,9 +3,9 @@ layout: default
 title: Astra
 description: Astra is a music player and library manager for Windows that turns the songs you own into a streaming-style experience, on your computer, your phone and your Walkman or iPod.
 body_class: product-astra
-styles: [/assets/css/astra.css]
+styles: [/assets/css/astra-ui.css, /assets/css/astra.css]
 ---
-<!-- Screenshots: put files in assets/img/astra/ and set src="/assets/img/astra/<file>" on each include below. -->
+<!-- The app screens are an HTML rebuild (_includes/astra-ui.html) with made-up music. Swap ui="..." for src="..." to use a real screenshot. -->
 <section class="astra-hero" data-parallax>
   <div class="pond" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="container astra-hero-inner">
@@ -14,7 +14,7 @@ styles: [/assets/css/astra.css]
     <p class="astra-tagline reveal">Your music. Your library. Every device.</p>
     <p class="lede reveal">A music player and library manager that turns the songs you own into a streaming-style experience. No account, no ads, no monthly fee.</p>
     <div class="astra-hero-screen reveal" data-grow>
-      {% include screen.html device="desktop" label="Astra main interface" %}
+      {% include screen.html device="desktop" label="Astra main interface" ui="home" %}
     </div>
   </div>
 </section>
@@ -59,11 +59,11 @@ styles: [/assets/css/astra.css]
     <div class="story-visual">
       <div class="story-stage">
         <div class="story-progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="story-frame">{% include screen.html device="desktop" label="Library: songs, albums and artists" %}</div>
-        <div class="story-frame">{% include screen.html device="desktop" label="Smart Library fixes" %}</div>
-        <div class="story-frame">{% include screen.html device="desktop" label="Now Playing" %}</div>
-        <div class="story-frame story-frame--phone">{% include screen.html device="phone" label="Astra on your phone" %}</div>
-        <div class="story-frame">{% include screen.html device="desktop" label="Walkman and iPod sync" %}</div>
+        <div class="story-frame">{% include screen.html device="desktop" label="Library: songs, albums and artists" ui="albums" %}</div>
+        <div class="story-frame">{% include screen.html device="desktop" label="Smart Library fixes" ui="smart" %}</div>
+        <div class="story-frame">{% include screen.html device="desktop" label="Now Playing" ui="nowplaying" %}</div>
+        <div class="story-frame story-frame--phone">{% include screen.html device="phone" label="Astra on your phone" ui="phone" %}</div>
+        <div class="story-frame">{% include screen.html device="desktop" label="Walkman and iPod sync" ui="devices" %}</div>
       </div>
     </div>
   </div>

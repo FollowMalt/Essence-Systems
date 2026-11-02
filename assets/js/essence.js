@@ -101,3 +101,12 @@ filters.forEach((btn) => {
     });
   });
 });
+
+/* Astra UI rebuild: scale the 1280×800 canvas to whatever frame it sits in */
+const astraUIs = document.querySelectorAll("[data-astra-ui]");
+if (astraUIs.length && "ResizeObserver" in window) {
+  const ro = new ResizeObserver((entries) => {
+    entries.forEach((e) => e.target.style.setProperty("--ax-s", (e.contentRect.width / 1280).toFixed(4)));
+  });
+  astraUIs.forEach((el) => ro.observe(el));
+}

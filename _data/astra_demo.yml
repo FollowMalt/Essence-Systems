@@ -1,0 +1,15 @@
+# Made-up music used in the Astra interface mockups on the website.
+# Covers are drawn with CSS from the two hues (0-360) and a pattern number (1-4).
+songs:
+  - { title: "Golden Hour Drive", artist: "The Coastlines", album: "Low Sun", year: 2024, a: 28, b: 330, p: 1, len: "3:42" }
+  - { title: "Paper Lanterns", artist: "Mira Vale", album: "Paper Lanterns", year: 2023, a: 340, b: 270, p: 2, len: "4:05" }
+  - { title: "Neon Tide", artist: "Harbor Lights", album: "Night Swim", year: 2025, a: 185, b: 255, p: 3, len: "3:18" }
+  - { title: "Slow Orbit", artist: "Astronaut Club", album: "Gravity Well", year: 2022, a: 260, b: 220, p: 4, len: "5:01" }
+  - { title: "Palm Shadows", artist: "Velvet Avenue", album: "Key West Tapes", year: 2021, a: 150, b: 45, p: 1, len: "3:36" }
+  - { title: "Cassette Summer", artist: "June Static", album: "Rewind", year: 2020, a: 12, b: 48, p: 2, len: "2:58" }
+  - { title: "Northern Static", artist: "Polar Radio", album: "Signals", year: 2024, a: 200, b: 160, p: 3, len: "4:22" }
+  - { title: "Midnight Ferry", artist: "Lanterns & Oak", album: "Crossings", year: 2019, a: 225, b: 300, p: 4, len: "3:51" }
+devices:
+  - { name: "iPod shuffle", model: "4th generation · MP3 192 kbps", hue: 165, kind: shuffle }
+  - { name: "Walkman NWZ-E383", model: "Sony NWZ-E383 · MP3 224 kbps", hue: 335, kind: walkman }
+  - { name: "Walkman NW-S764", model: "Sony NW-S764 · MP3 320 kbps", hue: 215, kind: walkman }

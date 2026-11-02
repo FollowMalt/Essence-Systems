@@ -2,6 +2,7 @@
 layout: default
 title: Technology that belongs with people
 body_class: home
+styles: [/assets/css/astra-ui.css]
 ---
 <section class="hero" data-parallax>
   <div class="hero-scene" aria-hidden="true">
@@ -59,8 +60,8 @@ body_class: home
         </div>
       </div>
       <div class="showcase-media" data-grow>
-        {% include screen.html device="desktop" label="Astra on desktop" %}
-        {% include screen.html device="phone" label="Astra mobile" %}
+        {% include screen.html device="desktop" label="Astra on desktop" ui="albums" %}
+        {% include screen.html device="phone" label="Astra on your phone" ui="phone" %}
       </div>
     </div>
   </section>
