@@ -79,17 +79,17 @@
    ========================================================== */
 
 /* Marquee band */
-.marquee { overflow: hidden; padding: 26px 0; border-block: 1px solid rgba(224, 193, 139, .25); background: linear-gradient(90deg, #0b1a13, #1a1030 50%, #0b1a13); }
+.marquee { overflow: hidden; padding: 26px 0; border-block: 1px solid rgba(224, 193, 139, .25); background: linear-gradient(90deg, #0A0820, #24104A 50%, #0A0820); box-shadow: 0 -3px 0 var(--hotpink), 0 3px 0 var(--aqua); }
 .marquee-track { display: flex; gap: 48px; width: max-content; animation: marquee 38s linear infinite; }
 .marquee span { font: italic 400 clamp(28px, 4vw, 56px)/1 var(--font-display); white-space: nowrap; color: transparent; -webkit-text-stroke: 1px rgba(224, 193, 139, .7); }
 .marquee span:nth-child(3n+2) { color: var(--gold-lit); -webkit-text-stroke: 0; }
-.marquee span:nth-child(3n) { background: linear-gradient(90deg, var(--pink), var(--violet)); -webkit-background-clip: text; background-clip: text; -webkit-text-stroke: 0; }
+.marquee span:nth-child(3n) { background: linear-gradient(90deg, var(--hotpink), var(--sunset) 50%, var(--aqua)); -webkit-background-clip: text; background-clip: text; -webkit-text-stroke: 0; }
 .marquee b { color: var(--pink); font-size: 28px; align-self: center; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 
 /* Word-by-word statement that lights up as you scroll */
-.statement { padding: clamp(100px, 16vw, 220px) 0; background: radial-gradient(60% 50% at 80% 20%, rgba(141, 107, 255, .18), transparent 70%), radial-gradient(50% 50% at 10% 90%, rgba(255, 111, 174, .14), transparent 70%), var(--obsidian); }
+.statement { padding: clamp(100px, 16vw, 220px) 0; background: radial-gradient(60% 50% at 80% 20%, rgba(141, 107, 255, .18), transparent 70%), radial-gradient(50% 50% at 10% 90%, rgba(255, 111, 174, .14), transparent 70%), var(--night); }
 .statement p[data-words] { font: 500 clamp(34px, 5.6vw, 86px)/1.08 var(--font-display); letter-spacing: -.01em; margin: 0; max-width: 18ch; }
 .statement .w { color: rgba(236, 232, 223, .14); transition: color .4s var(--ease); }
 .statement .w.on { color: var(--text); }

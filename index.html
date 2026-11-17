@@ -28,7 +28,7 @@ styles: [/assets/css/astra-ui.css, /assets/css/allura-ui.css, /assets/css/tour.c
 
 
 <div class="marquee" aria-hidden="true"><div class="marquee-track">
-  {% for i in (1..2) %}<span>Old-world craft</span><b>✦</b><span>New-world technology</span><b>✦</b><span>Miami nights</span><b>✦</b><span>Built to last</span><b>✦</b><span>Private by design</span><b>✦</b><span>Everything in between</span><b>✦</b>{% endfor %}
+  {% for i in (1..2) %}<span>Old-world craft</span><b>✦</b><span>New-world technology</span><b>✦</b><span>Made to be felt</span><b>✦</b><span>Built to last</span><b>✦</b><span>Private by design</span><b>✦</b><span>Everything in between</span><b>✦</b>{% endfor %}
 </div></div>
 
 <section class="statement">
@@ -38,24 +38,68 @@ styles: [/assets/css/astra-ui.css, /assets/css/allura-ui.css, /assets/css/tour.c
   </div>
 </section>
 
-<section class="section section--light" id="philosophy">
+<section class="section section--vice" id="philosophy">
+  <div class="vice-sun" aria-hidden="true"></div>
   <div class="container">
     <p class="eyebrow reveal">The Essence philosophy</p>
     <p class="manifesto reveal">Good technology should feel <em class="accent">considered</em>, last for years, and quietly make room for the people using it.</p>
     <div class="principles">
-      <div class="principle reveal">
+      <div class="principle reveal" style="--pc:var(--hotpink)">
         <h3>Personal</h3>
         <p>Technology should adapt to people, not force people to adapt to technology.</p>
       </div>
-      <div class="principle reveal">
+      <div class="principle reveal" style="--pc:var(--aqua)">
         <h3>Private</h3>
         <p>Your information belongs to you. Privacy is part of good design, not an extra feature.</p>
       </div>
-      <div class="principle reveal">
+      <div class="principle reveal" style="--pc:var(--gold-lit)">
         <h3>Built to last</h3>
         <p>Great software shouldn't become obsolete simply because hardware gets older.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<div class="vice-stripes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<section class="section status-board">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow reveal">Where everything stands</p>
+      <h2 class="title reveal">Two apps. <em class="accent">One launcher</em> on the way.</h2>
+    </div>
+    <div class="status-grid">
+      <a class="status-card reveal" href="{{ '/projects/astra/' | relative_url }}" style="--sc:#3EE6E0; --sc2:#b58cff">
+        <span class="status-pill"><i></i>Complete</span>
+        <h3>Astra</h3>
+        <p>The music app for people who own their music. Library, artist pages, playlists, lyrics, Smart Library, Walkman and iPod sync, phone and TV.</p>
+        <ul><li>Windows 10 and 11</li><li>No account, no ads</li><li>Works with music you already own</li></ul>
+        <span class="status-link">Explore Astra →</span>
+      </a>
+      <a class="status-card reveal" href="{{ '/projects/allura.html' | relative_url }}" style="--sc:#B98CFF; --sc2:#FF4FA3">
+        <span class="status-pill"><i></i>Developer Beta</span>
+        <h3>Allura</h3>
+        <p>A private AI that lives on your own computer. Conversation, research with sources, everyday tools and Allura Link for your phone.</p>
+        <ul><li>Runs on older and low-end PCs</li><li>Thinks with ACE, speaks with SmolLM2</li><li>English and Spanish</li></ul>
+        <span class="status-link">Meet Allura →</span>
+      </a>
+      <a class="status-card reveal" href="{{ '/download.html' | relative_url }}" style="--sc:#E0C18B; --sc2:#3FAE7A">
+        <span class="status-pill"><i></i>In the works</span>
+        <h3>Essence Launcher</h3>
+        <p>One app to download, install and update everything we make. It will be the only download on this site.</p>
+        <ul><li>Pick the apps you want</li><li>Updates arrive on their own</li><li>For Windows PCs</li></ul>
+        <span class="status-link">About the launcher →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="numbers">
+  <div class="container numbers-grid">
+    <div class="num reveal" style="--nc:var(--hotpink)"><b>6</b><span>audio formats Astra plays: MP3, AAC, FLAC, WAV, OGG and WMA</span></div>
+    <div class="num reveal" style="--nc:var(--aqua)"><b>10</b><span>original Walkman wallpapers made for Astra</span></div>
+    <div class="num reveal" style="--nc:#B98CFF"><b>7</b><span>themes for Allura, shared between your PC and phone</span></div>
+    <div class="num reveal" style="--nc:var(--gold-lit)"><b>0</b><span>accounts, ads or monthly fees</span></div>
   </div>
 </section>
 
@@ -77,10 +121,10 @@ styles: [/assets/css/astra-ui.css, /assets/css/allura-ui.css, /assets/css/tour.c
         <p>Library, player, phone app and Walkman manager in one. Explore Astra →</p>
       </a>
       <div class="tile tile--w2 reveal" style="--tile-bg:#1a0b17; --tile-accent:#FF6FAE; --tile-glow:rgba(255,111,174,.5); --tile-art: radial-gradient(80% 80% at 100% 0%, rgba(255,111,174,.35), transparent 70%)">
-        <div class="big-num">0</div><p>accounts, ads or monthly fees in Astra.</p>
+        <span class="tag" style="--tag:#FF6FAE">Astra TV</span><h3>Your library on the big screen.</h3><p>Play from a Fire TV with the remote, lyrics and all.</p>
       </div>
       <div class="tile tile--w2 reveal" style="--tile-bg:#061a1a; --tile-accent:#48D7D0; --tile-glow:rgba(72,215,208,.5); --tile-art: radial-gradient(80% 80% at 0% 0%, rgba(72,215,208,.35), transparent 70%)">
-        <div class="big-num">6</div><p>audio formats: MP3, AAC, FLAC, WAV, OGG and WMA.</p>
+        <span class="tag" style="--tag:#48D7D0">Astra Rewind</span><h3>Your year in music.</h3><p>Hours listened, top songs and top artists, from what you really played.</p>
       </div>
       <a class="tile tile--w3 tile--allura reveal" href="{{ '/projects/allura.html' | relative_url }}" style="--tile-bg:#0B0914; --tile-glow:rgba(140,108,255,.6); --tile-art: radial-gradient(60% 80% at 90% 10%, rgba(140,108,255,.5), transparent 70%), radial-gradient(50% 60% at 10% 100%, rgba(196,107,255,.3), transparent 70%)">
         <img class="tile-logo" src="{{ '/assets/img/allura/allura_logo_flat.svg' | relative_url }}" alt="">
