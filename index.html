@@ -2,7 +2,7 @@
 layout: default
 title: Technology that belongs with people
 body_class: home
-styles: [/assets/css/astra-ui.css, /assets/css/tour.css]
+styles: [/assets/css/astra-ui.css, /assets/css/allura-ui.css, /assets/css/tour.css]
 ---
 <section class="hero" data-parallax>
   <div class="hero-scene" aria-hidden="true">
@@ -82,10 +82,11 @@ styles: [/assets/css/astra-ui.css, /assets/css/tour.css]
       <div class="tile tile--w2 reveal" style="--tile-bg:#061a1a; --tile-accent:#48D7D0; --tile-glow:rgba(72,215,208,.5); --tile-art: radial-gradient(80% 80% at 0% 0%, rgba(72,215,208,.35), transparent 70%)">
         <div class="big-num">6</div><p>audio formats: MP3, AAC, FLAC, WAV, OGG and WMA.</p>
       </div>
-      <a class="tile tile--w3 reveal" href="{{ '/projects/allura.html' | relative_url }}" style="--tile-bg:#F4EEFF; --tile-glow:rgba(141,107,255,.5); --tile-art: radial-gradient(60% 80% at 90% 10%, #d9c8ff, transparent 70%), radial-gradient(50% 60% at 10% 100%, #c9f1ee, transparent 70%); color:#2B2440">
-        <span class="tag" style="--tag:#7A62C9">Allura</span>
+      <a class="tile tile--w3 tile--allura reveal" href="{{ '/projects/allura.html' | relative_url }}" style="--tile-bg:#0B0914; --tile-glow:rgba(140,108,255,.6); --tile-art: radial-gradient(60% 80% at 90% 10%, rgba(140,108,255,.5), transparent 70%), radial-gradient(50% 60% at 10% 100%, rgba(196,107,255,.3), transparent 70%)">
+        <img class="tile-logo" src="{{ '/assets/img/allura/allura_logo_flat.svg' | relative_url }}" alt="">
+        <span class="tag" style="--tag:#CDBBFF">Allura</span>
         <h3>An AI that runs on the PC you already have.</h3>
-        <p style="color:rgba(43,36,64,.75)">Older and low-end machines included. Your conversations stay on it. Meet Allura →</p>
+        <p>Older and low-end machines included. Your conversations stay on it. Meet Allura →</p>
       </a>
       <div class="tile tile--w3 reveal" style="--tile-bg:#10241A; --tile-glow:rgba(224,193,139,.5); --tile-art: radial-gradient(70% 90% at 100% 100%, rgba(224,193,139,.3), transparent 70%)">
         <span class="tag" style="--tag:#E0C18B">Our mission</span>
@@ -101,6 +102,18 @@ styles: [/assets/css/astra-ui.css, /assets/css/tour.css]
         <p>Astra syncs playlists to Sony Walkmans and iPod shuffles the moment you plug them in.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section launcher-promo">
+  <div class="container launcher-promo-grid">
+    <div>
+      <p class="eyebrow reveal">One download</p>
+      <h2 class="title reveal">One launcher. <em class="accent">Every Essence app.</em></h2>
+      <p class="lede reveal">The Essence Launcher downloads, installs and updates all of our apps from one place.</p>
+      <div class="actions reveal"><a class="btn" href="{{ '/download.html' | relative_url }}">Get the Essence Launcher <span class="arrow">→</span></a></div>
+    </div>
+    <div class="reveal" data-grow>{% include launcher-ui.html %}</div>
   </div>
 </section>
 
@@ -125,6 +138,7 @@ styles: [/assets/css/astra-ui.css, /assets/css/tour.css]
     <div class="actions reveal">
       <a class="btn" href="{{ '/projects/astra/' | relative_url }}">Astra <span class="arrow">→</span></a>
       <a class="btn btn--ghost" href="{{ '/projects/allura.html' | relative_url }}">Allura <span class="arrow">→</span></a>
+      <a class="btn btn--ghost" href="{{ '/download.html' | relative_url }}">Download</a>
     </div>
   </div>
 </section>

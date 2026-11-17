@@ -20,3 +20,6 @@ defaults:
     values: { layout: page }
 
 exclude: [README.md, Gemfile, Gemfile.lock, vendor]
+
+# The Essence Launcher download. Put the file's link here and every Download button goes live.
+launcher_url: ""

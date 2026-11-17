@@ -9,3 +9,6 @@
   url: /about.html
 - title: Contact
   url: /contact.html
+- title: Download
+  url: /download.html
+  cta: true

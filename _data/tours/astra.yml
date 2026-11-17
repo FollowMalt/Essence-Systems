@@ -12,7 +12,15 @@ steps:
     callouts:
       - { text: "Covers found for you", x: "30%", y: "28%" }
       - { text: "Cover colors on every card", x: "78%", y: "56%", c: "#FF6FAE" }
-  - eyebrow: "02 · Smart Library"
+  - eyebrow: "02 · Artist pages"
+    headline: "Every artist gets <em>a home of their own.</em>"
+    text: "A full discography grouped into albums, EPs and singles, every song you have, and the artists they've worked with, all colored from their artwork."
+    ui: artist
+    bg: "radial-gradient(70% 60% at 50% 100%, #0f5a78, transparent 70%), radial-gradient(40% 40% at 85% 15%, #2a2470, transparent), #04070d"
+    callouts:
+      - { text: "Albums · EPs · Singles", x: "30%", y: "52%", c: "#48D7D0" }
+      - { text: "Collaborators", x: "84%", y: "72%", c: "#48D7D0" }
+  - eyebrow: "03 · Smart Library"
     headline: "It tidies up. <em>You stay in charge.</em>"
     text: "Missing info, wrong albums, duplicates and covers, all found and shown with evidence. Nothing changes until you press Apply."
     ui: smart
@@ -23,15 +31,15 @@ steps:
     callouts:
       - { text: "98% verified", x: "86%", y: "26%" }
       - { text: "Every change can be undone", x: "42%", y: "72%", c: "#48D7D0" }
-  - eyebrow: "03 · Now Playing"
+  - eyebrow: "04 · Now Playing"
     headline: "A player that <em>glows with the song.</em>"
     text: "Crossfade, volume leveling, autoplay, a sleep timer and timed lyrics, wrapped in the colors of whatever's playing."
-    ui: nowplaying
+    ui: lyrics
     bg: "radial-gradient(70% 70% at 50% 90%, #0f6b78, transparent 70%), radial-gradient(40% 40% at 10% 10%, #1b3a6b, transparent), #04080d"
     callouts:
       - { text: "Crossfade 3–12 s", x: "26%", y: "86%", c: "#48D7D0" }
-      - { text: "Up Next & lyrics", x: "82%", y: "14%", c: "#48D7D0" }
-  - eyebrow: "04 · Walkman & iPod"
+      - { text: "Lyrics that follow along", x: "82%", y: "14%", c: "#48D7D0" }
+  - eyebrow: "05 · Walkman & iPod"
     headline: "Plug it in. <em>It just syncs.</em>"
     text: "Sony Walkmans and iPod shuffles get your playlists, converted to formats they can play. Astra only ever removes what it put there."
     ui: devices

@@ -109,36 +109,6 @@
 .tile--w2 { grid-column: span 2; } .tile--w3 { grid-column: span 3; } .tile--w4 { grid-column: span 4; } .tile--h2 { grid-row: span 2; }
 @media (max-width: 860px) { .bento { grid-template-columns: 1fr 1fr; } .tile--w2, .tile--w3, .tile--w4 { grid-column: span 2; } .tile--h2 { grid-row: span 1; min-height: 320px; } }
 
-/* ==========================================================
-   ALLURA UI — generic rebuild of the desktop chat at 1280×800
-   ========================================================== */
-.al { font: 400 14px/1.45 "Inter", sans-serif; color: #efe9ff; text-align: left; }
-.al-canvas { position: absolute; left: 0; top: 0; width: 1280px; height: 800px; transform-origin: 0 0; transform: scale(var(--ax-s, .5));
-  display: grid; grid-template-columns: 250px 1fr; background: radial-gradient(60% 60% at 80% 0%, #3a1f78, transparent 70%), radial-gradient(50% 50% at 0% 100%, #1b4a5a, transparent 70%), #120a26; }
-.al-side { background: rgba(10, 6, 24, .6); border-right: 1px solid #ffffff14; padding: 22px 16px; display: flex; flex-direction: column; gap: 6px; }
-.al-side small { font-size: 9.5px; letter-spacing: .2em; color: #8f84b8; margin: 14px 8px 2px; display: block; }
-.al-side > span { display: block; padding: 9px 12px; border-radius: 10px; color: #c9c0ea; font-size: 13px; }
-.al-side > span.on { background: linear-gradient(90deg, #6b46d6aa, #6b46d622); color: #fff; }
-.al-new { border: 1px dashed #8d6bff88; text-align: center; margin-bottom: 4px; }
-.al-brand { display: flex; align-items: center; gap: 10px; font-size: 20px; margin: 0 6px 14px; }
-.al-orb { width: 30px; height: 30px; border-radius: 50%; display: inline-block; flex: none; background: radial-gradient(circle at 35% 30%, #fff, #c8b2ff 25%, #8d6bff 55%, #48d7d0); box-shadow: 0 0 22px #8d6bffaa; }
-.al-orb.sm { width: 26px; height: 26px; }
-.al-model { margin-top: auto; border: 1px solid #ffffff1a; border-radius: 12px; padding: 10px 12px; }
-.al-model small { margin: 0 0 4px; }
-.al-main { display: flex; flex-direction: column; padding: 18px 60px 26px; min-width: 0; }
-.al-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid #ffffff12; font-size: 15px; }
-.al-dots { display: flex; gap: 8px; } .al-dots i { width: 11px; height: 11px; border-radius: 50%; background: #ffffff30; } .al-dots i:last-child { background: #ff6fae; }
-.al-msgs { flex: 1; display: flex; flex-direction: column; gap: 18px; padding: 26px 0; overflow: hidden; }
-.al-me { align-self: flex-end; max-width: 60%; padding: 12px 18px; border-radius: 18px 18px 4px 18px; background: linear-gradient(135deg, #7a55e6, #5d3fc4); }
-.al-her { display: flex; gap: 12px; max-width: 78%; }
-.al-her p { margin: 0 0 10px; color: #e6defc; }
-.al-tool { display: inline-block; padding: 8px 14px; border-radius: 12px; background: #ffffff10; border: 1px solid #ffffff1c; font-size: 13px; }
-.al-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 10px; }
-.al-cards span { padding: 12px; border-radius: 12px; background: linear-gradient(160deg, #ffffff14, #ffffff06); border: 1px solid #ffffff1c; }
-.al-cards b { display: block; } .al-cards small { color: #b9aee0; font-size: 12px; }
-.al-src { display: flex; gap: 8px; } .al-src em { font-style: normal; font-size: 11.5px; padding: 5px 10px; border-radius: 999px; color: #7ff0ea; border: 1px solid #48d7d066; background: #48d7d012; }
-.al-input { display: flex; justify-content: space-between; padding: 16px 20px; border-radius: 16px; background: #ffffff0d; border: 1px solid #8d6bff66; color: #9d93c4; box-shadow: 0 0 30px -10px #8d6bff; }
-.al-input span { color: #c8b2ff; }
 
 @media (max-width: 700px) {
   .tour-device-wrap { width: 92vw; bottom: 22vh; }

@@ -7,7 +7,7 @@
     <nav id="nav-links" class="nav-links" aria-label="Main">
       {% for item in site.data.navigation %}
       {% assign active = false %}{% if page.url == item.url %}{% assign active = true %}{% endif %}
-      <a href="{{ item.url | relative_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      <a href="{{ item.url | relative_url }}"{% if item.cta %} class="nav-cta"{% endif %}{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a>
       {% endfor %}
     </nav>
   </div>

@@ -1,9 +1,10 @@
 {%- comment -%}
   A rebuilt, generic Astra interface. {% include astra-ui.html view="home" %}
-  Views: home, albums, nowplaying, smart, devices, phone. Music is made up (see _data/astra_demo.yml).
+  Desktop views: home, songs, albums, artist, playlists, nowplaying, lyrics, smart, devices, rewind.
+  Other screens: phone, phone-library, tv. All music is made up (see _data/astra_demo.yml).
 {%- endcomment -%}
-{%- assign d = site.data.astra_demo -%}{%- assign np = d.songs[2] -%}
-{%- if include.view == "phone" -%}
+{%- assign d = site.data.astra_demo -%}{%- assign np = d.songs[2] -%}{%- assign v = include.view -%}
+{%- if v == "phone" -%}
 <div class="ax ax-phone" aria-hidden="true" style="--a:{{ np.a }};--b:{{ np.b }}">
   <div class="axp-top"><span>Astra</span><span class="ax-dot"></span></div>
   <div class="axp-cover">{% include astra-cover.html s=np %}</div>
@@ -15,40 +16,102 @@
     {% for s in d.songs offset:3 limit:3 %}<div class="ax-row-s">{% include astra-cover.html s=s %}<div><b>{{ s.title }}</b><span>{{ s.artist }}</span></div></div>{% endfor %}
   </div>
 </div>
+{%- elsif v == "phone-library" -%}
+<div class="ax ax-phone ax-phone--lib" aria-hidden="true">
+  <div class="axp-top"><span>Library</span><span class="ax-dot"></span></div>
+  <div class="axp-search">Search your music</div>
+  <div class="axp-tabs"><em class="on">Songs</em><em>Albums</em><em>Artists</em><em>Playlists</em></div>
+  {% for s in d.songs limit:7 %}<div class="ax-row-s">{% include astra-cover.html s=s %}<div><b>{{ s.title }}</b><span>{{ s.artist }}</span></div><small>{{ s.len }}</small></div>{% endfor %}
+  <div class="axp-add">＋ Add songs from this phone</div>
+  <div class="axp-mini" style="--a:{{ np.a }}">{% include astra-cover.html s=np %}<div><b>{{ np.title }}</b><span>{{ np.artist }}</span></div><span class="ax-play">▶</span></div>
+</div>
+{%- elsif v == "tv" -%}
+<div class="ax ax-tv" aria-hidden="true" data-astra-ui style="--a:{{ np.a }};--b:{{ np.b }}">
+  <div class="ax-canvas ax-canvas--tv">
+    <div class="axt-cover">{% include astra-cover.html s=np %}</div>
+    <div class="axt-meta"><small class="ax-kicker">ASTRA TV · NOW PLAYING</small><b>{{ np.title }}</b><span>{{ np.artist }} · {{ np.album }}</span>
+      <div class="axp-bar"><i style="width:44%"></i></div>
+      <div class="axt-lyric"><span>The radio is all we need</span><b>And every wave is singing loud</b><span>Neon tide, carry me home</span></div>
+    </div>
+    <div class="axt-hint">◀ ▶ skip · OK play / pause · ▲ lyrics</div>
+  </div>
+</div>
 {%- else -%}
-<div class="ax ax-desk ax-view-{{ include.view }}" aria-hidden="true" data-astra-ui>
+{%- assign cur = "Home" -%}
+{%- if v == "songs" or v == "albums" -%}{%- assign cur = "Library" -%}{%- endif -%}
+{%- if v == "artist" -%}{%- assign cur = "Artists" -%}{%- endif -%}
+{%- if v == "playlists" -%}{%- assign cur = "Playlists" -%}{%- endif -%}
+{%- if v == "smart" -%}{%- assign cur = "Smart Library" -%}{%- endif -%}
+{%- if v == "devices" -%}{%- assign cur = "Devices" -%}{%- endif -%}
+{%- if v == "nowplaying" or v == "lyrics" -%}{%- assign cur = "" -%}{%- endif -%}
+<div class="ax ax-desk ax-view-{{ v }}" aria-hidden="true" data-astra-ui>
   <div class="ax-canvas">
     <aside class="ax-side">
       <div class="ax-brand"><span class="ax-logo">✦</span><div><b>Astra</b><small>MUSIC · PLAYERS</small></div></div>
       <small class="ax-label">LIBRARY</small>
-      {% assign nav = "Home,Library,Artists,Playlists" | split: "," %}
-      {% assign cur = "Home" %}{% if include.view == "albums" %}{% assign cur = "Library" %}{% endif %}{% if include.view == "smart" %}{% assign cur = "Smart Library" %}{% endif %}{% if include.view == "devices" %}{% assign cur = "Devices" %}{% endif %}
+      {% assign nav = "Home,Library,Artists,Playlists,Devices,Smart Library,Settings" | split: "," %}
       {% for n in nav %}<div class="ax-nav{% if n == cur %} on{% endif %}">{{ n }}</div>{% endfor %}
-      <small class="ax-label">MANAGE</small>
-      {% assign nav2 = "Devices,Smart Library,Settings" | split: "," %}
-      {% for n in nav2 %}<div class="ax-nav{% if n == cur %} on{% endif %}">{{ n }}</div>{% endfor %}
       <div class="ax-activity"><b>✓ Activity</b><small>Sync complete. Your players are up to date.</small></div>
     </aside>
     <main class="ax-main">
-    {%- case include.view -%}
+    {%- case v -%}
     {%- when "home" -%}
-      <div class="ax-head"><h4>Music Library</h4><span class="ax-btn">IMPORT MUSIC</span></div>
+      <div class="ax-head"><h4>Good evening</h4><span class="ax-btn">IMPORT MUSIC</span></div>
       <div class="ax-banner"><div><b>Late night listening</b><small>Your library and players at a glance</small></div>
         <div class="ax-stats"><span><b>1,248</b>Songs</span><span><b>312</b>Albums</span><span><b>186</b>Artists</span><span><b>14</b>Playlists</span></div></div>
       <div class="ax-cols">
         <div class="ax-panel"><b class="ax-h">Your Music</b>
-          <div class="ax-quick"><span class="on">Import music</span><span>Smart Library</span><span>Phone page</span><span>Astra Rewind</span></div>
+          <div class="ax-quick"><span class="on">Import music</span><span>Smart Library · 6</span><span>Phone page</span><span>Astra Rewind</span></div>
           <small class="ax-sub">Recently Added</small>
           {% for s in d.songs limit:6 %}<div class="ax-row" style="--a:{{ s.a }}">{% include astra-cover.html s=s %}<div><b>{{ s.title }}</b><span>{{ s.artist }}</span></div></div>{% endfor %}
         </div>
         <div class="ax-panel ax-devs"><b class="ax-h">Devices</b>
-          {% for v in d.devices %}<div class="ax-dev"><i></i><div><b>{{ v.name }}</b><span>Plugged in</span></div><em>SYNC</em></div>{% endfor %}
+          {% for dv in d.devices %}<div class="ax-dev"><i></i><div><b>{{ dv.name }}</b><span>Plugged in</span></div><em>SYNC</em></div>{% endfor %}
         </div>
       </div>
+    {%- when "songs" -%}
+      <div class="ax-head"><h4>Library</h4><span class="ax-tabs"><em class="on">SONGS</em><em>ALBUMS</em></span><span class="ax-search">Search songs, albums, artists, playlists</span></div>
+      <div class="ax-table">
+        <div class="ax-tr ax-th"><span>#</span><span>TITLE</span><span>ALBUM</span><span>YEAR</span><span>TIME</span></div>
+        {% for s in d.songs %}<div class="ax-tr{% if forloop.index == 3 %} on{% endif %}" style="--a:{{ s.a }}"><span>{{ forloop.index }}</span><span class="ax-tt">{% include astra-cover.html s=s %}<span><b>{{ s.title }}</b><span>{{ s.artist }}</span></span></span><span>{{ s.album }}</span><span>{{ s.year }}</span><span>{{ s.len }}</span></div>{% endfor %}
+      </div>
+      <div class="ax-az">{% assign az = "A,B,C,D,F,G,H,J,L,M,N,P,S,T,V" | split: "," %}{% for l in az %}<i>{{ l }}</i>{% endfor %}</div>
     {%- when "albums" -%}
       <div class="ax-head"><h4>Library</h4><span class="ax-tabs"><em>SONGS</em><em class="on">ALBUMS</em></span><span class="ax-search">Search songs, albums, artists, playlists</span></div>
       <div class="ax-grid">
-        {% for s in d.songs %}<div class="ax-album" style="--a:{{ s.a }};--b:{{ s.b }}">{% include astra-cover.html s=s %}<div class="ax-album-meta"><b>{{ s.album }}</b><span>{{ s.artist }}</span><small>{{ s.year }} · {{ forloop.index | modulo: 3 | plus: 1 }} songs</small></div></div>{% endfor %}
+        {% for s in d.songs %}<div class="ax-album" style="--a:{{ s.a }};--b:{{ s.b }}">{% include astra-cover.html s=s %}<div class="ax-album-meta"><b>{{ s.album }}</b><span>{{ s.artist }}</span><small>{{ s.year }} · {{ forloop.index | modulo: 3 | plus: 9 }} songs</small></div></div>{% endfor %}
+      </div>
+    {%- when "artist" -%}
+      {%- assign ar = d.artist -%}
+      <div class="ax-artist" style="--a:{{ ar.hue }};--b:{{ ar.hue2 }}">
+        <div class="ax-ar-head"><span class="ax-ar-photo"></span><div><small class="ax-kicker">ARTIST</small><b class="ax-ar-name">{{ ar.name }}</b><small>{{ ar.bio }}</small>
+          <div class="ax-acts"><em class="on">▶ PLAY</em><em>⇄ SHUFFLE</em><em>SEE FULL DISCOGRAPHY →</em></div></div></div>
+        <div class="ax-ar-body">
+          <div class="ax-disc"><small class="ax-sub">DISCOGRAPHY · 9</small>
+            {% for g in ar.releases %}<small class="ax-label">{{ g.type }}</small><div class="ax-disc-row">{% for r in g.items %}<div class="ax-rel">{% include astra-cover.html s=r %}<b>{{ r.t }}</b><span>{{ r.y }}</span></div>{% endfor %}</div>{% endfor %}
+          </div>
+          <div class="ax-ar-side"><small class="ax-sub">SONGS · 34</small>
+            {% for s in d.songs limit:5 %}<div class="ax-row-s">{% include astra-cover.html s=s %}<div><b>{{ s.title }}</b><span>{{ s.album }}</span></div><small>{{ s.len }}</small></div>{% endfor %}
+            <small class="ax-sub" style="margin-top:14px">COLLABORATORS</small>
+            <div class="ax-collab">{% for c in ar.collaborators %}<span>{{ c }}</span>{% endfor %}</div>
+          </div>
+        </div>
+      </div>
+    {%- when "playlists" -%}
+      <div class="ax-head"><h4>Playlists</h4><span class="ax-btn">IMPORT FROM SPOTIFY / APPLE MUSIC</span><span class="ax-btn ax-btn--fill">＋ NEW PLAYLIST</span></div>
+      <small class="ax-sub">ASTRA PLAYLISTS · MADE FOR YOU, UPDATED AS YOU LISTEN</small>
+      <div class="ax-pl-grid">{% for p in d.playlists %}{% if p.auto %}<div class="ax-pl" style="--a:{{ p.a }};--b:{{ p.b }}">{% include astra-cover.html s=p %}<b>{{ p.name }}</b><span>{{ p.n }} songs</span></div>{% endif %}{% endfor %}</div>
+      <small class="ax-sub">YOUR PLAYLISTS</small>
+      <div class="ax-pl-grid">{% for p in d.playlists %}{% unless p.auto %}<div class="ax-pl" style="--a:{{ p.a }};--b:{{ p.b }}">{% include astra-cover.html s=p %}<b>{{ p.name }}</b><span>{{ p.n }} songs</span></div>{% endunless %}{% endfor %}</div>
+    {%- when "nowplaying" or "lyrics" -%}
+      <div class="ax-np" style="--a:{{ np.a }};--b:{{ np.b }}">
+        <div class="ax-np-left">{% include astra-cover.html s=np %}<small class="ax-kicker">PLAYING FROM YOUR LIBRARY</small><b class="ax-big">{{ np.title }}</b><span>{{ np.artist }} · {{ np.album }}</span>
+          <div class="ax-chips"><span>CROSSFADE</span><span class="on">6s</span><span>AUTOPLAY</span><span class="on">On</span><span>SLEEP</span><span>30m</span></div></div>
+        {%- if v == "lyrics" -%}
+        <div class="ax-upnext ax-lyrics"><b><i>Up Next</i> Lyrics</b>{% for l in d.lyrics %}<p class="{% if forloop.index == 4 %}on{% elsif forloop.index < 4 %}past{% endif %}">{{ l }}</p>{% endfor %}<small class="ax-lyr-note">✓ TIMED LYRICS · ADD BETTER TIMING</small></div>
+        {%- else -%}
+        <div class="ax-upnext"><b>Up Next <i>Lyrics</i></b>{% for s in d.songs %}{% unless forloop.index == 3 %}<div class="ax-row-s">{% include astra-cover.html s=s %}<div><b>{{ s.title }}</b><span>{{ s.artist }}</span></div><small>{{ s.len }}</small></div>{% endunless %}{% endfor %}</div>
+        {%- endif -%}
       </div>
     {%- when "smart" -%}
       <div class="ax-head"><h4>Smart Library</h4></div>
@@ -57,12 +120,15 @@
       {% for s in d.songs offset:4 limit:2 %}<div class="ax-fix"><b>{{ s.title }} — {{ s.artist }}</b><small>Fill in details from {{ s.album }}</small><span>Genre <i>(empty)</i> → <b>Indie</b></span><span>✓ Same artist · ✓ Same title · ✓ Same length</span><div class="ax-acts"><em class="on">APPLY</em><em>EDIT</em><em>SKIP</em><em>REJECT</em></div></div>{% endfor %}
     {%- when "devices" -%}
       <div class="ax-head"><h4>Devices</h4><span class="ax-btn">SCAN FOR DEVICES</span></div>
-      {% for v in d.devices %}<div class="ax-devcard" style="--h:{{ v.hue }}"><span class="ax-sil ax-sil--{{ v.kind }}"></span><div><b>{{ v.name }}</b><small>{{ v.model }}</small><div class="ax-acts"><em>BACK UP MUSIC</em><em>ADOPT PLAYLISTS</em><em>SCAN DEVICE</em></div></div><div class="ax-devright"><em class="ok">CONNECTED</em><em class="gold">SYNC</em></div></div>{% endfor %}
-    {%- when "nowplaying" -%}
-      <div class="ax-np" style="--a:{{ np.a }};--b:{{ np.b }}">
-        <div class="ax-np-left">{% include astra-cover.html s=np %}<small class="ax-kicker">PLAYING FROM YOUR LIBRARY</small><b class="ax-big">{{ np.title }}</b><span>{{ np.artist }} · {{ np.album }}</span>
-          <div class="ax-chips"><span>CROSSFADE</span><span class="on">6s</span><span>AUTOPLAY</span><span class="on">On</span><span>SLEEP</span><span>30m</span></div></div>
-        <div class="ax-upnext"><b>Up Next <i>Lyrics</i></b>{% for s in d.songs %}{% unless forloop.index == 3 %}<div class="ax-row-s">{% include astra-cover.html s=s %}<div><b>{{ s.title }}</b><span>{{ s.artist }}</span></div><small>{{ s.len }}</small></div>{% endunless %}{% endfor %}</div>
+      {% for dv in d.devices %}<div class="ax-devcard" style="--h:{{ dv.hue }}"><span class="ax-sil ax-sil--{{ dv.kind }}"></span><div><b>{{ dv.name }}</b><small>{{ dv.model }}</small><div class="ax-acts"><em>BACK UP MUSIC</em><em>ADOPT PLAYLISTS</em>{% if dv.kind == "walkman" %}<em>WALLPAPER</em>{% endif %}<em>PREVIEW SYNC</em></div></div><div class="ax-devright"><em class="ok">CONNECTED</em><em class="gold">SYNC</em></div></div>{% endfor %}
+    {%- when "rewind" -%}
+      <div class="ax-rewind">
+        <div class="ax-rw-head"><small class="ax-kicker">ASTRA REWIND</small><b class="ax-rw-title">This year</b><div class="ax-tabs"><em>This month</em><em class="on">This year</em><em>All time</em></div></div>
+        <div class="ax-rw-stats"><span><b>412</b>hours</span><span><b>3,980</b>plays</span><span><b>641</b>songs</span><span><b>129</b>artists</span></div>
+        <div class="ax-cols ax-cols--even">
+          <div class="ax-panel"><b class="ax-h">Top songs <em class="ax-mini-btn">▶ PLAY THEM</em></b>{% for s in d.songs limit:5 %}<div class="ax-rank"><i>{{ forloop.index }}</i>{% include astra-cover.html s=s %}<div><b>{{ s.title }}</b><span>{{ s.artist }}</span></div><small>{{ 90 | minus: forloop.index0 | times: 3 }} plays</small></div>{% endfor %}</div>
+          <div class="ax-panel"><b class="ax-h">Top artists</b>{% for s in d.songs offset:2 limit:5 %}<div class="ax-rank"><i>{{ forloop.index }}</i><span class="ax-ar-dot" style="--a:{{ s.a }};--b:{{ s.b }}"></span><div><b>{{ s.artist }}</b><span>{{ 30 | minus: forloop.index0 | times: 4 }} hours</span></div></div>{% endfor %}</div>
+        </div>
       </div>
     {%- endcase -%}
     </main>

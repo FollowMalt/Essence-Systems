@@ -4,7 +4,7 @@ c1: "#E0C18B"
 c2: "#FF6FAE"
 glow: "rgba(224, 193, 139, .55)"
 steps:
-  - eyebrow: "Astra · Beta for Windows"
+  - eyebrow: "Astra · For Windows"
     headline: "Your music. <em>Every device.</em>"
     text: "A music player and library manager for the songs you own. Your computer, your phone, your Walkman or iPod. No account, no ads."
     ui: home
