@@ -456,3 +456,4 @@ em.accent { font-style: italic; color: var(--gold-lit); }
 @media (max-width: 860px) { .dl-hero-grid, .dl-app-grid, .dl-steps { grid-template-columns: 1fr; } }
 @media (max-width: 900px) { .feature-media, .feature--flip .feature-media { transform: none; } }
 @media (max-width: 600px) { .ln-state { display: none; } .ln-app { padding: 12px; } }
+.fine-print a { color: var(--gold-lit); }

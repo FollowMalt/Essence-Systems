@@ -8,15 +8,15 @@ body_class: download
   <div class="dl-glow" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="container dl-hero-grid">
     <div>
-      <p class="eyebrow reveal">The Essence Launcher</p>
+      <p class="eyebrow reveal">The Essence Launcher · Coming soon</p>
       <h1 class="display reveal">One download. <em>Every app.</em></h1>
-      <p class="lede reveal">The Essence Launcher downloads, installs and updates all of our apps from one place. Install it once, then pick what you want.</p>
+      <p class="lede reveal">We're building the Essence Launcher: one app that downloads, installs and updates all of our apps from one place. Install it once, then pick what you want.</p>
       <div class="actions reveal">
         {% if site.launcher_url != "" %}<a class="btn" href="{{ site.launcher_url }}">Download for Windows <span class="arrow">↓</span></a>
-        {% else %}<span class="btn btn--soon" aria-disabled="true">Download link coming soon</span>{% endif %}
+        {% else %}<span class="btn btn--soon" aria-disabled="true">Coming soon</span>{% endif %}
         <a class="btn btn--ghost" href="#how">How it works</a>
       </div>
-      <p class="fine-print reveal">For Windows PCs.</p>
+      <p class="fine-print reveal">For Windows PCs. Follow the <a href="{{ '/updates.html' | relative_url }}">updates</a> to hear when it's ready.</p>
     </div>
     <div class="reveal" data-grow>{% include launcher-ui.html %}</div>
   </div>
@@ -24,7 +24,7 @@ body_class: download
 
 <section class="section" id="how">
   <div class="container">
-    <div class="section-head center"><p class="eyebrow reveal">How it works</p><h2 class="title reveal">Three steps, <em class="accent">then it takes care of itself.</em></h2></div>
+    <div class="section-head center"><p class="eyebrow reveal">How it works</p><h2 class="title reveal">Three steps, <em class="accent">then it takes care of itself.</em></h2><p class="lede reveal" style="margin-inline:auto">Here's how it will work once it's ready.</p></div>
     <ol class="dl-steps">
       <li class="reveal" style="--c:#E0C18B"><span>1</span><h3>Download the launcher</h3><p>One small download for your PC.</p></li>
       <li class="reveal" style="--c:#48D7D0"><span>2</span><h3>Pick your apps</h3><p>Choose Astra, Allura or both, and the launcher installs them for you.</p></li>
