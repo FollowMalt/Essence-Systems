@@ -1,0 +1,138 @@
+---
+layout: default
+title: Astra
+description: Astra is a music player and library manager for Windows that turns the songs you own into a streaming-style experience, on your computer, your phone, your TV and your Walkman or iPod.
+body_class: product-astra
+styles: [/assets/css/astra-ui.css, /assets/css/tour.css, /assets/css/astra.css]
+---
+<!-- Every app screen here is an HTML rebuild (_includes/astra-ui.html) with made-up music. Swap ui="..." for src="..." to use a real screenshot. -->
+{% include tour.html tour=site.data.tours.astra %}
+
+<section class="section astra-intro">
+  <div class="container section-head center">
+    <p class="eyebrow reveal">For music you actually own</p>
+    <h2 class="title reveal">Your own streaming app, iTunes and Walkman manager <em class="ax-em">in one.</em></h2>
+    <p class="lede reveal">Import your MP3s, FLACs and CDs into one clean library. Astra fixes messy tags, finds album covers and lines your songs up with their official albums. Then play them on your computer, stream them to your phone or TV, and keep your Walkman or iPod synced on its own.</p>
+  </div>
+</section>
+
+<section class="feature" style="--f1:#b58cff;--f2:#4D9FFF">
+  <div class="container feature-grid">
+    <div class="feature-copy reveal">
+      <p class="eyebrow">Songs &amp; albums</p>
+      <h2>The whole collection, <em>beautifully kept.</em></h2>
+      <p>Browse by song or album, jump with the A–Z index, and search everything at once. Every album card picks up the colors of its cover.</p>
+      <ul class="feature-points"><li>Best-quality copy kept, duplicates skipped</li><li>Covers found for you</li><li>Your original files are never changed</li></ul>
+    </div>
+    <div class="feature-media reveal" data-grow>{% include screen.html ui="songs" label="Astra song list" %}</div>
+  </div>
+</section>
+
+<section class="feature feature--flip" style="--f1:#48D7D0;--f2:#4D9FFF">
+  <div class="container feature-grid">
+    <div class="feature-copy reveal">
+      <p class="eyebrow">Artist pages</p>
+      <h2>Their whole story, <em>in one place.</em></h2>
+      <p>Each artist page opens with a big header in the artist's colors, then the full discography from your library: albums, EPs, singles, compilations, deluxe editions and soundtracks. Below that, every song you have and the artists they've worked with.</p>
+      <ul class="feature-points"><li>Play or shuffle the whole artist</li><li>Collaborators link to their own pages</li><li>Artist photos looked up by name only</li></ul>
+    </div>
+    <div class="feature-media reveal" data-grow>{% include screen.html ui="artist" label="Astra artist page" %}</div>
+  </div>
+</section>
+
+<section class="feature" style="--f1:#FF6FAE;--f2:#b58cff">
+  <div class="container feature-grid">
+    <div class="feature-copy reveal">
+      <p class="eyebrow">Playlists</p>
+      <h2>Make your own. <em>Or let Astra.</em></h2>
+      <p>Build and reorder your own playlists, or let Astra Playlists put together your top songs, recently added, rediscoveries and artist mixes, updated as you listen.</p>
+      <ul class="feature-points"><li>Import playlists from Spotify and Apple Music</li><li>Missing songs drop in once you add them</li><li>Sync any playlist to your players</li></ul>
+    </div>
+    <div class="feature-media reveal" data-grow>{% include screen.html ui="playlists" label="Astra playlists" %}</div>
+  </div>
+</section>
+
+<section class="feature feature--flip feature--glow" style="--f1:#48D7D0;--f2:#FF6FAE">
+  <div class="container feature-grid">
+    <div class="feature-copy reveal">
+      <p class="eyebrow">Listening</p>
+      <h2>A player that <em>glows with the song.</em></h2>
+      <p>Now Playing fills the screen with the colors of whatever's on. Turn to Up Next to line up what's coming, or to timed lyrics that follow along line by line.</p>
+      <ul class="feature-points"><li>Crossfade, autoplay and a sleep timer</li><li>Volume leveling so every song sits at the same loudness</li><li>Optional lyric add-ons for better timing</li></ul>
+    </div>
+    <div class="feature-media reveal" data-grow>{% include screen.html ui="lyrics" label="Astra Now Playing with lyrics" %}</div>
+  </div>
+</section>
+
+<section class="feature" style="--f1:#8D6BFF;--f2:#48D7D0">
+  <div class="container feature-grid">
+    <div class="feature-copy reveal">
+      <p class="eyebrow">Smart Library</p>
+      <h2>It tidies up. <em>You stay in charge.</em></h2>
+      <p>Smart Library finds missing details, wrong albums, missing covers and duplicates, and shows the evidence for every suggestion. Nothing changes until you press Apply, and everything can be undone.</p>
+      <ul class="feature-points"><li>Checks songs against online catalogs</li><li>Merges duplicates and tidies albums</li><li>Full history with undo</li></ul>
+    </div>
+    <div class="feature-media reveal" data-grow>{% include screen.html ui="smart" label="Astra Smart Library" %}</div>
+  </div>
+</section>
+
+<section class="feature feature--flip" style="--f1:#FF6FAE;--f2:#E0C18B">
+  <div class="container feature-grid">
+    <div class="feature-copy reveal">
+      <p class="eyebrow">Walkman &amp; iPod</p>
+      <h2>Plug it in. <em>It just syncs.</em></h2>
+      <p>Sony Walkmans, including Japanese models, and iPod shuffles get your playlists in formats they can play. Preview a sync first, back up what's on a player, adopt its playlists, and even send it a wallpaper.</p>
+      <ul class="feature-points"><li>Auto-sync when a player is plugged in</li><li>Ten original wallpapers, or your own photo</li><li>Astra only ever removes what it put there</li></ul>
+    </div>
+    <div class="feature-media reveal" data-grow>{% include screen.html ui="devices" label="Astra devices" %}</div>
+  </div>
+</section>
+
+<section class="feature feature--rewind" style="--f1:#FF6FAE;--f2:#48D7D0">
+  <div class="container feature-grid">
+    <div class="feature-copy reveal">
+      <p class="eyebrow">Astra Rewind</p>
+      <h2>Your year in music, <em>from what you really played.</em></h2>
+      <p>See your month, your year or all time: hours listened, top songs and top artists. Then play your top songs in one tap.</p>
+    </div>
+    <div class="feature-media reveal" data-grow>{% include screen.html ui="rewind" label="Astra Rewind" %}</div>
+  </div>
+</section>
+
+<section class="section astra-anywhere">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow reveal">Every screen you own</p>
+      <h2 class="title reveal">Your phone. <em class="ax-em">Your TV.</em> Your library.</h2>
+      <p class="lede reveal">The phone page streams your whole library over your own private network. Browse, play, add songs from your phone and review Smart Library. On a Fire TV, Astra TV plays with the remote. Astra for iPhone and iPad is on its way.</p>
+    </div>
+    <div class="anywhere-row">
+      {% include screen.html device="phone" ui="phone-library" label="Astra phone library" class="reveal" %}
+      {% include screen.html device="tv" ui="tv" label="Astra TV" class="reveal" %}
+      {% include screen.html device="phone" ui="phone" label="Astra phone Now Playing" class="reveal" %}
+    </div>
+  </div>
+</section>
+
+<section class="section astra-more">
+  <div class="container">
+    <div class="section-head"><p class="eyebrow reveal">And there's more</p><h2 class="title reveal">Small things that make it yours.</h2></div>
+    <div class="bento">
+      <div class="tile tile--w3 reveal" style="--tile-bg:#0e0a22; --tile-glow:#b58cff88; --tile-art: radial-gradient(80% 90% at 100% 0%, #b58cff55, transparent 70%)"><h3>Rip your CDs</h3><p>To MP3 or FLAC, with the album looked up for you.</p></div>
+      <div class="tile tile--w3 reveal" style="--tile-bg:#05171a; --tile-glow:#48D7D088; --tile-art: radial-gradient(80% 90% at 100% 0%, #48D7D055, transparent 70%)"><h3>Activity</h3><p>Imports, syncs and scans run in the background, in line. Nothing blocks.</p></div>
+      <div class="tile tile--w2 reveal" style="--tile-bg:#1a0b17; --tile-glow:#FF6FAE88; --tile-art: radial-gradient(80% 90% at 100% 0%, #FF6FAE55, transparent 70%)"><h3>Themes</h3><p>Light and dark, with Nebula, Supernova, Deep Space, Aurora and Galaxy styles.</p></div>
+      <div class="tile tile--w2 reveal" style="--tile-bg:#07122a; --tile-glow:#4D9FFF88; --tile-art: radial-gradient(80% 90% at 100% 0%, #4D9FFF55, transparent 70%)"><h3>Always ready</h3><p>Lives in the tray and can start with Windows, so the phone page is always there.</p></div>
+      <div class="tile tile--w2 reveal" style="--tile-bg:#16120a; --tile-glow:#E0C18B88; --tile-art: radial-gradient(80% 90% at 100% 0%, #E0C18B55, transparent 70%)"><h3>Yours alone</h3><p>No account, no ads, nothing uploaded. Astra never downloads music.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="container">
+    <p class="eyebrow reveal">Astra for Windows 10 and 11</p>
+    <h2 class="reveal">The music app for people who own their music.</h2>
+    <div class="actions reveal">
+      <a class="btn" href="{{ '/download.html' | relative_url }}">Coming to the Essence Launcher <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>

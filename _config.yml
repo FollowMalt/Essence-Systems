@@ -1,0 +1,25 @@
+# Essence Systems website
+# GitHub Pages builds this site with Jekyll automatically. No local tools needed.
+
+title: Essence Systems
+tagline: Technology that belongs with people.
+description: Essence designs calm, lasting software built around people. Home of Astra and Allura.
+url: https://followmalt.github.io
+baseurl: /Essence-Systems
+
+# Set this to an image path (e.g. /assets/img/brand/essence-logo.svg) to use the logo file.
+# Leave it empty to use the text wordmark.
+logo: ""
+
+collections:
+  updates:
+    output: false
+
+defaults:
+  - scope: { path: "" }
+    values: { layout: page }
+
+exclude: [README.md, Gemfile, Gemfile.lock, vendor]
+
+# The Essence Launcher download. Put the file's link here and every Download button goes live.
+launcher_url: ""

@@ -1,0 +1,58 @@
+---
+layout: default
+title: Download
+description: Download the Essence Launcher, one app that downloads, installs and updates every Essence app.
+body_class: download
+---
+<section class="dl-hero">
+  <div class="dl-glow" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="container dl-hero-grid">
+    <div>
+      <p class="eyebrow reveal">The Essence Launcher · Coming soon</p>
+      <h1 class="display reveal">One download. <em>Every app.</em></h1>
+      <p class="lede reveal">We're building the Essence Launcher: one app that downloads, installs and updates all of our apps from one place. Install it once, then pick what you want.</p>
+      <div class="actions reveal">
+        {% if site.launcher_url != "" %}<a class="btn" href="{{ site.launcher_url }}">Download for Windows <span class="arrow">↓</span></a>
+        {% else %}<span class="btn btn--soon" aria-disabled="true">Coming soon</span>{% endif %}
+        <a class="btn btn--ghost" href="#how">How it works</a>
+      </div>
+      <p class="fine-print reveal">For Windows PCs. Follow the <a href="{{ '/updates.html' | relative_url }}">updates</a> to hear when it's ready.</p>
+    </div>
+    <div class="reveal" data-grow>{% include launcher-ui.html %}</div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="container">
+    <div class="section-head center"><p class="eyebrow reveal">How it works</p><h2 class="title reveal">Three steps, <em class="accent">then it takes care of itself.</em></h2><p class="lede reveal" style="margin-inline:auto">Here's how it will work once it's ready.</p></div>
+    <ol class="dl-steps">
+      <li class="reveal" style="--c:#E0C18B"><span>1</span><h3>Download the launcher</h3><p>One small download for your PC.</p></li>
+      <li class="reveal" style="--c:#48D7D0"><span>2</span><h3>Pick your apps</h3><p>Choose Astra, Allura or both, and the launcher installs them for you.</p></li>
+      <li class="reveal" style="--c:#FF6FAE"><span>3</span><h3>Stay up to date</h3><p>When there's an update, the launcher gets it and installs it. No hunting for new versions.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section dl-apps">
+  <div class="container">
+    <div class="section-head"><p class="eyebrow reveal">Inside the launcher</p><h2 class="title reveal">The apps.</h2></div>
+    <div class="dl-app-grid">
+      <a class="dl-app dl-app--astra reveal" href="{{ '/projects/astra/' | relative_url }}">
+        <span class="dl-icon">✦</span>
+        <div><p class="eyebrow">Astra · Music</p><h3>Your own streaming app, for music you own.</h3><p>Library, artist pages, playlists, lyrics, Smart Library, Walkman and iPod sync, phone and TV.</p><small>Windows 10 or 11 · See Astra →</small></div>
+      </a>
+      <a class="dl-app dl-app--allura reveal" href="{{ '/projects/allura.html' | relative_url }}">
+        <img class="dl-icon" src="{{ '/assets/img/allura/allura_logo_flat.svg' | relative_url }}" alt="">
+        <div><p class="eyebrow">Allura · Private AI · Developer Beta</p><h3>An AI that lives on your own computer.</h3><p>Conversation, research with sources, everyday tools and Allura Link for your phone.</p><small>In active development · See Allura →</small></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="container">
+    <p class="eyebrow reveal">Essence</p>
+    <h2 class="reveal">Everything we make, in one place.</h2>
+    <div class="actions reveal"><a class="btn btn--ghost" href="{{ '/updates.html' | relative_url }}">See what's new <span class="arrow">→</span></a></div>
+  </div>
+</section>

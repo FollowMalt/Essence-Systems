@@ -1,0 +1,77 @@
+{%- comment -%}
+  A generic rebuild of Allura's interface, in her own colors (allura/link/web/tokens.css).
+  {% include allura-ui.html view="chat" %}   desktop views: chat, research, themes
+  Phone (Allura Link) views: phone, phone-loading. Example conversations only.
+{%- endcomment -%}
+{%- assign logo = '/assets/img/allura/allura_logo_flat.svg' | relative_url -%}
+{%- assign v = include.view | default: "chat" -%}
+{%- if v == "phone" or v == "phone-loading" -%}
+<div class="al al-phone{% if v == 'phone-loading' %} al-phone--boot{% endif %}" aria-hidden="true">
+  <div class="al-glow"></div>
+  {%- if v == "phone-loading" -%}
+  <div class="alp-boot">
+    <img class="alp-boot-logo" src="{{ logo }}" alt="">
+    <div class="alp-bar"><i></i></div>
+    <b class="al-brand-word">ALLURA</b>
+    <ul><li class="ok">Connecting to your PC</li><li class="ok">Connecting to ACE</li><li class="now">Loading the language model</li><li>Warming up</li></ul>
+  </div>
+  {%- else -%}
+  <div class="alp-top"><img src="{{ '/assets/img/allura/allura_star_neon.svg' | relative_url }}" alt=""><div><b>Allura</b><span><i></i>Ready</span></div><em>⟲</em></div>
+  <div class="alp-msgs">
+    <div class="al-msg me"><p>is it gonna rain tomorrow?</p></div>
+    <div class="al-msg her"><small>Allura</small><p>Yes, a little. Showers are likely after 3 PM, around 70% chance, then clearing by evening. Bring an umbrella if you're out in the afternoon.</p><div class="al-wx"><span>☀ Morning 74°</span><span>🌧 3 PM 70%</span><span>🌙 66°</span></div></div>
+    <div class="al-msg me"><p>set a timer for 20 min</p></div>
+    <div class="al-msg her"><small>Allura</small><p>Timer set for 20 minutes. I'll let you know when it's done.</p></div>
+  </div>
+  <div class="alp-comp"><span>Message Allura</span><em>↑</em></div>
+  {%- endif -%}
+</div>
+{%- else -%}
+{%- assign cur = "Chats" -%}{%- if v == "research" -%}{%- assign cur = "Research" -%}{%- endif -%}{%- if v == "themes" -%}{%- assign cur = "Themes" -%}{%- endif -%}
+<div class="al ax-desk al-view-{{ v }}" aria-hidden="true" data-astra-ui>
+  <div class="al-canvas">
+    <div class="al-glow"></div>
+    <header class="al-title"><img src="{{ logo }}" alt=""><b class="al-brand-word">ALLURA</b>
+      <span class="al-state"><i></i>{% if v == "research" %}Researching{% else %}Ready{% endif %}</span><span class="al-tag">LOCAL • EXPERIMENTAL</span>
+      <span class="al-win"><i></i><i></i><i></i></span></header>
+    <aside class="al-side">
+      {% assign nav = "Chats,Memory,Research,Planning,Learning,Themes,Settings,About" | split: "," %}
+      {% assign glyph = "◌,◇,⌕,☰,✧,◐,⚙,ⓘ" | split: "," %}
+      {% for n in nav %}<span class="al-nav{% if n == cur %} on{% endif %}"><i>{{ glyph[forloop.index0] }}</i>{{ n }}</span>{% endfor %}
+      <div class="al-side-foot"><span class="al-av">A</span><div><b>Alex</b><small>Owner · this PC</small></div></div>
+    </aside>
+    <main class="al-main">
+    {%- case v -%}
+    {%- when "chat" -%}
+      <div class="al-msgs">
+        <div class="al-msg me"><p>I'm hungry. Can you see what's good for ramen near me?</p></div>
+        <div class="al-msg her"><small>Allura</small><p>Yes! Three spots close to you have strong reviews. Kumo Ramen is the closest with a vegetarian broth, and Midori Bar is open latest tonight.</p>
+          <div class="al-cards"><span><b>Kumo Ramen</b><small>0.4 mi · open till 10</small></span><span><b>Noodle House</b><small>0.9 mi · open till 9</small></span><span><b>Midori Bar</b><small>1.2 mi · open till 12</small></span></div>
+          <div class="al-src"><em>openstreetmap.org</em><em>Menu</em><em>Reviews</em></div></div>
+        <div class="al-msg me"><p>nice, how far is the second one in km?</p></div>
+        <div class="al-msg her"><small>Allura</small><p>Noodle House is about 1.4 km away.</p></div>
+        <div class="al-msg typing"><span class="al-dots"><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="al-input"><span>Message Allura</span><em>↑</em></div>
+    {%- when "research" -%}
+      <div class="al-page-head"><b>Research</b><small>Every claim checked against the sources it came from.</small></div>
+      <div class="al-q">Is it bad to leave my phone charging overnight?</div>
+      <div class="al-pipe">{% assign st = "Discovery,Collection,Claims,Cross-check,Contradictions,Synthesis" | split: "," %}{% for s in st %}<span class="{% if forloop.index < 6 %}done{% else %}now{% endif %}">{{ s }}</span>{% endfor %}</div>
+      <div class="al-report">
+        <div class="al-card al-bottom"><small>BOTTOM LINE</small><p>For most modern phones, no. They stop charging at full and many slow down near the end to protect the battery. Heat is the bigger risk, so don't charge under a pillow.</p><span class="al-conf">Confidence · High</span></div>
+        <div class="al-card"><small>ESTABLISHED FACTS</small><ul><li>Phones stop drawing full power once the battery is full <em>· 3 sources</em></li><li>Heat speeds up battery wear <em>· 4 sources</em></li><li>Optimized charging features delay the last 20% <em>· official</em></li></ul></div>
+        <div class="al-card al-warn"><small>SOURCES DISAGREE</small><p>How much overnight charging shortens battery life. Better sources say the effect is small.</p></div>
+        <div class="al-card al-social"><small>CIRCULATING ON SOCIAL MEDIA (NOT PROOF)</small><p>"Overnight charging can make phones explode."</p></div>
+      </div>
+      <div class="al-where"><small>WHERE I LOOKED</small>{% assign wl = "Wikipedia,DuckDuckGo,Google News,Reddit,Official pages" | split: "," %}{% for w in wl %}<em>{{ w }}</em>{% endfor %}</div>
+    {%- when "themes" -%}
+      <div class="al-page-head"><b>Themes</b><small>Pick how Allura looks. It follows you to your phone too.</small></div>
+      <div class="al-themes">
+        {% assign th = "Allura Violet|#0B0914|#8C6CFF|#C46BFF,Midnight|#070912|#6F82FF|#4FC3FF,OLED|#000000|#8C6CFF|#A85BFF,Neon|#07020F|#B44CFF|#FF4FD8,Allura Light|#F7F4FF|#8B6CF0|#7FE3D6,Midnight Light|#F3FAFD|#36B2CC|#7FE8DA,White OLED|#FFFFFF|#A58BF5|#D9C8FF" | split: "," %}
+        {% for t in th %}{% assign p = t | split: "|" %}<div class="al-theme{% if forloop.first %} on{% endif %}" style="--tb:{{ p[1] }};--ta:{{ p[2] }};--tc:{{ p[3] }}"><div class="al-sw"><i></i><i></i><i></i></div><b>{{ p[0] }}</b>{% if forloop.first %}<small>Current</small>{% endif %}</div>{% endfor %}
+      </div>
+    {%- endcase -%}
+    </main>
+  </div>
+</div>
+{%- endif -%}

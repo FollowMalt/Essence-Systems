@@ -1,0 +1,10 @@
+{% assign proj = site.data.projects[include.update.project] %}
+<article class="update reveal" data-project="{{ include.update.project }}" style="--tag: {{ proj.color | default: '#C8A26A' }}">
+  <div class="update-meta">
+    <span class="tag">{{ proj.name | default: include.update.project }}</span>
+    <time datetime="{{ include.update.date | date_to_xmlschema }}">{{ include.update.date | date: "%B %-d, %Y" }}</time>
+  </div>
+  <h3>{{ include.update.title }}</h3>
+  {{ include.update.content }}
+  {% if include.update.image %}<img src="{{ include.update.image | relative_url }}" alt="" loading="lazy">{% endif %}
+</article>

@@ -1,0 +1,30 @@
+{%- comment -%}
+  Apple-style scroll tour. Usage: {% include tour.html tour=site.data.tours.astra %}
+  Each step in the data file sets the headline, which screen shows (ui), an optional
+  zoom into the screen (z, x, y), the background wash, and floating callouts.
+{%- endcomment -%}
+{%- assign t = include.tour -%}
+<section class="tour" data-tour style="--steps: {{ t.steps.size }}; --c1: {{ t.c1 }}; --c2: {{ t.c2 }}; --glow-c: {{ t.glow }}" aria-label="{{ t.title }} tour">
+  <div class="tour-stage">
+    {% for s in t.steps %}<div class="tour-bg" style="background: {{ s.bg | default: t.bg }}"></div>{% endfor %}
+    <div class="tour-stars" aria-hidden="true"></div>
+    <div class="tour-intro-title" aria-hidden="true"><h2>{{ t.title }}</h2>{% if t.subtitle %}<p>{{ t.subtitle }}</p>{% endif %}</div>
+    <div class="tour-copy" aria-hidden="true">
+      {% for s in t.steps %}<div class="tour-line">{% if s.eyebrow %}<p class="eyebrow">{{ s.eyebrow }}</p>{% endif %}<h2>{{ s.headline }}</h2>{% if s.text %}<p>{{ s.text }}</p>{% endif %}</div>{% endfor %}
+    </div>
+    <div class="tour-device-wrap">
+      <div class="tour-device">
+        <div class="device-screen">
+          {% for s in t.steps %}<div class="tour-screen" style="--z: {{ s.z | default: 1 }}; --x: {{ s.x | default: '0%' }}; --y: {{ s.y | default: '0%' }}">
+            {%- if s.app == "allura" -%}{% include allura-ui.html view=s.ui %}{%- else -%}{% include astra-ui.html view=s.ui %}{%- endif -%}
+          </div>{% endfor %}
+        </div>
+        {% for s in t.steps %}{% assign si = forloop.index0 %}{% for c in s.callouts %}<span class="callout" data-step="{{ si }}" style="--cx: {{ c.x }}; --cy: {{ c.y }}; --cc: {{ c.c | default: t.c1 }}">{{ c.text }}</span>{% endfor %}{% endfor %}
+      </div>
+    </div>
+    <div class="tour-progress" aria-hidden="true">{% for s in t.steps %}<i></i>{% endfor %}</div>
+  </div>
+  <div class="tour-steps-static">
+    {% for s in t.steps %}<div><p class="eyebrow">{{ s.eyebrow }}</p><h3>{{ s.headline | strip_html }}</h3><p class="muted">{{ s.text }}</p></div>{% endfor %}
+  </div>
+</section>

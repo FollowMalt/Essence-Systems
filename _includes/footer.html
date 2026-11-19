@@ -1,0 +1,12 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="nav-logo" href="{{ '/' | relative_url }}">{% include logo.html %}</a>
+      <p class="muted">{{ site.tagline }}</p>
+    </div>
+    <nav aria-label="Footer">
+      {% for item in site.data.navigation %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}
+    </nav>
+  </div>
+  <p class="container fine">© {{ site.time | date: "%Y" }} Essence Systems</p>
+</footer>

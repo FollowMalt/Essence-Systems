@@ -1,0 +1,129 @@
+/* ALLURA UI — an HTML rebuild of Allura's desktop app and Allura Link for the website.
+   Colors are Allura's own "Allura Violet" theme (allura/link/web/tokens.css). Desktop canvas is 1280×800. */
+.al {
+  --bg: #0B0914; --raised: #110D1E; --g-top: #1C1336; --panel: #161227; --panel-b: #3A2C66; --side: #120E22; --side-b: #2E2452;
+  --surface: #1D1733; --surface-h: #271F44; --card-b: #33285A; --line: #B49CFF29; --line-s: #B49CFF59;
+  --acc: #8C6CFF; --acc-b: #A78BFF; --acc-s: #CDBBFF; --ub: #6A4BE0; --ub2: #8C6CFF; --glow: #8C6CFF4D; --glow-s: #C49BFF24;
+  --t: #F5F2FF; --t-soft: #E6DEFF; --t-mut: #A497CC; --ok: #7EE0A8; --warn: #F5C26B; --bad: #FF6B85; --amb1: #C46BFF; --amb2: #5B7CFF;
+  font: 400 14px/1.45 "Segoe UI Variable", "Segoe UI", "Inter", system-ui, sans-serif; color: var(--t); text-align: left;
+}
+.al p { margin: 0; }
+.al img { height: auto !important; object-fit: contain !important; }
+.al small, .al span, .al b { display: block; }
+.al-brand-word { font: 600 15px/1 "Cormorant Garamond", "Playfair Display", Georgia, serif !important; letter-spacing: .32em; color: var(--t); }
+.al-glow { position: absolute; inset: -10%; pointer-events: none;
+  background: radial-gradient(42% 36% at 18% 12%, var(--glow), transparent 70%), radial-gradient(36% 30% at 88% 22%, var(--glow-s), transparent 70%),
+              radial-gradient(52% 42% at 50% 100%, var(--glow-s), transparent 70%), linear-gradient(180deg, var(--g-top) 0%, var(--bg) 58%); }
+
+/* Desktop */
+.al-canvas { position: absolute; left: 0; top: 0; width: 1280px; height: 800px; transform-origin: 0 0; transform: scale(var(--ax-s, .5)); overflow: hidden;
+  display: grid; grid-template-columns: 220px 1fr; grid-template-rows: 52px 1fr; background: var(--bg); }
+.al-title { position: relative; grid-column: 1 / -1; display: flex !important; align-items: center; gap: 12px; padding: 0 18px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, #141026F0, #0D0B1699); }
+.al-title img { width: 34px; height: auto; }
+.al-state { display: flex !important; align-items: center; gap: 7px; margin-left: 18px; font-size: 12.5px; color: var(--t-mut); }
+.al-state i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 10px #7EE0A899; }
+.al-view-research .al-state i { background: var(--acc-s); box-shadow: 0 0 10px var(--acc); }
+.al-tag { font-size: 10px; letter-spacing: .18em; color: var(--acc-s); border: 1px solid var(--line-s); border-radius: 999px; padding: 4px 10px; }
+.al-win { margin-left: auto; display: flex !important; gap: 18px; }
+.al-win i { width: 12px; height: 2px; background: var(--t-mut); }
+.al-win i:nth-child(2) { height: 10px; background: none; border: 1.5px solid var(--t-mut); }
+.al-win i:nth-child(3) { height: 12px; width: 12px; background: linear-gradient(45deg, transparent 45%, var(--t-mut) 45% 55%, transparent 55%), linear-gradient(-45deg, transparent 45%, var(--t-mut) 45% 55%, transparent 55%); }
+.al-side { position: relative; background: linear-gradient(180deg, #120E22, #0B0914); border-right: 1px solid var(--side-b); padding: 16px 12px; display: flex; flex-direction: column; gap: 3px; }
+.al-nav { display: flex !important; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 12px; color: var(--t-soft); font-size: 14px; border: 1px solid transparent; }
+.al-nav i { font-style: normal; width: 20px; text-align: center; color: var(--acc-s); }
+.al-nav.on { background: color-mix(in srgb, var(--acc) 22%, transparent); border-color: var(--line); color: var(--t); }
+.al-nav.on i { color: #fff; filter: drop-shadow(0 0 6px #C49BFFCC); }
+.al-side-foot { margin-top: auto; display: flex !important; gap: 10px; align-items: center; padding: 10px; border-top: 1px solid var(--line); }
+.al-av { width: 32px; height: 32px; border-radius: 50%; display: grid !important; place-items: center; background: linear-gradient(135deg, var(--ub), var(--ub2)); font-weight: 600; }
+.al-side-foot small { font-size: 11px; color: var(--t-mut); }
+.al-main { position: relative; display: flex; flex-direction: column; padding: 22px 70px 24px; min-width: 0; min-height: 0; }
+
+/* Chat */
+.al-msgs { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; overflow: hidden; padding-bottom: 16px; }
+.al-msg { max-width: 72%; }
+.al-msg p { padding: 11px 16px; border-radius: 20px; font-size: 15px; }
+.al-msg.me { align-self: flex-end; }
+.al-msg.me p { background: linear-gradient(135deg, var(--ub), var(--ub2)); border-bottom-right-radius: 8px; color: #fff; }
+.al-msg.her small { font-size: 12px; font-weight: 600; letter-spacing: .04em; color: var(--acc-s); margin: 0 0 4px 6px; }
+.al-msg.her p { width: fit-content; background: color-mix(in srgb, var(--surface) 80%, transparent); border: 1px solid #B795FF24; border-bottom-left-radius: 8px; color: var(--t); }
+.al-msg.typing { align-self: flex-start; padding: 12px 16px; border-radius: 20px; background: var(--surface); border: 1px solid #B795FF24; }
+.al-dots { display: flex !important; gap: 5px; }
+.al-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--acc-s); opacity: .4; }
+.al-dots i:nth-child(2) { opacity: 1; translate: 0 -3px; }
+.al-cards { display: grid !important; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
+.al-cards span { padding: 11px 12px; border-radius: 14px; background: var(--surface); border: 1px solid var(--card-b); }
+.al-cards b { font-size: 13.5px; }
+.al-cards small { color: var(--t-mut); font-size: 12px; }
+.al-src { display: flex !important; gap: 6px; margin: 8px 2px 0; }
+.al-src em, .al-where em { font-style: normal; font-size: 12px; color: var(--acc-s); border: 1px solid #C49BFF4D; border-radius: 999px; padding: 4px 10px; }
+.al-input { display: flex !important; align-items: center; justify-content: space-between; padding: 8px 8px 8px 20px; border-radius: 28px; background: color-mix(in srgb, var(--surface) 80%, transparent); border: 1.5px solid var(--line-s); color: var(--t-mut); box-shadow: 0 0 40px -14px var(--acc); }
+.al-input em, .alp-comp em { font-style: normal; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, var(--ub), var(--ub2)); color: #fff; font-weight: 700; }
+
+/* Research */
+.al-page-head b { font: 600 26px/1.1 "Cormorant Garamond", "Playfair Display", Georgia, serif; letter-spacing: .04em; }
+.al-page-head small { color: var(--t-mut); font-size: 13px; margin: 4px 0 16px; }
+.al-q { padding: 12px 18px; border-radius: 16px; background: var(--surface); border: 1px solid var(--card-b); font-size: 15px; }
+.al-pipe { display: flex !important; gap: 6px; margin: 12px 0; }
+.al-pipe span { flex: 1; text-align: center; font-size: 11px; letter-spacing: .04em; padding: 7px 4px; border-radius: 999px; border: 1px solid var(--line-s); color: var(--t-mut); }
+.al-pipe .done { background: color-mix(in srgb, var(--acc) 20%, transparent); color: var(--t-soft); }
+.al-pipe .now { border-color: var(--acc-b); color: #fff; box-shadow: 0 0 18px -2px var(--acc); }
+.al-report { display: grid; grid-template-columns: 1.25fr 1fr; gap: 10px; flex: 1; min-height: 0; }
+.al-card { padding: 14px 16px; border-radius: 18px; background: var(--panel); border: 1px solid var(--panel-b); }
+.al-card small { font-size: 9.5px; letter-spacing: .2em; color: var(--acc-s); margin-bottom: 6px; }
+.al-card p, .al-card li { font-size: 13.5px; color: var(--t-soft); }
+.al-card ul { margin: 0; padding-left: 1.1em; display: grid; gap: 5px; }
+.al-card em { color: var(--t-mut); font-style: normal; font-size: 12px; }
+.al-bottom { grid-row: span 2; background: linear-gradient(160deg, #2a1f55, var(--panel)); }
+.al-bottom p { font-size: 19px; line-height: 1.5; color: var(--t); }
+.al-conf { display: inline-block !important; margin-top: 12px; font-size: 11.5px; color: var(--ok); border: 1px solid #7EE0A866; border-radius: 999px; padding: 4px 10px; }
+.al-warn { border-color: #F5C26B66; } .al-warn small { color: var(--warn); }
+.al-social { border-style: dashed; } .al-social small { color: var(--t-mut); }
+.al-social p { font-style: italic; color: var(--t-mut); }
+.al-where { display: flex !important; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 12px; }
+.al-where small { font-size: 9.5px; letter-spacing: .2em; color: var(--t-mut); margin-right: 6px; }
+
+/* Themes */
+.al-themes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.al-theme { padding: 10px 10px 12px; border-radius: 18px; background: var(--panel); border: 1px solid var(--panel-b); }
+.al-theme.on { border-color: var(--acc-b); box-shadow: 0 0 0 1px var(--acc-b), 0 0 30px -8px var(--acc); }
+.al-sw { position: relative; height: 120px; border-radius: 12px; margin-bottom: 10px; overflow: hidden;
+  background: radial-gradient(60% 60% at 15% 10%, color-mix(in srgb, var(--ta) 45%, transparent), transparent 70%), radial-gradient(50% 50% at 90% 20%, color-mix(in srgb, var(--tc) 30%, transparent), transparent 70%), var(--tb); border: 1px solid #ffffff14; }
+.al-sw i { position: absolute; border-radius: 10px; }
+.al-sw i:nth-child(1) { right: 12px; top: 22px; width: 42%; height: 18px; background: linear-gradient(135deg, var(--ta), var(--tc)); }
+.al-sw i:nth-child(2) { left: 12px; top: 50px; width: 52%; height: 18px; background: color-mix(in srgb, var(--ta) 18%, var(--tb)); border: 1px solid color-mix(in srgb, var(--ta) 35%, transparent); }
+.al-sw i:nth-child(3) { left: 12px; right: 12px; bottom: 12px; height: 16px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--ta) 50%, transparent); }
+.al-theme b { font-size: 14px; }
+.al-theme small { font-size: 11px; color: var(--acc-s); }
+
+/* Phone (Allura Link) */
+.al-phone { position: absolute; inset: 0; overflow: hidden; display: flex; flex-direction: column; padding: 13% 5% 6%; background: var(--bg); font-size: clamp(9px, 3.4cqw, 14px); }
+.al-phone > * { position: relative; }
+.al-phone .al-glow { position: absolute; }
+.alp-top { display: flex !important; align-items: center; gap: 4%; padding-bottom: 4%; border-bottom: 1px solid #B795FF1a; }
+.alp-top img { width: 2.2em; }
+.alp-top div { flex: 1; text-align: center; }
+.alp-top b { font: 600 1.4em/1.1 "Cormorant Garamond", "Playfair Display", Georgia, serif; letter-spacing: .12em; }
+.alp-top div span { display: inline-flex; align-items: center; gap: .4em; font-size: .78em; color: var(--t-mut); }
+.alp-top div span i { width: .55em; height: .55em; border-radius: 50%; background: var(--ok); box-shadow: 0 0 8px #7EE0A899; }
+.alp-top em { font-style: normal; color: var(--t-soft); width: 2.2em; text-align: center; }
+.alp-msgs { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: .7em; padding: 4% 0; }
+.al-phone .al-msg { max-width: 86%; }
+.al-phone .al-msg p { font-size: .92em; padding: .7em 1em; border-radius: 1.2em; }
+.al-phone .al-msg.her small { font-size: .72em; }
+.al-wx { display: flex !important; gap: .4em; margin-top: .5em; }
+.al-wx span { font-size: .72em; padding: .35em .6em; border-radius: 999px; border: 1px solid #C49BFF4D; color: var(--acc-s); white-space: nowrap; }
+.alp-comp { display: flex !important; align-items: center; justify-content: space-between; padding: .35em .35em .35em 1.1em; border-radius: 2em; border: 1.5px solid var(--line-s); background: color-mix(in srgb, var(--surface) 80%, transparent); color: var(--t-mut); font-size: .9em; }
+.alp-comp em { width: 2.3em; height: 2.3em; }
+.alp-boot { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1em; text-align: center; }
+.alp-boot-logo { width: 62%; filter: drop-shadow(0 0 24px #C49BFF88); }
+.alp-bar { width: 60%; height: 3px; border-radius: 3px; background: #ffffff1a; overflow: hidden; }
+.alp-bar i { display: block; width: 62%; height: 100%; background: linear-gradient(90deg, var(--acc), var(--amb1)); box-shadow: 0 0 10px var(--acc); }
+.alp-boot .al-brand-word { font-size: 1.9em !important; }
+.alp-boot ul { list-style: none; padding: 0; margin: .6em 0 0; display: grid; gap: .45em; font-size: .82em; color: var(--t-mut); }
+.alp-boot li::before { content: "○ "; }
+.alp-boot li.ok { color: var(--t-soft); } .alp-boot li.ok::before { content: "✓ "; color: var(--ok); }
+.alp-boot li.now { color: #fff; } .alp-boot li.now::before { content: "◐ "; color: var(--acc-s); }
+@media (prefers-reduced-motion: no-preference) {
+  .alp-boot-logo { animation: al-turn 9s linear infinite; }
+  @keyframes al-turn { 50% { transform: rotate(4deg) scale(1.03); } }
+}

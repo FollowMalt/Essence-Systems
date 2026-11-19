@@ -1,0 +1,29 @@
+title: Astra &amp; Allura
+subtitle: Two products. One way of thinking.
+c1: "#E0C18B"
+c2: "#FF6FAE"
+glow: "rgba(224, 193, 139, .55)"
+steps:
+  - eyebrow: "Astra · For Windows"
+    headline: "Your music. <em>Every device.</em>"
+    text: "A music player and library manager for the songs you own. Your computer, your phone, your Walkman or iPod. No account, no ads."
+    ui: home
+    bg: "radial-gradient(70% 60% at 50% 100%, #3b1f7a, transparent 70%), radial-gradient(50% 50% at 15% 20%, #1d1450, transparent), #05060d"
+    callouts:
+      - { text: "Your library at a glance", x: "40%", y: "17%", c: "#cdb6ff" }
+  - eyebrow: "Astra"
+    headline: "Bring it with you, <em>anywhere.</em>"
+    text: "Stream your whole library to your phone over your own private network, and keep your players synced."
+    ui: nowplaying
+    bg: "radial-gradient(70% 70% at 50% 90%, #0f6b78, transparent 70%), #04080d"
+    callouts:
+      - { text: "Glows in the song's colors", x: "40%", y: "30%", c: "#48D7D0" }
+  - eyebrow: "Allura · In development"
+    headline: "An assistant that <em>lives on your computer.</em>"
+    text: "Allura runs locally, even on older and low-end PCs, so your conversations stay yours."
+    app: allura
+    ui: chat
+    bg: "radial-gradient(70% 60% at 50% 100%, #6b3fd1, transparent 70%), radial-gradient(40% 40% at 85% 10%, #1fa6a0, transparent 70%), #0d0820"
+    callouts:
+      - { text: "Sources you can click", x: "62%", y: "60%", c: "#48D7D0" }
+      - { text: "Runs on your PC", x: "18%", y: "16%", c: "#c9b3ff" }

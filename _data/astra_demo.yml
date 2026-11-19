@@ -1,0 +1,43 @@
+# Made-up music used in the Astra interface mockups on the website.
+# Covers are drawn with CSS from the two hues (0-360) and a pattern number (1-4).
+songs:
+  - { title: "Golden Hour Drive", artist: "The Coastlines", album: "Low Sun", year: 2024, a: 28, b: 330, p: 1, len: "3:42" }
+  - { title: "Paper Lanterns", artist: "Mira Vale", album: "Paper Lanterns", year: 2023, a: 340, b: 270, p: 2, len: "4:05" }
+  - { title: "Neon Tide", artist: "Harbor Lights", album: "Night Swim", year: 2025, a: 185, b: 255, p: 3, len: "3:18" }
+  - { title: "Slow Orbit", artist: "Astronaut Club", album: "Gravity Well", year: 2022, a: 260, b: 220, p: 4, len: "5:01" }
+  - { title: "Palm Shadows", artist: "Velvet Avenue", album: "Key West Tapes", year: 2021, a: 150, b: 45, p: 1, len: "3:36" }
+  - { title: "Cassette Summer", artist: "June Static", album: "Rewind", year: 2020, a: 12, b: 48, p: 2, len: "2:58" }
+  - { title: "Northern Static", artist: "Polar Radio", album: "Signals", year: 2024, a: 200, b: 160, p: 3, len: "4:22" }
+  - { title: "Midnight Ferry", artist: "Lanterns & Oak", album: "Crossings", year: 2019, a: 225, b: 300, p: 4, len: "3:51" }
+devices:
+  - { name: "iPod shuffle", model: "4th generation · MP3 192 kbps", hue: 165, kind: shuffle }
+  - { name: "Walkman NWZ-E383", model: "Sony NWZ-E383 · MP3 224 kbps", hue: 335, kind: walkman }
+  - { name: "Walkman NW-S764", model: "Sony NW-S764 · MP3 320 kbps", hue: 215, kind: walkman }
+# Artist page (made up)
+artist:
+  name: "Harbor Lights"
+  hue: 190
+  hue2: 255
+  bio: "Dream-pop trio · 3 albums, 2 EPs, 4 singles in your library"
+  releases:
+    - { type: "ALBUMS", items: [ { t: "Night Swim", y: 2025, a: 185, b: 255, p: 3 }, { t: "Saltwater Radio", y: 2022, a: 200, b: 300, p: 1 }, { t: "First Light", y: 2019, a: 30, b: 200, p: 4 } ] }
+    - { type: "EPs", items: [ { t: "Low Tide Sessions", y: 2023, a: 170, b: 220, p: 2 }, { t: "Lighthouse", y: 2020, a: 45, b: 260, p: 1 } ] }
+    - { type: "SINGLES", items: [ { t: "Neon Tide", y: 2025, a: 185, b: 255, p: 3 }, { t: "Undertow", y: 2024, a: 230, b: 320, p: 2 }, { t: "Static Bloom", y: 2021, a: 300, b: 190, p: 4 }, { t: "Paper Moon", y: 2020, a: 50, b: 230, p: 1 } ] }
+  collaborators: [ "Mira Vale", "Polar Radio", "June Static", "Velvet Avenue" ]
+playlists:
+  - { name: "Sunday Morning", n: 32, a: 40, b: 10, p: 1, auto: false }
+  - { name: "Road Trip", n: 58, a: 15, b: 330, p: 3, auto: false }
+  - { name: "Focus", n: 24, a: 200, b: 240, p: 2, auto: false }
+  - { name: "Top Songs", n: 50, a: 270, b: 320, p: 4, auto: true }
+  - { name: "Recently Added", n: 40, a: 160, b: 200, p: 3, auto: true }
+  - { name: "Rediscover", n: 30, a: 330, b: 40, p: 1, auto: true }
+  - { name: "Harbor Lights Mix", n: 25, a: 185, b: 255, p: 2, auto: true }
+  - { name: "Late Night", n: 41, a: 250, b: 290, p: 4, auto: false }
+lyrics:
+  - "Streetlights hum along the shore"
+  - "We drive until the map runs out"
+  - "The radio is all we need"
+  - "And every wave is singing loud"
+  - "Neon tide, carry me home"
+  - "Through the glow of the undertow"
+  - "Neon tide, don't let me go"
