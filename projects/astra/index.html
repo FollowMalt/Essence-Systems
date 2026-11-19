@@ -132,7 +132,10 @@ styles: [/assets/css/astra-ui.css, /assets/css/tour.css, /assets/css/astra.css]
     <p class="eyebrow reveal">Astra for Windows 10 and 11</p>
     <h2 class="reveal">The music app for people who own their music.</h2>
     <div class="actions reveal">
-      <a class="btn" href="{{ '/download.html' | relative_url }}">Coming to the Essence Launcher <span class="arrow">→</span></a>
+      {% if site.astra_download_url != "" %}<a class="btn" href="{{ site.astra_download_url }}">Download Astra {{ site.astra_version }} for Windows <span class="arrow">↓</span></a>
+      <a class="btn btn--ghost" href="{{ '/download.html' | relative_url }}">The Essence Launcher</a>
+      {% else %}<a class="btn" href="{{ '/download.html' | relative_url }}">Coming to the Essence Launcher <span class="arrow">→</span></a>{% endif %}
     </div>
+    {% if site.astra_download_url != "" %}<p class="fine-print reveal">Free. Extract the zip and double-click <b>Install Astra.cmd</b>; it downloads Astra and checks it before installing. Astra keeps itself up to date.</p>{% endif %}
   </div>
 </section>
