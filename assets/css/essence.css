@@ -125,8 +125,8 @@ em.accent { font-style: italic; color: var(--gold-lit); }
   .nav-links a { font-size: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); }
   .site-nav.is-open .nav-links { clip-path: inset(0 0 0 0); visibility: visible; }
   .site-nav.is-open { background: rgba(10, 8, 32, .96); }
-  .site-nav.is-open .bar:first-of-type { transform: translateY(3.5px) rotate(45deg); }
-  .site-nav.is-open .bar:last-of-type { transform: translateY(-3.5px) rotate(-45deg); }
+  .site-nav.is-open .bar:nth-child(2) { transform: translateY(3.25px) rotate(45deg); }
+  .site-nav.is-open .bar:nth-child(3) { transform: translateY(-3.25px) rotate(-45deg); }
 }
 
 /* ---------- Sections ---------- */
@@ -506,3 +506,5 @@ em.accent { font-style: italic; color: var(--gold-lit); }
 .btn--ghost:hover { box-shadow: 0 0 0 1px var(--aqua), 0 10px 40px -12px rgba(62, 230, 224, .6); }
 .closing { background: radial-gradient(70% 90% at 50% 100%, rgba(255, 79, 163, .25), transparent 60%), radial-gradient(50% 60% at 20% 100%, rgba(62, 230, 224, .16), transparent 70%), radial-gradient(40% 50% at 80% 100%, rgba(255, 154, 92, .16), transparent 70%), var(--night); }
 .page-hero { background: radial-gradient(60% 70% at 85% 0%, rgba(255, 79, 163, .2), transparent 70%), radial-gradient(50% 60% at 0% 30%, rgba(27, 56, 40, .7), transparent 70%), radial-gradient(40% 40% at 40% 100%, rgba(62, 230, 224, .1), transparent 70%), var(--night); }
+/* Astra's real app icon (assets/img/astra/astra-icon.svg) */
+.dl-app--astra .dl-icon--img, .ln-icon[src*="astra-icon"] { padding: 0; background: none; box-shadow: 0 10px 26px -8px #9b5cff; }

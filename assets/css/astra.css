@@ -40,3 +40,14 @@
 .product-astra .nav-links a::after { background: linear-gradient(90deg, #b58cff, #48D7D0); }
 .axp-tabs { gap: 1% !important; }
 @media (max-width: 760px) { .product-astra .nav-links { background: rgba(5, 6, 13, .96); } }
+/* Astra 1.1 */
+.astra-new { background: linear-gradient(180deg, #0b0a1f, #05060d); }
+.astra-new .tag { margin-bottom: 10px; }
+.feature--radio { background: radial-gradient(50% 60% at 70% 50%, rgba(255, 179, 71, .10), transparent 70%), #05060d !important; }
+.feature-media--combo, .feature-media--stack { position: relative; }
+.feature-media--combo .device--phone { position: absolute; right: -5%; bottom: -14%; width: 27%; }
+.feature-media--combo .device--phone .device-screen { border-width: 5px; border-radius: 26px; }
+.feature-media--combo { padding-bottom: 6%; }
+.feature-media--stack .device--back { position: absolute; z-index: -1; left: 8%; top: -12%; width: 92%; opacity: .55; filter: saturate(.9); }
+.feature-media--stack { z-index: 0; }
+@media (max-width: 900px) { .feature-media--combo .device--phone { right: 0; width: 32%; } .feature-media--stack .device--back { display: none; } }

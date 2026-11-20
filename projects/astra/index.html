@@ -16,6 +16,20 @@ styles: [/assets/css/astra-ui.css, /assets/css/tour.css, /assets/css/astra.css]
   </div>
 </section>
 
+<section class="section astra-new">
+  <div class="container">
+    <div class="section-head"><p class="eyebrow reveal">New in Astra 1.1 · Out now</p><h2 class="title reveal">Tune in, <em class="ax-em">turn it up.</em></h2>
+      <p class="lede reveal">Astra 1.1 came out on November 19. It brings Astra Radio, a new EQ, faster streaming from your computer, redesigned Walkman pages and a round of fixes. It's also ready for the Essence Launcher.</p></div>
+    <div class="bento">
+      <div class="tile tile--w3 reveal" style="--tile-bg:#1a0e06; --tile-glow:#ffb34788; --tile-art: radial-gradient(80% 90% at 100% 0%, #ffb34750, transparent 70%)"><span class="tag" style="--tag:#ffb347">New</span><h3>Astra Radio</h3><p>Every playlist is a station on the FM dial, playing all day. Tune in and you join mid-song.</p></div>
+      <div class="tile tile--w3 reveal" style="--tile-bg:#061a10; --tile-glow:#3ee87a88; --tile-art: radial-gradient(80% 90% at 100% 0%, #3ee87a45, transparent 70%)"><span class="tag" style="--tag:#5ee0a0">New</span><h3>A real EQ</h3><p>Ten bands from −12 to +12 dB, with presets like Bass boost, Vocal, Rock and Chill.</p></div>
+      <div class="tile tile--w2 reveal" style="--tile-bg:#07122a; --tile-glow:#4D9FFF88; --tile-art: radial-gradient(80% 90% at 100% 0%, #4D9FFF55, transparent 70%)"><span class="tag" style="--tag:#4D9FFF">Faster</span><h3>Quicker streaming</h3><p>Streaming from your computer to your phone is about 50% faster than before.</p></div>
+      <div class="tile tile--w2 reveal" style="--tile-bg:#1a0b17; --tile-glow:#FF6FAE88; --tile-art: radial-gradient(80% 90% at 100% 0%, #FF6FAE55, transparent 70%)"><span class="tag" style="--tag:#FF6FAE">Redesigned</span><h3>Walkman pages</h3><p>Smaller device cards, and a page of its own for each player.</p></div>
+      <div class="tile tile--w2 reveal" style="--tile-bg:#0e1a12; --tile-glow:#C8A26A88; --tile-art: radial-gradient(80% 90% at 100% 0%, #5FBF8A40, transparent 60%), radial-gradient(80% 90% at 0% 100%, #C8A26A40, transparent 70%)"><span class="tag" style="--tag:#E0C18B">Ready</span><h3>Launcher ready</h3><p>Astra knows when the Essence Launcher looks after it, and lets the launcher handle updates. Fixes too, like album pages that looked off.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="feature" style="--f1:#b58cff;--f2:#4D9FFF">
   <div class="container feature-grid">
     <div class="feature-copy reveal">
@@ -57,10 +71,22 @@ styles: [/assets/css/astra-ui.css, /assets/css/tour.css, /assets/css/astra.css]
     <div class="feature-copy reveal">
       <p class="eyebrow">Listening</p>
       <h2>A player that <em>glows with the song.</em></h2>
-      <p>Now Playing fills the screen with the colors of whatever's on. Turn to Up Next to line up what's coming, or to timed lyrics that follow along line by line.</p>
-      <ul class="feature-points"><li>Crossfade, autoplay and a sleep timer</li><li>Volume leveling so every song sits at the same loudness</li><li>Optional lyric add-ons for better timing</li></ul>
+      <p>Now Playing fills the screen with the colors of whatever's on, with a studio-style level meter under the cover. Click it and the new EQ opens right over the artwork. Turn to Up Next, or to timed lyrics that follow along line by line.</p>
+      <ul class="feature-points"><li>New in 1.1: a 10-band EQ with presets</li><li>Crossfade, autoplay, a sleep timer and volume leveling</li><li>Lyrics running early or late? Nudge them sooner or later</li></ul>
     </div>
-    <div class="feature-media reveal" data-grow>{% include screen.html ui="lyrics" label="Astra Now Playing with lyrics" %}</div>
+    <div class="feature-media reveal" data-grow>{% include screen.html ui="eq" label="Astra Now Playing with the EQ open" %}</div>
+  </div>
+</section>
+
+<section class="feature feature--radio" style="--f1:#ffb347;--f2:#b58cff">
+  <div class="container feature-grid">
+    <div class="feature-copy reveal">
+      <p class="eyebrow">Astra Radio · New in 1.1</p>
+      <h2>Your playlists, <em>on the air.</em></h2>
+      <p>Every playlist and every Astra mix is a station on the FM dial, playing all day in that day's shuffle. Tune in and you join mid-song, right where the station is. Skip and you change station.</p>
+      <ul class="feature-points"><li>Your computer, phone and TV hear the same song at the same second</li><li>On the phone, a little static between stations</li><li>Stations keep their spot on the dial</li></ul>
+    </div>
+    <div class="feature-media feature-media--combo reveal" data-grow>{% include screen.html ui="radio" label="Astra Radio" %}{% include screen.html device="phone" ui="phone-radio" label="Astra Radio on the phone" %}</div>
   </div>
 </section>
 
@@ -81,10 +107,10 @@ styles: [/assets/css/astra-ui.css, /assets/css/tour.css, /assets/css/astra.css]
     <div class="feature-copy reveal">
       <p class="eyebrow">Walkman &amp; iPod</p>
       <h2>Plug it in. <em>It just syncs.</em></h2>
-      <p>Sony Walkmans, including Japanese models, and iPod shuffles get your playlists in formats they can play. Preview a sync first, back up what's on a player, adopt its playlists, and even send it a wallpaper.</p>
+      <p>Sony Walkmans, including Japanese models, and iPod shuffles get your playlists in formats they can play. In 1.1 every player gets a compact card with how full it is and the things you do most. Everything else lives on that player's own page: previews, backups, playlists, audio quality and wallpapers.</p>
       <ul class="feature-points"><li>Auto-sync when a player is plugged in</li><li>Ten original wallpapers, or your own photo</li><li>Astra only ever removes what it put there</li></ul>
     </div>
-    <div class="feature-media reveal" data-grow>{% include screen.html ui="devices" label="Astra devices" %}</div>
+    <div class="feature-media feature-media--stack reveal" data-grow>{% include screen.html ui="devices" label="Astra devices" %}{% include screen.html ui="device" label="A Walkman's own page in Astra" class="device--back" %}</div>
   </div>
 </section>
 
@@ -104,12 +130,12 @@ styles: [/assets/css/astra-ui.css, /assets/css/tour.css, /assets/css/astra.css]
     <div class="section-head center">
       <p class="eyebrow reveal">Every screen you own</p>
       <h2 class="title reveal">Your phone. <em class="ax-em">Your TV.</em> Your library.</h2>
-      <p class="lede reveal">The phone page streams your whole library over your own private network. Browse, play, add songs from your phone and review Smart Library. On a Fire TV, Astra TV plays with the remote. Astra for iPhone and iPad is on its way.</p>
+      <p class="lede reveal">The phone page streams your whole library over your own private network, now about 50% faster. Browse, play, tune in to Astra Radio, add songs from your phone and review Smart Library. On a Fire TV, Astra TV plays with the remote. Astra for iPhone and iPad is on its way.</p>
     </div>
     <div class="anywhere-row">
-      {% include screen.html device="phone" ui="phone-library" label="Astra phone library" class="reveal" %}
-      {% include screen.html device="tv" ui="tv" label="Astra TV" class="reveal" %}
       {% include screen.html device="phone" ui="phone" label="Astra phone Now Playing" class="reveal" %}
+      {% include screen.html device="tv" ui="tv" label="Astra TV" class="reveal" %}
+      {% include screen.html device="phone" ui="phone-lyrics" label="Astra phone lyrics" class="reveal" %}
     </div>
   </div>
 </section>
@@ -129,7 +155,7 @@ styles: [/assets/css/astra-ui.css, /assets/css/tour.css, /assets/css/astra.css]
 
 <section class="closing">
   <div class="container">
-    <p class="eyebrow reveal">Astra for Windows 10 and 11</p>
+    <p class="eyebrow reveal">Astra {{ site.astra_version }} for Windows 10 and 11</p>
     <h2 class="reveal">The music app for people who own their music.</h2>
     <div class="actions reveal">
       {% if site.astra_download_url != "" %}<a class="btn" href="{{ site.astra_download_url }}">Download Astra {{ site.astra_version }} for Windows <span class="arrow">↓</span></a>

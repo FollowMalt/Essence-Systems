@@ -8,12 +8,12 @@ body_class: download
   <div class="dl-glow" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="container dl-hero-grid">
     <div>
-      <p class="eyebrow reveal">The Essence Launcher · Coming soon</p>
+      <p class="eyebrow reveal">The Essence Launcher · Out shortly</p>
       <h1 class="display reveal">One download. <em>Every app.</em></h1>
-      <p class="lede reveal">We're building the Essence Launcher: one app that downloads, installs and updates all of our apps from one place. Install it once, then pick what you want.</p>
+      <p class="lede reveal">The Essence Launcher is almost ready: one app that downloads, installs and updates all of our apps from one place. Install it once, then pick what you want.</p>
       <div class="actions reveal">
         {% if site.launcher_url != "" %}<a class="btn" href="{{ site.launcher_url }}">Download for Windows <span class="arrow">↓</span></a>
-        {% else %}<span class="btn btn--soon" aria-disabled="true">Coming soon</span>{% endif %}
+        {% else %}<span class="btn btn--soon" aria-disabled="true">Out shortly</span>{% endif %}
         <a class="btn btn--ghost" href="#how">How it works</a>
       </div>
       <p class="fine-print reveal">For Windows PCs. Follow the <a href="{{ '/updates.html' | relative_url }}">updates</a> to hear when it's ready.</p>
@@ -39,8 +39,8 @@ body_class: download
     <div class="section-head"><p class="eyebrow reveal">Inside the launcher</p><h2 class="title reveal">The apps.</h2></div>
     <div class="dl-app-grid">
       <a class="dl-app dl-app--astra reveal" href="{{ '/projects/astra/' | relative_url }}">
-        <span class="dl-icon">✦</span>
-        <div><p class="eyebrow">Astra · Music{% if site.astra_download_url != "" %} · Out now{% endif %}</p><h3>Your own streaming app, for music you own.</h3><p>Library, artist pages, playlists, lyrics, Smart Library, Walkman and iPod sync, phone and TV.</p><small>Windows 10 or 11 · See Astra →</small></div>
+        <img class="dl-icon dl-icon--img" src="{{ '/assets/img/astra/astra-icon.svg' | relative_url }}" alt="">
+        <div><p class="eyebrow">Astra · Music{% if site.astra_download_url != "" %} · Out now{% endif %}</p><h3>Your own streaming app, for music you own.</h3><p>Library, artist pages, playlists, lyrics, Astra Radio, EQ, Smart Library, Walkman and iPod sync, phone and TV.</p><small>Astra {{ site.astra_version }} · Windows 10 or 11 · See Astra →</small></div>
       </a>
       <a class="dl-app dl-app--allura reveal" href="{{ '/projects/allura.html' | relative_url }}">
         <img class="dl-icon" src="{{ '/assets/img/allura/allura_logo_flat.svg' | relative_url }}" alt="">
