@@ -125,8 +125,8 @@ em.accent { font-style: italic; color: var(--gold-lit); }
   .nav-links a { font-size: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); }
   .site-nav.is-open .nav-links { clip-path: inset(0 0 0 0); visibility: visible; }
   .site-nav.is-open { background: rgba(10, 8, 32, .96); }
-  .site-nav.is-open .bar:first-of-type { transform: translateY(3.5px) rotate(45deg); }
-  .site-nav.is-open .bar:last-of-type { transform: translateY(-3.5px) rotate(-45deg); }
+  .site-nav.is-open .bar:nth-child(2) { transform: translateY(3.25px) rotate(45deg); }
+  .site-nav.is-open .bar:nth-child(3) { transform: translateY(-3.25px) rotate(-45deg); }
 }
 
 /* ---------- Sections ---------- */
