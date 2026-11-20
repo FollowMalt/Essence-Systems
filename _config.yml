@@ -25,4 +25,4 @@ exclude: [README.md, Gemfile, Gemfile.lock, vendor]
 launcher_url: ""
 # Astra on its own, until the launcher is out (a small installer that downloads the newest Astra)
 astra_download_url: "https://github.com/FollowMalt/Essence-Systems/releases/download/astra-latest/Astra-Setup.zip"
-astra_version: "1.0"
+astra_version: "1.1"

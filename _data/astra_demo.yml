@@ -3,16 +3,16 @@
 songs:
   - { title: "Golden Hour Drive", artist: "The Coastlines", album: "Low Sun", year: 2024, a: 28, b: 330, p: 1, len: "3:42" }
   - { title: "Paper Lanterns", artist: "Mira Vale", album: "Paper Lanterns", year: 2023, a: 340, b: 270, p: 2, len: "4:05" }
-  - { title: "Neon Tide", artist: "Harbor Lights", album: "Night Swim", year: 2025, a: 185, b: 255, p: 3, len: "3:18" }
+  - { title: "Neon Tide", artist: "Harbor Lights", album: "Night Swim", year: 2025, a: 185, b: 255, p: 1, len: "3:18" }
   - { title: "Slow Orbit", artist: "Astronaut Club", album: "Gravity Well", year: 2022, a: 260, b: 220, p: 4, len: "5:01" }
   - { title: "Palm Shadows", artist: "Velvet Avenue", album: "Key West Tapes", year: 2021, a: 150, b: 45, p: 1, len: "3:36" }
   - { title: "Cassette Summer", artist: "June Static", album: "Rewind", year: 2020, a: 12, b: 48, p: 2, len: "2:58" }
   - { title: "Northern Static", artist: "Polar Radio", album: "Signals", year: 2024, a: 200, b: 160, p: 3, len: "4:22" }
   - { title: "Midnight Ferry", artist: "Lanterns & Oak", album: "Crossings", year: 2019, a: 225, b: 300, p: 4, len: "3:51" }
 devices:
-  - { name: "iPod shuffle", model: "4th generation · MP3 192 kbps", hue: 165, kind: shuffle }
-  - { name: "Walkman NWZ-E383", model: "Sony NWZ-E383 · MP3 224 kbps", hue: 335, kind: walkman }
-  - { name: "Walkman NW-S764", model: "Sony NW-S764 · MP3 320 kbps", hue: 215, kind: walkman }
+  - { name: "iPod shuffle", model: "4th generation · MP3 192 kbps", hue: 165, kind: shuffle, free: "0.6 GB", cap: "2 GB" }
+  - { name: "Walkman NWZ-E383", model: "Sony NWZ-E383 · MP3 224 kbps", hue: 335, kind: walkman, free: "3.1 GB", cap: "8 GB" }
+  - { name: "Walkman NW-S764", model: "Sony NW-S764 · MP3 320 kbps", hue: 215, kind: walkman, free: "6.2 GB", cap: "16 GB" }
 # Artist page (made up)
 artist:
   name: "Harbor Lights"
@@ -41,3 +41,15 @@ lyrics:
   - "Neon tide, carry me home"
   - "Through the glow of the undertow"
   - "Neon tide, don't let me go"
+# Astra Radio (made up): every playlist and Made by Astra mix is a station on the FM dial
+radio:
+  - { f: "88.9", name: "Sunday Morning", n: 32, now: "Paper Lanterns · Mira Vale" }
+  - { f: "91.5", name: "Top Songs", mix: true, n: 50, now: "Slow Orbit · Astronaut Club" }
+  - { f: "96.3", name: "Road Trip", n: 58, now: "Neon Tide · Harbor Lights", live: true }
+  - { f: "99.1", name: "Focus", n: 24, now: "Northern Static · Polar Radio" }
+  - { f: "102.9", name: "Late Night", n: 41, now: "Midnight Ferry · Lanterns & Oak" }
+  - { f: "105.7", name: "Harbor Lights Mix", mix: true, n: 25, now: "Undertow · Harbor Lights" }
+# EQ (10 bands, -12 to +12 dB) shown with the Bass boost preset
+eq_hz: [ "40", "80", "160", "320", "640", "1.2k", "2.5k", "4.5k", "7k", "9.5k" ]
+eq_gain: [ 7, 6, 4, 2, 0, 0, 0, 0, 0, 0 ]
+eq_presets: [ "Flat", "Bass boost", "Less bass", "Treble boost", "Vocal", "Rock", "Chill", "Loud" ]

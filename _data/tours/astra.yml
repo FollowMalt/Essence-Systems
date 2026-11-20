@@ -33,13 +33,21 @@ steps:
       - { text: "Every change can be undone", x: "42%", y: "72%", c: "#48D7D0" }
   - eyebrow: "04 · Now Playing"
     headline: "A player that <em>glows with the song.</em>"
-    text: "Crossfade, volume leveling, autoplay, a sleep timer and timed lyrics, wrapped in the colors of whatever's playing."
+    text: "Crossfade, volume leveling, a sleep timer, timed lyrics and now a 10-band EQ, wrapped in the colors of whatever's playing."
     ui: lyrics
     bg: "radial-gradient(70% 70% at 50% 90%, #0f6b78, transparent 70%), radial-gradient(40% 40% at 10% 10%, #1b3a6b, transparent), #04080d"
     callouts:
       - { text: "Crossfade 3–12 s", x: "26%", y: "86%", c: "#48D7D0" }
       - { text: "Lyrics that follow along", x: "82%", y: "14%", c: "#48D7D0" }
-  - eyebrow: "05 · Walkman & iPod"
+  - eyebrow: "05 · Astra Radio · New"
+    headline: "Your playlists, <em>on the air.</em>"
+    text: "Every playlist is a station on the FM dial, playing all day. Tune in and you join mid-song, on your computer, phone or TV."
+    ui: radio
+    bg: "radial-gradient(70% 60% at 50% 100%, #6b3a0f, transparent 70%), radial-gradient(40% 40% at 85% 15%, #3a1b5f, transparent), #07050d"
+    callouts:
+      - { text: "Tune in mid-song", x: "60%", y: "27%", c: "#ffb347" }
+      - { text: "Every playlist is a station", x: "70%", y: "60%", c: "#ffb347" }
+  - eyebrow: "06 · Walkman & iPod"
     headline: "Plug it in. <em>It just syncs.</em>"
     text: "Sony Walkmans and iPod shuffles get your playlists, converted to formats they can play. Astra only ever removes what it put there."
     ui: devices
@@ -48,5 +56,5 @@ steps:
     y: "-4%"
     bg: "radial-gradient(70% 60% at 50% 100%, #7a1f52, transparent 70%), radial-gradient(40% 40% at 80% 10%, #2a2470, transparent), #07050d"
     callouts:
-      - { text: "Auto-sync on plug-in", x: "80%", y: "30%", c: "#FF6FAE" }
-      - { text: "Japanese models too", x: "36%", y: "62%", c: "#FF6FAE" }
+      - { text: "Auto-sync on plug-in", x: "72%", y: "48%", c: "#FF6FAE" }
+      - { text: "Smaller cards, a page per player", x: "50%", y: "66%", c: "#FF6FAE" }

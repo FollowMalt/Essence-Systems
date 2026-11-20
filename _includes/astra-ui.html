@@ -1,20 +1,50 @@
 {%- comment -%}
   A rebuilt, generic Astra interface. {% include astra-ui.html view="home" %}
-  Desktop views: home, songs, albums, artist, playlists, nowplaying, lyrics, smart, devices, rewind.
-  Other screens: phone, phone-library, tv. All music is made up (see _data/astra_demo.yml).
+  Desktop views: home, songs, albums, artist, playlists, nowplaying, lyrics, eq, radio, smart, devices, device, rewind.
+  Other screens: phone (Now Playing), phone-lyrics, phone-radio, phone-library, tv. All music is made up (see _data/astra_demo.yml).
 {%- endcomment -%}
 {%- assign d = site.data.astra_demo -%}{%- assign np = d.songs[2] -%}{%- assign v = include.view -%}
-{%- if v == "phone" -%}
-<div class="ax ax-phone" aria-hidden="true" style="--a:{{ np.a }};--b:{{ np.b }}">
-  <div class="axp-top"><span>Astra</span><span class="ax-dot"></span></div>
-  <div class="axp-cover">{% include astra-cover.html s=np %}</div>
-  <div class="axp-meta"><b>{{ np.title }}</b><span>{{ np.artist }}</span></div>
-  <div class="axp-bar"><i style="width:38%"></i></div>
-  <div class="axp-time"><span>1:16</span><span>{{ np.len }}</span></div>
-  <div class="axp-ctrl"><span>⇄</span><span>⏮</span><span class="ax-play">▶</span><span>⏭</span><span>↻</span></div>
-  <div class="axp-next"><small>UP NEXT</small>
-    {% for s in d.songs offset:3 limit:3 %}<div class="ax-row-s">{% include astra-cover.html s=s %}<div><b>{{ s.title }}</b><span>{{ s.artist }}</span></div></div>{% endfor %}
+{%- capture ic_shuf -%}<svg viewBox="0 0 24 24"><path d="M3 7h3.5c2 0 3.2 1 4.3 2.7l2.4 4.6c1.1 1.7 2.3 2.7 4.3 2.7H21M3 17h3.5c1.4 0 2.4-.5 3.2-1.4M14.3 8.4c.8-.9 1.8-1.4 3.2-1.4H21M18.5 4.5 21 7l-2.5 2.5M18.5 14.5 21 17l-2.5 2.5"/></svg>{%- endcapture -%}
+{%- capture ic_rep -%}<svg viewBox="0 0 24 24"><path d="M4 11V9.5A3.5 3.5 0 0 1 7.5 6H19M16 3l3 3-3 3M20 13v1.5a3.5 3.5 0 0 1-3.5 3.5H5M8 21l-3-3 3-3"/></svg>{%- endcapture -%}
+{%- capture ic_prev -%}<svg viewBox="0 0 24 24" class="fill"><path d="M6 5h2.4v14H6zM20 5v14L9.5 12z"/></svg>{%- endcapture -%}
+{%- capture ic_next -%}<svg viewBox="0 0 24 24" class="fill"><path d="M15.6 5H18v14h-2.4zM4 5v14l10.5-7z"/></svg>{%- endcapture -%}
+{%- capture ic_play -%}<svg viewBox="0 0 24 24" class="fill"><path d="M8 5.5v13l10.5-6.5z"/></svg>{%- endcapture -%}
+{%- capture ic_vol -%}<svg viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4zM15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>{%- endcapture -%}
+{%- capture ic_pause -%}<svg viewBox="0 0 24 24" class="fill"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>{%- endcapture -%}
+{%- if v == "phone" or v == "phone-lyrics" or v == "phone-radio" -%}
+<div class="ax ax-phone axn axn--{{ v }}" aria-hidden="true" style="--a:{{ np.a }};--b:{{ np.b }}">
+  <div class="axn-status"><b>9:41</b><i class="axn-island"></i><span class="axn-batt"><i></i></span></div>
+  {%- if v == "phone-radio" -%}
+  <div class="axn-head"><i class="axn-chev axn-chev--back"></i><b class="axn-title">Astra Radio</b><em>•••</em></div>
+  <div class="axr-face">
+    <b class="axr-freq">96.3<span> FM</span></b>
+    <div class="axr-station">Road Trip</div>
+    <div class="axr-onair"><em>● LIVE</em> {{ np.title }} · {{ np.artist }}</div>
+    <div class="axr-dial">{% for st in d.radio %}{% assign pos = st.f | minus: 88 | times: 5 %}<i class="{% if st.live %}on{% endif %}" style="left:{{ pos }}%"></i>{% endfor %}<b style="left:41.5%"></b><span><em>88</em><em>92</em><em>96</em><em>100</em><em>104</em><em>108</em></span></div>
+    <div class="axr-btns"><span>◀</span><span class="big">{{ ic_pause }}</span><span>▶</span></div>
   </div>
+  <small class="axn-sec">STATIONS ON THE AIR</small>
+  {% for st in d.radio limit:5 %}<div class="axr-st{% if st.live %} on{% endif %}"><b>{{ st.f }}</b><div><strong>{{ st.name }}{% if st.mix %} <i>· Made by Astra</i>{% endif %}</strong><span>On now: {{ st.now }}</span></div>{% if st.live %}<em>● LIVE</em>{% endif %}</div>{% endfor %}
+  {%- else -%}
+  <div class="axn-head"><i class="axn-chev"></i><small>PLAYING FROM ROAD TRIP</small><em>•••</em></div>
+  {%- if v == "phone-lyrics" -%}
+  <div class="axn-tint"></div>
+  <div class="axn-lyrics"><span class="axn-intro"><i></i><i></i><i></i></span>{% for l in d.lyrics limit:5 %}<p{% if forloop.index == 1 %} class="next"{% endif %}>{{ l }}</p>{% endfor %}</div>
+  {%- else -%}
+  <div class="axn-cover">{% include astra-cover.html s=np %}</div>
+  <div class="axn-leds">{% assign lv = "1,4,5,6,5,4,3,2,1,1" | split: "," %}{% for h in lv %}<i style="--h:{{ h }}"></i>{% endfor %}</div>
+  {%- endif -%}
+  <div class="axn-meta"><b>{{ np.title }}</b><span>{{ np.artist }}</span></div>
+  <div class="axn-scrub"><i style="width:{% if v == 'phone-lyrics' %}6{% else %}38{% endif %}%"></i></div>
+  <div class="axn-time"><span>{% if v == 'phone-lyrics' %}0:12{% else %}1:16{% endif %}</span><span>{% if v == 'phone-lyrics' %}-3:06{% else %}-2:02{% endif %}</span></div>
+  <div class="axn-ctrl"><span class="tog">{{ ic_shuf }}</span><span>{{ ic_prev }}</span><span class="axn-play">{{ ic_pause }}</span><span>{{ ic_next }}</span><span class="tog">{{ ic_rep }}</span></div>
+  {%- if v == "phone-lyrics" -%}
+  <div class="axn-pills"><em class="on on--deep">Lyrics</em><em>« Sooner</em><em>Later »</em><em>Other version</em></div>
+  {%- else -%}
+  <div class="axn-pills"><em class="on">Lyrics</em><em>EQ</em><em>+ Playlist</em><em>Album</em><em>Sleep</em></div>
+  <div class="axn-seg"><em class="on">This phone</em><em>Computer</em></div>
+  {%- endif -%}
+  {%- endif -%}
 </div>
 {%- elsif v == "phone-library" -%}
 <div class="ax ax-phone ax-phone--lib" aria-hidden="true">
@@ -42,16 +72,19 @@
 {%- if v == "artist" -%}{%- assign cur = "Artists" -%}{%- endif -%}
 {%- if v == "playlists" -%}{%- assign cur = "Playlists" -%}{%- endif -%}
 {%- if v == "smart" -%}{%- assign cur = "Smart Library" -%}{%- endif -%}
-{%- if v == "devices" -%}{%- assign cur = "Devices" -%}{%- endif -%}
-{%- if v == "nowplaying" or v == "lyrics" -%}{%- assign cur = "" -%}{%- endif -%}
+{%- if v == "devices" or v == "device" -%}{%- assign cur = "Devices" -%}{%- endif -%}
+{%- if v == "nowplaying" or v == "lyrics" or v == "eq" -%}{%- assign cur = "" -%}{%- endif -%}
 <div class="ax ax-desk ax-view-{{ v }}" aria-hidden="true" data-astra-ui>
   <div class="ax-canvas">
     <aside class="ax-side">
       <div class="ax-brand"><span class="ax-logo">✦</span><div><b>Astra</b><small>MUSIC · PLAYERS</small></div></div>
       <small class="ax-label">LIBRARY</small>
-      {% assign nav = "Home,Library,Artists,Playlists,Devices,Smart Library,Settings" | split: "," %}
-      {% for n in nav %}<div class="ax-nav{% if n == cur %} on{% endif %}">{{ n }}</div>{% endfor %}
-      <div class="ax-activity"><b>✓ Activity</b><small>Sync complete. Your players are up to date.</small></div>
+      {% assign nav = "Home,Library,Artists,Playlists" | split: "," %}{% assign gl = "⌂,♪,✶,♫" | split: "," %}
+      {% for n in nav %}<div class="ax-nav{% if n == cur %} on{% endif %}"><i>{{ gl[forloop.index0] }}</i>{{ n }}</div>{% endfor %}
+      <small class="ax-label">MANAGE</small>
+      {% assign nav = "Devices,Smart Library,Settings" | split: "," %}{% assign gl = "▭,✦,⚙" | split: "," %}
+      {% for n in nav %}<div class="ax-nav{% if n == cur %} on{% endif %}"><i>{{ gl[forloop.index0] }}</i>{{ n }}</div>{% endfor %}
+      <div class="ax-activity"><b>✓ Activity <em>idle</em></b><small>Sync complete. Your players are up to date.</small></div>
     </aside>
     <main class="ax-main">
     {%- case v -%}
@@ -103,15 +136,31 @@
       <div class="ax-pl-grid">{% for p in d.playlists %}{% if p.auto %}<div class="ax-pl" style="--a:{{ p.a }};--b:{{ p.b }}">{% include astra-cover.html s=p %}<b>{{ p.name }}</b><span>{{ p.n }} songs</span></div>{% endif %}{% endfor %}</div>
       <small class="ax-sub">YOUR PLAYLISTS</small>
       <div class="ax-pl-grid">{% for p in d.playlists %}{% unless p.auto %}<div class="ax-pl" style="--a:{{ p.a }};--b:{{ p.b }}">{% include astra-cover.html s=p %}<b>{{ p.name }}</b><span>{{ p.n }} songs</span></div>{% endunless %}{% endfor %}</div>
-    {%- when "nowplaying" or "lyrics" -%}
+    {%- when "nowplaying" or "lyrics" or "eq" -%}
       <div class="ax-np" style="--a:{{ np.a }};--b:{{ np.b }}">
-        <div class="ax-np-left">{% include astra-cover.html s=np %}<small class="ax-kicker">PLAYING FROM YOUR LIBRARY</small><b class="ax-big">{{ np.title }}</b><span>{{ np.artist }} · {{ np.album }}</span>
-          <div class="ax-chips"><span>CROSSFADE</span><span class="on">6s</span><span>AUTOPLAY</span><span class="on">On</span><span>SLEEP</span><span>30m</span></div></div>
+        <div class="ax-np-left">
+          <div class="ax-np-art">{% include astra-cover.html s=np %}{% if v == "eq" %}
+            <div class="ax-eqp"><b class="ax-eqp-h">EQ · Bass boost <em class="on">● EQ ON</em><i>✕</i></b>
+              <div class="ax-eqs">{% for g in d.eq_gain %}{% assign top = 50 %}{% assign hgt = g | times: 4 %}{% assign top = 50 | minus: hgt %}<span><b><i style="top:{{ top }}%;height:{{ hgt }}%"></i><em style="top:{{ top }}%"></em></b><small>{{ d.eq_hz[forloop.index0] }}</small></span>{% endfor %}</div>
+              <div class="ax-eqpre">{% for pr in d.eq_presets %}<em{% if pr == "Bass boost" %} class="on"{% endif %}>{{ pr }}</em>{% endfor %}</div></div>{% endif %}</div>
+          <div class="ax-leds">{% assign lv = "3,5,6,5,4,4,3,2,2,1" | split: "," %}{% for h in lv %}<i style="--h:{{ h }}"></i>{% endfor %}</div>
+          <small class="ax-kicker">PLAYING FROM ROAD TRIP</small><b class="ax-big">{{ np.title }}</b><span>{{ np.artist }} · {{ np.album }}</span>
+          <div class="ax-chips"><span{% if v == "lyrics" %} class="on"{% endif %}>LYRICS</span><span{% if v == "eq" %} class="on"{% endif %}>EQ</span><span>VISUALIZER</span><span>CROSSFADE 6s</span><span>SLEEP</span></div></div>
         {%- if v == "lyrics" -%}
-        <div class="ax-upnext ax-lyrics"><b><i>Up Next</i> Lyrics</b>{% for l in d.lyrics %}<p class="{% if forloop.index == 4 %}on{% elsif forloop.index < 4 %}past{% endif %}">{{ l }}</p>{% endfor %}<small class="ax-lyr-note">✓ TIMED LYRICS · ADD BETTER TIMING</small></div>
+        <div class="ax-upnext ax-lyrics"><b><i>Up Next</i> Lyrics</b>{% for l in d.lyrics %}<p class="{% if forloop.index == 4 %}on{% elsif forloop.index < 4 %}past{% endif %}">{{ l }}</p>{% endfor %}<small class="ax-lyr-note">✓ TIMED LYRICS · « SOONER · LATER » · OTHER VERSION</small></div>
         {%- else -%}
         <div class="ax-upnext"><b>Up Next <i>Lyrics</i></b>{% for s in d.songs %}{% unless forloop.index == 3 %}<div class="ax-row-s">{% include astra-cover.html s=s %}<div><b>{{ s.title }}</b><span>{{ s.artist }}</span></div><small>{{ s.len }}</small></div>{% endunless %}{% endfor %}</div>
         {%- endif -%}
+      </div>
+    {%- when "radio" -%}
+      <div class="ax-radio">
+        <div class="ax-head"><h4>Astra Radio</h4><span class="ax-btn">TURN OFF RADIO</span><b class="ax-x">✕</b></div>
+        <small class="ax-radio-sub">Every playlist is a station, playing all day in today's shuffle. Tune in and you join mid-song, right where it is on every device. Skip changes station.</small>
+        <div class="ax-dialbox">
+          <div class="ax-dial-top"><b class="ax-freq">96.3</b><div><b>FM · Road Trip</b><span>{{ np.title }} · {{ np.artist }}</span></div><em>◀</em><em>▶</em></div>
+          <div class="ax-scale">{% for st in d.radio %}{% assign pos = st.f | minus: 88 | times: 5 %}<i style="left:{{ pos }}%"></i>{% endfor %}<b style="left:41.5%"></b><span><em>88</em><em>92</em><em>96</em><em>100</em><em>104</em><em>108</em></span></div>
+        </div>
+        {% for st in d.radio %}<div class="ax-st{% if st.live %} on{% endif %}"><b>{{ st.f }}</b><div><strong>{{ st.name }}{% if st.mix %}  ·  Made by Astra{% endif %}</strong><span>On now: {{ st.now }}</span></div><em>{% if st.live %}● LIVE{% else %}{{ st.n }} songs{% endif %}</em></div>{% endfor %}
       </div>
     {%- when "smart" -%}
       <div class="ax-head"><h4>Smart Library</h4></div>
@@ -120,7 +169,27 @@
       {% for s in d.songs offset:4 limit:2 %}<div class="ax-fix"><b>{{ s.title }} — {{ s.artist }}</b><small>Fill in details from {{ s.album }}</small><span>Genre <i>(empty)</i> → <b>Indie</b></span><span>✓ Same artist · ✓ Same title · ✓ Same length</span><div class="ax-acts"><em class="on">APPLY</em><em>EDIT</em><em>SKIP</em><em>REJECT</em></div></div>{% endfor %}
     {%- when "devices" -%}
       <div class="ax-head"><h4>Devices</h4><span class="ax-btn">SCAN FOR DEVICES</span></div>
-      {% for dv in d.devices %}<div class="ax-devcard" style="--h:{{ dv.hue }}"><span class="ax-sil ax-sil--{{ dv.kind }}"></span><div><b>{{ dv.name }}</b><small>{{ dv.model }}</small><div class="ax-acts"><em>BACK UP MUSIC</em><em>ADOPT PLAYLISTS</em>{% if dv.kind == "walkman" %}<em>WALLPAPER</em>{% endif %}<em>PREVIEW SYNC</em></div></div><div class="ax-devright"><em class="ok">CONNECTED</em><em class="gold">SYNC</em></div></div>{% endfor %}
+      <div class="ax-detect"><b>Looking for players</b><small>No new players. Players you've already added are under Saved devices below.</small></div>
+      <small class="ax-label ax-label--flush">SAVED DEVICES</small>
+      <div class="ax-dev-grid">{% for dv in d.devices %}<div class="ax-dcard" style="--h:{{ dv.hue }}">
+        <div class="ax-dcard-look"><span class="ax-sil ax-sil--{{ dv.kind }}"></span><em class="ax-conn">{% if forloop.index < 3 %}● CONNECTED{% else %}NOT PLUGGED IN{% endif %}</em></div>
+        <b>{{ dv.name }}</b><small>{{ dv.model }}</small>
+        <div class="ax-store"><i style="width:{{ forloop.index | times: 21 | plus: 18 }}%"></i></div><small class="ax-store-t">{{ dv.free }} free of {{ dv.cap }}</small>
+        <div class="ax-dacts"><em class="gold{% if forloop.index == 3 %} off{% endif %}">SYNC</em><em>MANAGE</em><em class="auto{% if forloop.index == 3 %} off{% endif %}">{% if forloop.index == 3 %}AUTO-SYNC OFF{% else %}● AUTO-SYNC ON{% endif %}</em></div>
+      </div>{% endfor %}</div>
+    {%- when "device" -%}
+      {%- assign dv = d.devices[2] -%}
+      <div class="ax-dm" style="--h:{{ dv.hue }}">
+        <div class="ax-dm-head"><span class="ax-sil ax-sil--{{ dv.kind }}"></span><div><em class="ax-back">← ALL DEVICES</em><small class="ax-kicker">DEVICE</small><b class="ax-big">{{ dv.name }}</b><small>{{ dv.model }} · {{ dv.free }} free of {{ dv.cap }}</small></div>
+          <div class="ax-dm-btns"><div class="ax-acts"><em>PREVIEW SYNC</em><em class="gold">SYNC</em></div><div class="ax-acts"><em>RENAME</em><em>COLOURS</em><em>WALLPAPER</em></div></div></div>
+        <div class="ax-dm-grid">
+          <div class="ax-dm-card"><small class="ax-label">TOOLS</small><div class="ax-acts ax-acts--wrap"><em>BACK UP MUSIC</em><em>ADOPT PLAYLISTS</em><em>SCAN DEVICE</em><em>TEST SYNC</em></div></div>
+          <div class="ax-dm-card"><small class="ax-label">AUDIO QUALITY</small><div class="ax-acts ax-acts--wrap"><em>192 kbps</em><em>256 kbps</em><em class="on">320 kbps</em></div><small class="ax-dm-note">Target format: MP3. Songs already on the player keep their copy until they need replacing.</small></div>
+          <div class="ax-dm-card ax-dm-card--tall"><small class="ax-label">PLAYLISTS ON THIS PLAYER <i>ALL ON · ALL OFF</i></small>{% for p in d.playlists limit:5 %}<div class="ax-dm-pl"><span class="ax-tog{% unless forloop.index == 4 %} on{% endunless %}"></span><b>{{ p.name }}</b><small>{{ p.n }} songs</small></div>{% endfor %}</div>
+          <div class="ax-dm-card"><small class="ax-label">HOW PLAYLISTS ARE WRITTEN</small><div class="ax-acts ax-acts--wrap"><em>PLAYLIST FILES (.m3u)</em><em>ONE FOLDER PER PLAYLIST</em><em class="on">SONY PLAYLISTS</em></div></div>
+          <div class="ax-dm-card"><small class="ax-label">SONGS ON THIS DEVICE</small><b class="ax-dm-num">1,184</b><small class="ax-dm-note">Astra only ever removes what it put there.</small></div>
+        </div>
+      </div>
     {%- when "rewind" -%}
       <div class="ax-rewind">
         <div class="ax-rw-head"><small class="ax-kicker">ASTRA REWIND</small><b class="ax-rw-title">This year</b><div class="ax-tabs"><em>This month</em><em class="on">This year</em><em>All time</em></div></div>
@@ -132,7 +201,9 @@
       </div>
     {%- endcase -%}
     </main>
-    <div class="ax-player" style="--a:{{ np.a }}">{% include astra-cover.html s=np %}<div><b>{{ np.title }}</b><span>{{ np.artist }}</span></div><div class="ax-pc"><span>⇄ ⏮</span><span class="ax-play">▶</span><span>⏭ ↻</span><div class="axp-bar"><i style="width:38%"></i></div></div><div class="ax-vol"><i></i></div></div>
+    <div class="ax-player" style="--a:{{ np.a }}">{% include astra-cover.html s=np %}<div><b>{{ np.title }}</b><span>{{ np.artist }}</span><small>{% if v == "radio" %}● LIVE · 96.3 FM Road Trip{% else %}From Road Trip{% endif %}</small></div>
+      <div class="ax-pc"><div class="ax-pc-btns"><span class="ring">{{ ic_shuf }}</span><span>{{ ic_prev }}</span><span class="ax-play">{{ ic_play }}</span><span>{{ ic_next }}</span><span class="ring">{{ ic_rep }}</span></div><div class="ax-pc-bar"><small>1:16</small><div class="axp-bar"><i style="width:38%"></i></div><small>3:18</small></div></div>
+      <div class="ax-pr"><span class="q">☰</span><span>{{ ic_vol }}</span><div class="ax-vol"><i></i></div><span class="up">⌃</span></div></div>
   </div>
 </div>
 {%- endif -%}
