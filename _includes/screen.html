@@ -9,7 +9,7 @@
   <div class="device-screen">
     {% if include.src %}<img src="{{ include.src | relative_url }}" alt="{{ include.label }}" loading="lazy">
     {% elsif include.ui and include.app == "allura" %}{% include allura-ui.html view=include.ui %}<span class="sr-only">{{ include.label }}</span>
-    {% elsif include.ui %}{% include astra-ui.html view=include.ui %}<span class="sr-only">{{ include.label }}</span>
+    {% elsif include.ui %}{% include astra-ui.html view=include.ui theme=include.theme %}<span class="sr-only">{{ include.label }}</span>
     {% else %}<div class="screen-placeholder"><span>{{ include.label }}</span><small>Screenshot coming soon</small></div>{% endif %}
   </div>
 </figure>

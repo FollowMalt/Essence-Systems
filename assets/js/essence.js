@@ -173,3 +173,18 @@ document.querySelectorAll("[data-words]").forEach((el) => {
   update();
   window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
 });
+
+// Living themes switcher on the Astra page
+document.querySelectorAll("[data-theme-switch]").forEach((group) => {
+  const section = group.closest("section");
+  const screen = section && section.querySelector("[data-theme-target]");
+  if (!screen) return;
+  group.addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-theme]");
+    if (!btn) return;
+    const t = btn.dataset.theme;
+    screen.className = screen.className.replace(/\bax-th-\S+/g, "").trim() + " ax-th-" + t;
+    group.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+    section.querySelectorAll("[data-note]").forEach((n) => { n.hidden = n.dataset.note !== t; });
+  });
+});
