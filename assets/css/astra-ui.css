@@ -52,7 +52,7 @@
 .ax-cols { display: grid; grid-template-columns: 1fr 290px; gap: 12px; flex: 1; min-height: 0; }
 .ax-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px; overflow: hidden; }
 .ax-h { font-size: 15px; display: block; margin-bottom: 10px; }
-.ax-quick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
+.ax-quick { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 12px; }
 .ax-quick span { border: 1px solid var(--border); border-radius: 10px; padding: 12px; font-weight: 600; font-size: 12px; }
 .ax-quick span.on { border-color: #8f8cff; box-shadow: 0 0 0 1px #8f8cff55; }
 .ax-sub { color: var(--t2); font-size: 11px; font-weight: 600; margin-bottom: 6px; }
@@ -490,3 +490,129 @@
 .ax-detect b { font-size: 13px; }
 .ax-detect small { color: var(--t3); font-size: 11px; margin-top: 3px; }
 .ax-dcard .ax-sil { transform: scale(1.35); }
+
+/* ---- Astra 1.2 ---- */
+/* Astra's own window strip: no Windows title bar, its own buttons, rounded corners */
+.ax-canvas { padding-top: 34px !important; border-radius: 10px; overflow: hidden; }
+.ax-winbar { position: absolute; left: 0; right: 0; top: 0; height: 30px; display: flex !important; align-items: center; justify-content: flex-end; gap: 4px; padding: 0 10px; z-index: 3; }
+.ax-winbar span { margin-right: auto; padding-left: 8px; font-size: 11px; color: var(--t3); letter-spacing: .04em; }
+.ax-winbar i { font-style: normal; width: 34px; text-align: center; font-size: 12px; color: var(--t2); }
+.ax-canvas--tv { padding-top: 80px !important; }
+.ax-tv .ax-winbar { display: none !important; }
+/* Now Playing: one row of buttons; each cycles through its choices */
+.ax-cycle { display: flex !important; gap: 6px; flex-wrap: nowrap; }
+.ax-cycle span { white-space: nowrap; font-size: 10.5px; font-weight: 600; padding: 7px 11px; border-radius: 999px; border: 1px solid #ffffff30; color: #e6e3ff; background: #00000026; }
+.ax-cycle span b { font-weight: 400; color: #ffffffa6; margin-left: 3px; }
+.ax-cycle span.on { background: #9a9cff; border-color: #9a9cff; color: #fff; }
+.ax-cycle span.on b { color: #fff; }
+
+/* Living themes: a scene behind the app, and cards restyled to match */
+.ax-scene { position: absolute; inset: 0; width: 100%; height: 100%; display: none; z-index: 0; }
+.ax-themed .ax-canvas > *:not(.ax-scene) { position: relative; z-index: 1; }
+.ax-themed .ax-winbar { position: absolute !important; }
+.ax-th-cosmos .ax-scene--cosmos, .ax-th-retro .ax-scene--retro, .ax-th-future .ax-scene--future, .ax-th-koi .ax-scene--koi, .ax-th-outside .ax-scene--outside { display: block; }
+.ax-themed .ax-canvas { transition: background .6s; }
+.ax-themed :is(.ax-side, .ax-panel, .ax-player, .ax-banner, .ax-quick span, .ax-row, .ax-dev) { transition: border-radius .4s, background .4s, border-color .4s, box-shadow .4s; }
+/* Classic: the familiar look, softer and rounder */
+.ax-th-classic :is(.ax-side, .ax-panel, .ax-player, .ax-banner) { border-radius: 24px; }
+.ax-th-classic :is(.ax-quick span, .ax-row, .ax-dev) { border-radius: 14px; }
+/* Cosmos */
+.ax-th-cosmos :is(.ax-side, .ax-panel) { background: rgba(4, 4, 14, .62); border-color: #ffffff14; }
+.ax-th-cosmos .ax-banner { background: linear-gradient(100deg, hsl(var(--a) 50% 22% / .75), rgba(10, 8, 30, .6)); }
+.ax-th-cosmos .ax-player { background: rgba(6, 6, 18, .7) !important; }
+/* Retro: pink neon edges, teal italic headings */
+.ax-th-retro :is(.ax-side, .ax-panel, .ax-player) { background: rgba(24, 6, 44, .62) !important; border: 1px solid #ff4fa3; box-shadow: 0 0 14px #ff4fa366, inset 0 0 10px #ff4fa322; }
+.ax-th-retro .ax-banner { background: linear-gradient(100deg, rgba(255, 79, 163, .35), rgba(62, 230, 224, .2)); border: 1px solid #3ee6e0; }
+.ax-th-retro :is(.ax-head h4, .ax-h, .ax-brand b, .ax-banner > div:first-child b) { color: #3ee6e0; font-style: italic; text-shadow: 0 0 10px #3ee6e088; }
+.ax-th-retro .ax-nav.on { box-shadow: inset 2px 0 0 #ff4fa3; background: #ff4fa322; }
+/* Futuristic: sharp corners, cyan glow, monospace headings */
+.ax-th-future :is(.ax-side, .ax-panel, .ax-player, .ax-banner, .ax-quick span, .ax-row, .ax-dev, .ax-btn, .ax-nav) { border-radius: 2px !important; }
+.ax-th-future :is(.ax-side, .ax-panel, .ax-player) { background: rgba(3, 8, 22, .72) !important; border: 1px solid #3ef0ff99; box-shadow: 0 0 16px #3ef0ff44; }
+.ax-th-future .ax-banner { background: linear-gradient(100deg, rgba(62, 240, 255, .22), rgba(180, 107, 255, .2)); border: 1px solid #3ef0ff; }
+.ax-th-future :is(.ax-head h4, .ax-h, .ax-brand b, .ax-banner > div:first-child b) { font-family: ui-monospace, Consolas, "Courier New", monospace; color: #7ff6ff; letter-spacing: .02em; }
+/* Koi pond and Outside: frosted glass */
+:is(.ax-th-koi, .ax-th-outside) :is(.ax-side, .ax-panel, .ax-player) { background: rgba(255, 255, 255, .10) !important; border: 1px solid rgba(255, 255, 255, .22); backdrop-filter: blur(14px) saturate(1.2); box-shadow: 0 10px 40px -10px rgba(0, 0, 0, .35); }
+:is(.ax-th-koi, .ax-th-outside) .ax-banner { background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .25); backdrop-filter: blur(10px); }
+:is(.ax-th-koi, .ax-th-outside) :is(.ax-row, .ax-dev, .ax-quick span) { background: rgba(255, 255, 255, .06); border-color: rgba(255, 255, 255, .16); }
+/* Outside, snowing: snow piles up on top of the cards */
+.ax-th-outside :is(.ax-side, .ax-panel, .ax-player, .ax-banner)::before { content: ""; position: absolute; left: 6px; right: 6px; top: -7px; height: 12px; border-radius: 12px 12px 6px 6px; background: #f7faff;
+  box-shadow: 0 2px 4px rgba(40, 60, 100, .25); clip-path: polygon(0 100%, 0 55%, 8% 30%, 20% 45%, 34% 20%, 48% 40%, 62% 15%, 76% 38%, 90% 22%, 100% 50%, 100% 100%); }
+.ax-th-outside :is(.ax-side, .ax-panel, .ax-player, .ax-banner) { position: relative; overflow: visible; }
+
+/* Scene motion (still when reduced motion is on) */
+@media (prefers-reduced-motion: no-preference) {
+  .ax-scene .tw { animation: ax-tw 3.2s ease-in-out infinite alternate; }
+  @keyframes ax-tw { to { opacity: .15; } }
+  .ax-scene--cosmos .shoot { animation: ax-shoot 7s ease-in infinite; opacity: 0; }
+  @keyframes ax-shoot { 0%, 82% { transform: translate(200px, 80px); opacity: 0; } 86% { opacity: 1; } 100% { transform: translate(720px, 280px); opacity: 0; } }
+  .ax-scene--retro .flick { animation: ax-flick 5s steps(1) infinite; }
+  @keyframes ax-flick { 0%, 40%, 44%, 70%, 100% { opacity: 1; } 42%, 72% { opacity: .25; } }
+  .ax-scene--retro .palm { animation: ax-sway 6s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: bottom left; }
+  @keyframes ax-sway { to { rotate: 1.6deg; } }
+  .ax-scene--future .neon { animation: ax-buzz 4s steps(1) infinite; }
+  .ax-scene--future .n1 { animation-delay: -1.3s; } .ax-scene--future .n3 { animation-delay: -2.6s; }
+  @keyframes ax-buzz { 0%, 30%, 33%, 100% { opacity: 1; } 31% { opacity: .2; } 32% { opacity: .8; } }
+  .ax-scene--future .beam { animation: ax-beam 9s ease-in-out infinite alternate; }
+  .ax-scene--future .b2 { animation-delay: -4s; }
+  @keyframes ax-beam { from { rotate: -14deg; } to { rotate: 14deg; } }
+  .ax-scene--future .car { animation: ax-car linear infinite; }
+  .ax-scene--future .c1 { animation-delay: -8s; } .ax-scene--future .c2 { animation-delay: -15s; }
+  @keyframes ax-car { from { transform: translate(-80px, var(--y)); } to { transform: translate(1360px, var(--y)); } }
+  .ax-scene--future .holo { animation: ax-holo 3s ease-in-out infinite alternate; }
+  @keyframes ax-holo { to { opacity: .55; } }
+  .ax-scene--koi .koi-b { animation: ax-koi 5s ease-in-out infinite alternate; }
+  .ax-scene--koi .koi { animation: ax-cruise 26s ease-in-out infinite alternate; }
+  .ax-scene--koi .k2 { animation-duration: 32s; } .ax-scene--koi .k3 { animation-duration: 21s; animation-delay: -6s; } .ax-scene--koi .k4 { animation-duration: 29s; animation-delay: -12s; }
+  @keyframes ax-koi { to { transform: rotate(4deg) scaleX(.96); } }
+  @keyframes ax-cruise { from { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(var(--s)); } to { transform: translate(calc(var(--x) - 160px), calc(var(--y) + 40px)) rotate(calc(var(--r) + 18deg)) scale(var(--s)); } }
+  .ax-scene--koi .caustic { animation: ax-caus 8s ease-in-out infinite alternate; }
+  @keyframes ax-caus { to { transform: translate(-30px, 20px) scale(1.06); opacity: .18; } }
+  .ax-scene--koi .ripples circle { fill: none; stroke: #e8fff9; stroke-width: 1.5; transform-box: fill-box; transform-origin: center; animation: ax-rip 4s ease-out infinite; }
+  @keyframes ax-rip { from { scale: .2; opacity: .8; } to { scale: 4; opacity: 0; } }
+  .ax-scene--outside .snow circle { animation: ax-snow linear infinite; }
+  @keyframes ax-snow { to { transform: translate(-60px, 1600px); } }
+  .ax-scene--outside .tree { animation: ax-tree 5s ease-in-out infinite alternate; }
+  @keyframes ax-tree { from { rotate: -1deg; } to { rotate: 1.5deg; } }
+  .ax-scene--outside .clouds { animation: ax-cloud 40s linear infinite alternate; }
+  @keyframes ax-cloud { to { transform: translateX(-120px); } }
+}
+.ax-scene--koi .koi { transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(var(--s)); }
+.ax-scene--future .car { transform: translate(200px, var(--y)); }
+.ax-scene--koi .ripples circle { fill: none; stroke: #e8fff9; stroke-width: 1.5; opacity: .3; }
+
+/* Theme switcher on the Astra page */
+.theme-switch { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 auto 28px; }
+.theme-switch button { font: 600 14px/1 "Inter", sans-serif; color: #e6e3ff; background: #ffffff0d; border: 1px solid #ffffff26; border-radius: 999px; padding: 11px 18px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background .2s, border-color .2s, color .2s; }
+.theme-switch button i { width: 10px; height: 10px; border-radius: 50%; background: var(--sw); box-shadow: 0 0 10px var(--sw); }
+.theme-switch button[aria-pressed="true"] { background: #fff; color: #120a24; border-color: #fff; }
+.theme-switch button:focus-visible { outline: 2px solid #b58cff; outline-offset: 3px; }
+/* phone: playback settings (1.2) */
+.axn--set { gap: 0; }
+.axs-card { border: 1px solid #23284a; background: #0d0f1cd9; border-radius: 1.1em; padding: .8em; margin-bottom: 5%; }
+.axs-card .axn-seg { margin: 0 0 .7em; }
+.axs-card small { color: #a3a6c4; font-size: .74em; }
+.axs-ready { height: .35em; border-radius: 9px; background: #ffffff1a; margin-bottom: .55em; }
+.axs-ready i { display: block; height: 100%; border-radius: 9px; background: linear-gradient(90deg, #b58cff, #3ee6e0); }
+.axs-themes { display: flex !important; flex-wrap: wrap; gap: .35em; margin-bottom: .8em; }
+.axs-themes em { font-style: normal; font-size: .76em; font-weight: 600; padding: .45em .7em; border-radius: 999px; border: 1px solid #2e2a4d; display: inline-flex; align-items: center; gap: .4em; }
+.axs-themes em::before { content: ""; width: .6em; height: .6em; border-radius: 50%; background: var(--sw); }
+.axs-themes em.on { border-color: #b58cff; background: #b58cff2e; }
+.axs-row { display: flex !important; align-items: center; justify-content: space-between; gap: .6em; font-size: .86em; margin-top: .5em; }
+.axs-row span { display: inline; }
+.axn-seg--sm { margin: 0 !important; flex: 0 0 62%; }
+.axn-seg--sm em { font-size: .8em; padding: .4em 0; }
+.axs-tog { width: 2.4em; height: 1.4em; border-radius: 99px; background: #ffffff26; position: relative; }
+.axs-tog::after { content: ""; position: absolute; left: .2em; top: .2em; width: 1em; height: 1em; border-radius: 50%; background: #bbb; }
+.ax-pl--own { position: relative; border-color: hsl(var(--a) 70% 60% / .55); background: linear-gradient(180deg, hsl(var(--a) 50% 18% / .8), var(--surface) 70%); }
+.ax-pl-edit { position: absolute; right: 16px; top: 16px; font-style: normal; font-size: 8.5px; font-weight: 700; letter-spacing: .06em; padding: 5px 8px; border-radius: 99px; background: #000000a0; border: 1px solid #ffffff40; }
+/* theme tuning */
+.ax-scene--cosmos .shoot { opacity: 0; }
+.ax-th-retro :is(.ax-side, .ax-panel, .ax-player) { background: rgba(24, 6, 44, .45) !important; }
+.ax-th-retro .ax-row { background: linear-gradient(90deg, hsl(var(--a) 45% 26% / .7), transparent 70%); }
+.ax-th-future :is(.ax-side, .ax-panel, .ax-player) { background: rgba(3, 8, 22, .6) !important; }
+.ax-th-koi :is(.ax-side, .ax-panel, .ax-player) { background: rgba(255, 255, 255, .06) !important; backdrop-filter: blur(5px) saturate(1.2); }
+.ax-th-koi .ax-row { background: linear-gradient(90deg, hsl(var(--a) 45% 26% / .55), transparent 70%); }
+.ax-th-outside :is(.ax-side, .ax-panel, .ax-player) { background: rgba(18, 26, 56, .34) !important; backdrop-filter: blur(8px) saturate(1.2); }
+.ax-th-outside .ax-banner { background: rgba(18, 26, 56, .3); }
+.ax-th-outside { --t2: #dfe6f7; --t3: #c3cce4; }
+.ax-th-outside .ax-row { background: linear-gradient(90deg, hsl(var(--a) 45% 26% / .6), rgba(18, 26, 56, .2) 70%); }

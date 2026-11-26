@@ -11,7 +11,20 @@
 {%- capture ic_play -%}<svg viewBox="0 0 24 24" class="fill"><path d="M8 5.5v13l10.5-6.5z"/></svg>{%- endcapture -%}
 {%- capture ic_vol -%}<svg viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4zM15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>{%- endcapture -%}
 {%- capture ic_pause -%}<svg viewBox="0 0 24 24" class="fill"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>{%- endcapture -%}
-{%- if v == "phone" or v == "phone-lyrics" or v == "phone-radio" -%}
+{%- if v == "phone-settings" -%}
+<div class="ax ax-phone axn axn--set" aria-hidden="true" style="--a:{{ np.a }};--b:{{ np.b }}">
+  <div class="axn-status"><b>9:41</b><i class="axn-island"></i><span class="axn-batt"><i></i></span></div>
+  <div class="axn-head"><i class="axn-chev axn-chev--back"></i><b class="axn-title">Playback</b><em></em></div>
+  <small class="axn-sec">LOAD AHEAD</small>
+  <div class="axs-card"><div class="axn-seg"><em>Off</em><em class="on">Normal</em><em>More</em></div><div class="axs-ready"><i style="width:78%"></i></div><small>Next 15 minutes ready · 4 songs on this phone</small></div>
+  <small class="axn-sec">STREAMING QUALITY</small>
+  <div class="axs-card"><div class="axn-seg"><em class="on">Auto</em><em>Best</em><em>Data saver</em></div><small>Full quality on a good signal, a lighter copy on a weak one.</small></div>
+  <small class="axn-sec">THEME</small>
+  <div class="axs-card"><div class="axs-themes"><em class="on" style="--sw:#b58cff">Cosmos</em><em style="--sw:#8f7cff">Classic</em><em style="--sw:#ff4fa3">Retro</em><em style="--sw:#3ef0ff">Futuristic</em><em style="--sw:#ff7b2e">Koi pond</em><em style="--sw:#cfe3ff">Outside</em></div>
+    <div class="axs-row"><span>Effects</span><div class="axn-seg axn-seg--sm"><em>Full</em><em class="on">Balanced</em><em>Still</em></div></div>
+    <div class="axs-row"><span>Battery saver</span><i class="axs-tog"></i></div></div>
+</div>
+{%- elsif v == "phone" or v == "phone-lyrics" or v == "phone-radio" -%}
 <div class="ax ax-phone axn axn--{{ v }}" aria-hidden="true" style="--a:{{ np.a }};--b:{{ np.b }}">
   <div class="axn-status"><b>9:41</b><i class="axn-island"></i><span class="axn-batt"><i></i></span></div>
   {%- if v == "phone-radio" -%}
@@ -74,8 +87,10 @@
 {%- if v == "smart" -%}{%- assign cur = "Smart Library" -%}{%- endif -%}
 {%- if v == "devices" or v == "device" -%}{%- assign cur = "Devices" -%}{%- endif -%}
 {%- if v == "nowplaying" or v == "lyrics" or v == "eq" -%}{%- assign cur = "" -%}{%- endif -%}
-<div class="ax ax-desk ax-view-{{ v }}" aria-hidden="true" data-astra-ui>
+<div class="ax ax-desk ax-view-{{ v }}{% if include.theme %} ax-themed ax-th-{{ include.theme }}{% endif %}" aria-hidden="true" data-astra-ui{% if include.theme %} data-theme-target style="--a:{{ np.a }}"{% endif %}>
   <div class="ax-canvas">
+    {% if include.theme %}{% include astra-scene.html %}{% endif %}
+    <div class="ax-winbar"><span>Astra</span><i>–</i><i>▢</i><i>✕</i></div>
     <aside class="ax-side">
       <div class="ax-brand"><span class="ax-logo">✦</span><div><b>Astra</b><small>MUSIC · PLAYERS</small></div></div>
       <small class="ax-label">LIBRARY</small>
@@ -94,7 +109,7 @@
         <div class="ax-stats"><span><b>1,248</b>Songs</span><span><b>312</b>Albums</span><span><b>186</b>Artists</span><span><b>14</b>Playlists</span></div></div>
       <div class="ax-cols">
         <div class="ax-panel"><b class="ax-h">Your Music</b>
-          <div class="ax-quick"><span class="on">Import music</span><span>Smart Library · 6</span><span>Phone page</span><span>Astra Rewind</span></div>
+          <div class="ax-quick"><span class="on">Import music</span><span>Smart Library · 6</span><span>Phone page</span><span>Astra Rewind</span><span>Astra Radio</span></div>
           <small class="ax-sub">Recently Added</small>
           {% for s in d.songs limit:6 %}<div class="ax-row" style="--a:{{ s.a }}">{% include astra-cover.html s=s %}<div><b>{{ s.title }}</b><span>{{ s.artist }}</span></div></div>{% endfor %}
         </div>
@@ -134,8 +149,8 @@
       <div class="ax-head"><h4>Playlists</h4><span class="ax-btn">IMPORT FROM SPOTIFY / APPLE MUSIC</span><span class="ax-btn ax-btn--fill">＋ NEW PLAYLIST</span></div>
       <small class="ax-sub">ASTRA PLAYLISTS · MADE FOR YOU, UPDATED AS YOU LISTEN</small>
       <div class="ax-pl-grid">{% for p in d.playlists %}{% if p.auto %}<div class="ax-pl" style="--a:{{ p.a }};--b:{{ p.b }}">{% include astra-cover.html s=p %}<b>{{ p.name }}</b><span>{{ p.n }} songs</span></div>{% endif %}{% endfor %}</div>
-      <small class="ax-sub">YOUR PLAYLISTS</small>
-      <div class="ax-pl-grid">{% for p in d.playlists %}{% unless p.auto %}<div class="ax-pl" style="--a:{{ p.a }};--b:{{ p.b }}">{% include astra-cover.html s=p %}<b>{{ p.name }}</b><span>{{ p.n }} songs</span></div>{% endunless %}{% endfor %}</div>
+      <small class="ax-sub">YOUR PLAYLISTS · EACH WITH ITS OWN PICTURE AND COLOR</small>
+      <div class="ax-pl-grid">{% for p in d.playlists %}{% unless p.auto %}<div class="ax-pl ax-pl--own" style="--a:{{ p.a }};--b:{{ p.b }}">{% include astra-cover.html s=p %}{% if forloop.first %}<em class="ax-pl-edit">✎ PICTURE · COLOR</em>{% endif %}<b>{{ p.name }}</b><span>{{ p.n }} songs</span></div>{% endunless %}{% endfor %}</div>
     {%- when "nowplaying" or "lyrics" or "eq" -%}
       <div class="ax-np" style="--a:{{ np.a }};--b:{{ np.b }}">
         <div class="ax-np-left">
@@ -145,7 +160,7 @@
               <div class="ax-eqpre">{% for pr in d.eq_presets %}<em{% if pr == "Bass boost" %} class="on"{% endif %}>{{ pr }}</em>{% endfor %}</div></div>{% endif %}</div>
           <div class="ax-leds">{% assign lv = "3,5,6,5,4,4,3,2,2,1" | split: "," %}{% for h in lv %}<i style="--h:{{ h }}"></i>{% endfor %}</div>
           <small class="ax-kicker">PLAYING FROM ROAD TRIP</small><b class="ax-big">{{ np.title }}</b><span>{{ np.artist }} · {{ np.album }}</span>
-          <div class="ax-chips"><span{% if v == "lyrics" %} class="on"{% endif %}>LYRICS</span><span{% if v == "eq" %} class="on"{% endif %}>EQ</span><span>VISUALIZER</span><span>CROSSFADE 6s</span><span>SLEEP</span></div></div>
+          <div class="ax-cycle"><span{% if v == "lyrics" %} class="on"{% endif %}>Lyrics</span><span{% if v == "eq" %} class="on"{% endif %}>EQ <b>Bass boost</b></span><span>Sleep <b>Off</b></span><span>Crossfade <b>6s</b></span><span>Visualizer <b>On</b></span></div></div>
         {%- if v == "lyrics" -%}
         <div class="ax-upnext ax-lyrics"><b><i>Up Next</i> Lyrics</b>{% for l in d.lyrics %}<p class="{% if forloop.index == 4 %}on{% elsif forloop.index < 4 %}past{% endif %}">{{ l }}</p>{% endfor %}<small class="ax-lyr-note">✓ TIMED LYRICS · « SOONER · LATER » · OTHER VERSION</small></div>
         {%- else -%}
